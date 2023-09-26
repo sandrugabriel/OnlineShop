@@ -33,8 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>..\..\..\..\..\Users\gabi2\Downloads\AlphaBlendTextBox_demo\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Siticone.Desktop.UI">
+      <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Siticone.Desktop.UI.2.0.9.0\Siticone.Desktop.UI.2.0.0.9\Siticone.Desktop.UI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +64,42 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupCart.Designer.cs">
+      <DependentUpon>MockupCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupFavorites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupFavorites.Designer.cs">
+      <DependentUpon>MockupFavorites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupHome.Designer.cs">
+      <DependentUpon>MockupHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupLogin.Designer.cs">
+      <DependentUpon>MockupLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupOrder.Designer.cs">
+      <DependentUpon>MockupOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupSignUp.Designer.cs">
+      <DependentUpon>MockupSignUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrdersDetails\Service\ServiceOrderDetails.cs" />
     <Compile Include="Orders\Service\ServiceOrders.cs" />
     <Compile Include="Orders\Models\Order.cs" />
@@ -61,6 +109,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Models\User.cs" />
+    <EmbeddedResource Include="Mockups\MockupCart.resx">
+      <DependentUpon>MockupCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupFavorites.resx">
+      <DependentUpon>MockupFavorites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupHome.resx">
+      <DependentUpon>MockupHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupLogin.resx">
+      <DependentUpon>MockupLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupOrder.resx">
+      <DependentUpon>MockupOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupSignUp.resx">
+      <DependentUpon>MockupSignUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -69,6 +135,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,6 +158,36 @@
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Orders\Data\orders.txt" />
     <Content Include="Products\Data\products.txt" />
+    <None Include="Resources\new-moon.png" />
+    <None Include="Resources\fast-forward-double-right-arrows-symbol.png" />
+    <None Include="Resources\trash-can %283%29.png" />
+    <None Include="Resources\trash-can %282%29.png" />
+    <None Include="Resources\trash-can %281%29.png" />
+    <None Include="Resources\user %284%29.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\lock %281%29.png" />
+    <None Include="Resources\email %282%29.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\heart %282%29.png" />
+    <None Include="Resources\heart %281%29.png" />
+    <None Include="Resources\Screenshot 2023-09-26 225259.png" />
+    <None Include="Resources\Screenshot 2023-09-26 225212.png" />
+    <None Include="Resources\shopping-cart %282%29.png" />
+    <None Include="Resources\right-arrow-angle %282%29.png" />
+    <None Include="Resources\right-arrow-angle %281%29.png" />
+    <None Include="Resources\right-arrow-angle.png" />
+    <None Include="Resources\user %283%29.png" />
+    <None Include="Resources\heart.png" />
+    <None Include="Resources\favorite.png" />
+    <None Include="Resources\star %281%29.png" />
+    <None Include="Resources\star.png" />
+    <None Include="Resources\circle %282%29.png" />
+    <None Include="Resources\shopping-cart %281%29.png" />
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\Untitled video - Made with Clipchamp %281%29.gif" />
+    <None Include="Resources\Untitled video - Made with Clipchamp.gif" />
+    <None Include="Resources\close %281%29.png" />
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
