@@ -52,9 +52,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="OrdersDetails\Service\ServiceOrderDetails.cs" />
+    <Compile Include="Orders\Service\ServiceOrders.cs" />
+    <Compile Include="Orders\Models\Order.cs" />
+    <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
+    <Compile Include="Products\Service\ServiceProducts.cs" />
+    <Compile Include="Products\Models\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Models\User.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,6 +82,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="User\Data\" />
+    <Folder Include="User\Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
+    <Content Include="Orders\Data\orders.txt" />
+    <Content Include="Products\Data\products.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
