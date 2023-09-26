@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing.Design;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace OnlineShop.Models
 
         public Product(string text)
         {
-            string[] prop = text.Split(',');
+            string[] prop = text.Split('|');
 
             _id = int.Parse(prop[0]);
             _name = prop[1];
@@ -56,7 +57,18 @@ namespace OnlineShop.Models
 
         public List<int> IdTags { get => idTags; set => idTags = value; }
 
+        public string descriere()
+        {
 
+            string t="";
+
+            t += "Id: " + _id.ToString() + "\n";
+            t += "Name : " + _name + "\n";
+            t += "Price: " + _price.ToString() + "\n";
+            t += "Stock: " + _stock.ToString() + "\n";
+
+            return t;
+        }
 
     }
 }
