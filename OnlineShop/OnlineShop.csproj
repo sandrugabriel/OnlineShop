@@ -101,6 +101,8 @@
       <DependentUpon>MockupSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="OrdersDetails\Service\ServiceOrderDetails.cs" />
+    <Compile Include="Orders\Service\interafaces\IOrderComandSerice.cs" />
+    <Compile Include="Orders\Service\interafaces\IOrderQueryService.cs" />
     <Compile Include="Orders\Service\ServiceOrders.cs" />
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />

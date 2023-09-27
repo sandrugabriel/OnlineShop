@@ -26,7 +26,7 @@ namespace OnlineShop
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MockupCart());
+            Application.Run(new MockupHome());
             /*
                         ControllerProducts controllerProducts = new ControllerProducts();
                         controllerProducts.afisare();
