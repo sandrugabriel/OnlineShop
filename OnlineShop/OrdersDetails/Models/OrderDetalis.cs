@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Models
 {
-    internal class OrderDetalis
+    internal class OrderDetalis : IComparable<OrderDetalis>
     {
 
         private int _id;
@@ -83,5 +83,19 @@ namespace OnlineShop.Models
             return t;
         }
 
+        public int CompareTo(OrderDetalis other)
+        {
+            if(quantities.Count > other.quantities.Count)
+            {
+                return 1;
+            }else if(quantities.Count == other.quantities.Count)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }
