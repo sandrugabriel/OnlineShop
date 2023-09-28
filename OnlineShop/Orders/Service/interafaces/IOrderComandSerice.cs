@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Orders.Service
 {
-    interface IOrderComandSerice
+    public interface IOrderComandSerice
     {
 
         int generareIdOrder();
@@ -17,6 +17,7 @@ namespace OnlineShop.Orders.Service
         void load();
 
 
+        string Path();
 
     }
 }

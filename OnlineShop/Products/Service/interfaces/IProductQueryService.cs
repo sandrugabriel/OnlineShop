@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Products.Service.interfaces
 {
-    interface IProductQueryService
+    public interface IProductQueryService
     {
 
         List<Product> getAll();
 
         List<Product> getProductWithTag(int idTag);
+
+        Product getByID(int id);
 
     }
 }

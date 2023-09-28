@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Products.Service
 {
-    internal class ProductQueryService : IProductQueryService
+    public class ProductQueryService : IProductQueryService
     {
 
         private List<Product> products;
@@ -20,6 +20,11 @@ namespace OnlineShop.Products.Service
             products = new List<Product>();
 
             load();
+        }
+    
+        public ProductQueryService(List<Product> products)
+        {
+            this.products = products;
         }
 
         public void load()
@@ -61,6 +66,15 @@ namespace OnlineShop.Products.Service
             return list;
         }
 
+        public Product getByID(int id)
+        {
+            for(int i=0;i< products.Count; i++)
+            {
+                if (products[i].Id == id) return products[i];
+            }
+
+            return null;
+        }
 
     }
 }

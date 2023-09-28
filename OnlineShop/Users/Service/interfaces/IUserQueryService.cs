@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Users.Service.interfaces
 {
-    interface IUserQueryService
+    public interface IUserQueryService
     {
 
         List<User> getAllUser();

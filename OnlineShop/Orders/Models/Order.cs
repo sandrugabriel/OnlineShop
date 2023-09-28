@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Models
 {
-    internal class Order : IComparable<Order>
+    public class Order : IComparable<Order>
     {
 
         private int _id;

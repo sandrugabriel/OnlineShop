@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Users.Service
 {
-    internal class UserQueryservice : IUserQueryService
+    public class UserQueryservice : IUserQueryService
     {
 
 
@@ -23,6 +23,11 @@ namespace OnlineShop.Users.Service
 
             load();
 
+        }
+
+        public UserQueryservice(List<User> users)
+        {
+            this.users = users;
         }
 
         public void load()

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Models
 {
-    internal class Product : IComparable<Product>
+    public class Product : IComparable<Product>
     {
 
         private int _id;

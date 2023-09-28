@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Orders.Service
 {
-    internal class OrderQueryService : IOrderQueryService
+    public class OrderQueryService : IOrderQueryService
     {
 
         List<Order> orders;
@@ -20,6 +20,11 @@ namespace OnlineShop.Orders.Service
 
             load();
 
+        }
+
+        public OrderQueryService(List<Order> orders)
+        {
+            this.orders = orders;
         }
 
         public void load()

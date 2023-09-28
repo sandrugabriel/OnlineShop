@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.OrdersDetails.Service.interfaces
 {
-    interface IOrderDetailsQueryService
+    public interface IOrderDetailsQueryService
     {
 
         List<OrderDetalis> getAllOrdersDetails();

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Products
 {
-    internal class ProductComandService : IProductComandService
+    public class ProductComandService : IProductComandService
     {
 
         private List<Product> products;
@@ -22,10 +22,15 @@ namespace OnlineShop.Products
             load();
         }
 
+        public ProductComandService(List<Product> products)
+        {
+            this.products = products;
+        }
+
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + "Products/Data/products.txt";
+            string path = Application.StartupPath.Remove(44) + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -40,10 +45,13 @@ namespace OnlineShop.Products
             streamReader.Close();
         }
 
-
+        public string Path()
+        {
+            return @"Users\Data\users.txt";
+        }
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + @"Users\Data\users.txt", text + "\n");
+            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
         }
 
         public Product getById(int id)
