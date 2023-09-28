@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Models
 {
-    internal class Order
+    internal class Order : IComparable<Order>
     {
 
         private int _id;
@@ -55,5 +55,20 @@ namespace OnlineShop.Models
             return t;
         }
 
+        public int CompareTo(Order other)
+        {
+            if (_price > other._price)
+            {
+                return 1;
+            }
+            else if (_price == other._price)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

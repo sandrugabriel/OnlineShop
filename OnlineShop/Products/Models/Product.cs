@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Models
 {
-    internal class Product
+    internal class Product : IComparable<Product>
     {
 
         private int _id;
@@ -70,5 +70,20 @@ namespace OnlineShop.Models
             return t;
         }
 
+        public int CompareTo(Product other)
+        {
+            if (this._price > other._price)
+            {
+                return 1;
+            }
+            else if (this._price == other._price)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

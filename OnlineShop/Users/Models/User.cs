@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Users.Models
 {
-    public class User
+    public class User :IComparable<User>
     {
 
         private int _id;
@@ -15,8 +15,9 @@ namespace OnlineShop.Users.Models
         private string _password;
         private string _phone;
         private string _address;
+        private int _varsta;
 
-        public User(int id, string name, string email, string password, string phone, string address)
+        public User(int id, string name, string email, string password, string phone, string address, int varsta)
         {
             _id = id;
             _name = name;
@@ -24,6 +25,7 @@ namespace OnlineShop.Users.Models
             _password = password;
             _phone = phone;
             _address = address;
+            _varsta = varsta;
         }
 
         public User(string text)
@@ -36,7 +38,7 @@ namespace OnlineShop.Users.Models
             _password = prop[3];
             _phone = prop[4];
             _address = prop[5];
-
+            _varsta = int.Parse(prop[6]);
         }
 
         public int Id { get => _id; set => _id = value; }
@@ -46,6 +48,20 @@ namespace OnlineShop.Users.Models
         public string Phone { get => _phone; set => _phone = value; }
         public string Address { get => _address; set => _address = value; }
 
+        public int CompareTo(User other)
+        {
+            if (this._varsta > other._varsta)
+            {
+                return 1;
+            }else if(this._varsta == other._varsta)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
 
+        }
     }
 }
