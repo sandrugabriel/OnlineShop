@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineShop.User.Models
+namespace OnlineShop.Users.Models
 {
-    internal class User
+    public class User
     {
 
         private int _id;
@@ -45,5 +45,7 @@ namespace OnlineShop.User.Models
         public string Password { get => _password; set => _password = value; }
         public string Phone { get => _phone; set => _phone = value; }
         public string Address { get => _address; set => _address = value; }
+
+
     }
 }
