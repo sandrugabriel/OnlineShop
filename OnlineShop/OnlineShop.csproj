@@ -100,17 +100,28 @@
     <Compile Include="Mockups\MockupSignUp.Designer.cs">
       <DependentUpon>MockupSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrdersDetails\Service\ServiceOrderDetails.cs" />
+    <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsComandService.cs" />
+    <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsQueryService.cs" />
+    <Compile Include="OrdersDetails\Service\OrderDetailsComandService.cs" />
+    <Compile Include="OrdersDetails\Service\OrderDetailsQueryServicecs.cs" />
     <Compile Include="Orders\Service\interafaces\IOrderComandSerice.cs" />
     <Compile Include="Orders\Service\interafaces\IOrderQueryService.cs" />
-    <Compile Include="Orders\Service\ServiceOrders.cs" />
+    <Compile Include="Orders\Service\OrderComandService.cs" />
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
-    <Compile Include="Products\Service\ServiceProducts.cs" />
+    <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="Products\Service\interfaces\IProductComandService.cs" />
+    <Compile Include="Products\Service\interfaces\IProductQueryService.cs" />
+    <Compile Include="Products\Service\ProductComandService.cs" />
     <Compile Include="Products\Models\Product.cs" />
+    <Compile Include="Products\Service\ProductQueryService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\Models\User.cs" />
+    <Compile Include="Users\Models\User.cs" />
+    <Compile Include="Users\Service\interfaces\IUserComandService.cs" />
+    <Compile Include="Users\Service\interfaces\IUserQueryService.cs" />
+    <Compile Include="Users\Service\UserComandService.cs" />
+    <Compile Include="Users\Service\UserQueryservice.cs" />
     <EmbeddedResource Include="Mockups\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,14 +163,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="User\Data\" />
-    <Folder Include="User\Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Orders\Data\orders.txt" />
     <Content Include="Products\Data\products.txt" />
+    <Content Include="Users\Data\users.txt" />
     <None Include="Resources\new-moon.png" />
     <None Include="Resources\fast-forward-double-right-arrows-symbol.png" />
     <None Include="Resources\trash-can %283%29.png" />

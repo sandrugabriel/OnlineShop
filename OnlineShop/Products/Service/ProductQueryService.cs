@@ -1,4 +1,5 @@
 ﻿using OnlineShop.Models;
+using OnlineShop.Products.Service.interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OnlineShop.Products
+namespace OnlineShop.Products.Service
 {
-    internal class ServiceProducts
+    internal class ProductQueryService : IProductQueryService
     {
 
         private List<Product> products;
 
-        public ServiceProducts()
+        public ProductQueryService()
         {
             products = new List<Product>();
 
@@ -28,11 +29,10 @@ namespace OnlineShop.Products
 
             StreamReader streamReader = new StreamReader(path);
 
-            //MessageBox.Show(path);
 
             string t = "";
 
-            while((t = streamReader.ReadLine()) != null)
+            while ((t = streamReader.ReadLine()) != null)
             {
                 products.Add(new Product(t));
             }
@@ -40,13 +40,27 @@ namespace OnlineShop.Products
             streamReader.Close();
         }
 
-        public void afisare()
+        public List<Product> getAll()
         {
-            for(int i=0;i<products.Count; i++)
-            {
-                MessageBox.Show(products[i].descriere());
-            }
+            return products;
         }
+
+        public List<Product> getProductWithTag(int idTag)
+        {
+            List<Product> list = new List<Product>();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                List<int> tags = products[i].IdTags;
+                for(int j = 0; j < tags.Count; j++)
+                {
+                    if (tags[j] == idTag) list.Add(products[i]);
+                }
+            }
+
+            return list;
+        }
+
 
     }
 }

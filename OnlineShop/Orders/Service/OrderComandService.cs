@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Orders
 {
-    internal class ServiceOrders : IOrderComandSerice, IOrderQueryService
+    internal class OrderComandService : IOrderComandSerice
     {
 
         private List<Order> orders;
 
-        public ServiceOrders()
+        public OrderComandService()
         {
 
             orders = new List<Order>();
@@ -38,16 +38,6 @@ namespace OnlineShop.Orders
             }
 
             streamReader.Close();
-        }
-
-        public void afisare()
-        {
-
-            for(int i=0;i<orders.Count; i++)
-            {
-                MessageBox.Show(orders[i].descriere());
-            }
-
         }
 
         public void saveFisier(string text)
@@ -83,27 +73,6 @@ namespace OnlineShop.Orders
 
             return id;
         }
-
-        public List<Order> getAllOrders()
-        {
-            return orders;
-        }
-
-        public List<Order> getMyOrders(int idClient)
-        {
-            List<Order> myOrders = new List<Order>();
-            for (int i = 0; i < orders.Count; i++)
-            {
-
-                if (orders[i].IdUser == idClient)
-                {
-                    myOrders.Add(orders[i]);
-                }
-
-            }
-
-            return myOrders;
-        }
-
+        
     }
 }
