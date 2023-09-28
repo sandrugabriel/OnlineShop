@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Users.Service.interfaces
 {
-    interface IUserComandService
+    public interface IUserComandService
     {
 
         int generareIdUser();
 
         void saveFisier(string text);
+
+        string Path();
 
         void load();
 

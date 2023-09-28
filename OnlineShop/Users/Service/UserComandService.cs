@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Users.Service
 {
-    internal class UserComandService : IUserComandService
+    public class UserComandService : IUserComandService
     {
 
         List<User> users;
@@ -25,10 +25,20 @@ namespace OnlineShop.Users.Service
 
         }
 
+        public UserComandService(List<User> users)
+        {
+            this.users = users;
+        }
+
+        public string Path()
+        {
+            return @"Users\Data\users.txt";
+        }
+
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + @"Users\Data\users.txt";
+            string path = Application.StartupPath.Remove(44) + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -44,7 +54,7 @@ namespace OnlineShop.Users.Service
 
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + @"Users\Data\users.txt", text + "\n");
+            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
         }
 
         public User getById(int id)

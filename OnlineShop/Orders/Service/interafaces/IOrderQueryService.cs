@@ -8,7 +8,7 @@ using static Siticone.Desktop.UI.WinForms.Suite.ShadowForm;
 
 namespace OnlineShop.Orders.Service
 {
-    interface IOrderQueryService
+    public interface IOrderQueryService
     {
 
         List<Order> getAllOrders();

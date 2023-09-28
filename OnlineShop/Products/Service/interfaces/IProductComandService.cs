@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Products.Service.interfaces
 {
-    interface IProductComandService
+    public interface IProductComandService
     {
 
         int generareIdProduct();
 
         void saveFisier(string text);
+
+        string Path();
 
         void load();
     }

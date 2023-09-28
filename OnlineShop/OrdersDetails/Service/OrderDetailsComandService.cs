@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.OrdersDetails.Service
 {
-    internal class OrderDetailsComandService : IOrderDetailsComandService
+    public class OrderDetailsComandService : IOrderDetailsComandService
     {
 
         List<OrderDetalis> ordersDetails;
@@ -24,10 +24,15 @@ namespace OnlineShop.OrdersDetails.Service
 
         }
 
+        public OrderDetailsComandService(List<OrderDetalis> ordersDetails)
+        {
+            this.ordersDetails = ordersDetails;
+        }
+
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + @"OrdersDetails\Data\ordersDetalis.txt";
+            string path = Application.StartupPath.Remove(44) + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -43,7 +48,12 @@ namespace OnlineShop.OrdersDetails.Service
 
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + @"OrdersDetails\Data\ordersDetalis.txt", text + "\n");
+            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
+        }
+
+        public string Path()
+        {
+            return @"OrdersDetails\Data\ordersDetalis.txt";
         }
 
         public OrderDetalis getById(int id)

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.OrdersDetails.Service
 {
-    internal class OrderDetailsQueryServicecs : IOrderDetailsQueryService
+    public class OrderDetailsQueryServicecs : IOrderDetailsQueryService
     {
 
 
@@ -24,6 +24,11 @@ namespace OnlineShop.OrdersDetails.Service
 
             load();
 
+        }
+
+        public OrderDetailsQueryServicecs(List<OrderDetalis> ordersDetails)
+        {
+            this.ordersDetails = ordersDetails;
         }
 
         public void load()

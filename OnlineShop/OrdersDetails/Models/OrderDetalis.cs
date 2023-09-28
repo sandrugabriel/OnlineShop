@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Models
 {
-    internal class OrderDetalis : IComparable<OrderDetalis>
+    public class OrderDetalis : IComparable<OrderDetalis>
     {
 
         private int _id;
