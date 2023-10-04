@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.OrdersDetails.Service.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Models
 {
-    public class OrderDetalis : IComparable<OrderDetalis>
+    public class OrderDetalis : IComparable<OrderDetalis>,IOrderDetalisBuilder
     {
 
         private int _id;
@@ -25,6 +26,11 @@ namespace OnlineShop.Models
             _orderDate = orderDate;
             this.idProducts = idProducts;
             this.quantities = quantities;
+        }
+
+        public OrderDetalis()
+        {
+
         }
 
         public OrderDetalis(string text) {
@@ -56,17 +62,29 @@ namespace OnlineShop.Models
             
         }
 
-        public int Id { get => _id; set => _id = value; }
+        public int getId() { return _id; }
 
-        public int IdUser { get => _idUser; set => _idUser = value; }
+        public void setId(int value) { _id = value; }
 
-        public string OrderAddress { get => _orderAddress; set => _orderAddress = value; }
+        public int getIdUser() { return _idUser; }
 
-        public DateTime OrderDate { get => _orderDate; set => _orderDate = value; }
+        public void setIdUser(int value) {  _idUser = value; }
 
-        public List<int> IdProducts { get => idProducts; set => idProducts = value; }
+        public string getAddress() { return _orderAddress; }
 
-        public List<int> Quantities { get => quantities; set => quantities = value; }
+        public void setAddress(string value) { _orderAddress = value; }
+
+        public DateTime getDate() { return _orderDate; }
+
+        public void getDate(DateTime dateTime) { _orderDate = dateTime; }
+
+        public List<int> getIdProducts() { return idProducts; }
+
+        public void setIdProducts(List<int> value) {  idProducts = value; }
+
+        public List<int> getQuantities() { return quantities; }
+
+        public void setQuantities(List<int> value) { quantities = value; } 
 
         public string descriere()
         {
@@ -97,5 +115,41 @@ namespace OnlineShop.Models
                 return -1;
             }
         }
+
+        public OrderDetalis Id(int id)
+        {
+            this._id = id;
+            return this;
+        }
+
+        public OrderDetalis IdUser(int id)
+        {
+            this._idUser = id;
+            return this;
+        }
+
+        public OrderDetalis Quantities(List<int> quantities)
+        {
+            this.quantities = quantities; return this;
+        }
+
+        public OrderDetalis OrderAddress(string orderAddress)
+        {
+            this._orderAddress = orderAddress;
+            return this;
+        }
+
+        public OrderDetalis OrderDate(DateTime orderDate)
+        {
+            this._orderDate = orderDate;
+            return this;
+        }
+
+        public OrderDetalis IdProducts(List<int> ids)
+        {
+            this.idProducts = ids; return this;
+        }
+
+
     }
 }
