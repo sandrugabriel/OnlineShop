@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Orders.Service.interafaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing.Printing;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 
 namespace OnlineShop.Models
 {
-    public class Order : IComparable<Order>
+    public class Order : IComparable<Order> , IOrdersBuilder
     {
 
         private int _id;
@@ -17,12 +18,21 @@ namespace OnlineShop.Models
         private List<int> idProducts = new List<int>();
         private int _idUser;
 
-        public int Id { get => _id; set => _id = value; }
+        public int getId() { return _id; }
 
-        public double Price { get => _price; set => _price = value; }
+        public void setId(int value) {  _id = value; }
 
-        public List<int> IdProducts { get => idProducts; set => idProducts = value; }
-        public int IdUser { get => _idUser; set => _idUser = value; }
+        public double getPrice() {return _price; }
+
+        public void setPrice(double price) { _price = price; }
+
+        public List<int> getIdProducts() { return idProducts; }
+
+        public void setIdProducts(List<int> ids) {  idProducts = ids; }
+
+        public int getIdUser() {return _idUser;}
+
+        public void setIdUser(int  value) { _idUser = value; }
 
         public Order(int id, double price, List<int> idProducts, int idUser)
         {
@@ -44,6 +54,8 @@ namespace OnlineShop.Models
                 idProducts.Add(int.Parse(prop[i]));
 
         }
+
+        public Order() { }
 
         public string descriere()
         {
@@ -70,5 +82,31 @@ namespace OnlineShop.Models
                 return -1;
             }
         }
+
+        public Order Id(int id)
+        {
+            this._id = id;
+            return this;
+        }
+
+        public Order IdUser(int idUser)
+        {
+            this._idUser = idUser;
+                return this;
+        }
+
+        public Order Price(double price)
+        {
+            this._price = price;
+            return this;
+        }
+
+        public Order IdProducts(List<int> products) {
+        
+            this.idProducts = products;
+            return this;
+        
+        }
+
     }
 }

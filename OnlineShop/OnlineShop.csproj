@@ -102,10 +102,12 @@
     </Compile>
     <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsComandService.cs" />
     <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsQueryService.cs" />
+    <Compile Include="OrdersDetails\Service\interfaces\IOrderDetalisBuilder.cs" />
     <Compile Include="OrdersDetails\Service\OrderDetailsComandService.cs" />
     <Compile Include="OrdersDetails\Service\OrderDetailsQueryServicecs.cs" />
     <Compile Include="Orders\Service\interafaces\IOrderComandSerice.cs" />
     <Compile Include="Orders\Service\interafaces\IOrderQueryService.cs" />
+    <Compile Include="Orders\Service\interafaces\IOrdersBuilder.cs" />
     <Compile Include="Orders\Service\OrderComandService.cs" />
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
