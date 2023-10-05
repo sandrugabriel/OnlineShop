@@ -61,7 +61,7 @@ namespace OnlineShop.Orders
 
             for(int i=0;i<orders.Count;i++)
             {
-                if(id == orders[i].Id)
+                if(id == orders[i].getId())
                 {
                     return orders[i];
                 }

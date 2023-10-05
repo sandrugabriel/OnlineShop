@@ -59,7 +59,7 @@ namespace OnlineShop.Products
 
             for (int i = 0; i < products.Count; i++)
             {
-                if (id == products[i].Id)
+                if (id == products[i].getId())
                 {
                     return products[i];
                 }

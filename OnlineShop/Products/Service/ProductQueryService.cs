@@ -56,7 +56,7 @@ namespace OnlineShop.Products.Service
 
             for (int i = 0; i < products.Count; i++)
             {
-                List<int> tags = products[i].IdTags;
+                List<int> tags = products[i].getIdTags();
                 for(int j = 0; j < tags.Count; j++)
                 {
                     if (tags[j] == idTag) list.Add(products[i]);
@@ -70,7 +70,7 @@ namespace OnlineShop.Products.Service
         {
             for(int i=0;i< products.Count; i++)
             {
-                if (products[i].Id == id) return products[i];
+                if (products[i].getId() == id) return products[i];
             }
 
             return null;

@@ -59,7 +59,7 @@ namespace OnlineShop.OrdersDetails.Service
 
             for(int i = 0; i < ordersDetails.Count; i++)
             {
-                if (ordersDetails[i].IdUser == idUser) myorderDetalis.Add(ordersDetails[i]);
+                if (ordersDetails[i].getId() == idUser) myorderDetalis.Add(ordersDetails[i]);
             }
 
             return myorderDetalis;
@@ -69,7 +69,7 @@ namespace OnlineShop.OrdersDetails.Service
         {
             for (int i = 0; i < ordersDetails.Count; i++)
             {
-                if (ordersDetails[i].Id == id) return ordersDetails[i];
+                if (ordersDetails[i].getId() == id) return ordersDetails[i];
             }
 
             return null;

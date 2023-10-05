@@ -62,7 +62,7 @@ namespace OnlineShop.Users.Service
 
             for (int i = 0; i < users.Count; i++)
             {
-                if (id == users[i].Id)
+                if (id == users[i].getId())
                 {
                     return users[i];
                 }

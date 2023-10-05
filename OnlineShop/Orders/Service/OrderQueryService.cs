@@ -55,7 +55,7 @@ namespace OnlineShop.Orders.Service
             for (int i = 0; i < orders.Count; i++)
             {
 
-                if (orders[i].IdUser == idClient)
+                if (orders[i].getId() == idClient)
                 {
                     myOrders.Add(orders[i]);
                 }
@@ -70,7 +70,7 @@ namespace OnlineShop.Orders.Service
 
             for (int i = 0; i < orders.Count; i++)
             {
-                if (id == orders[i].Id)
+                if (id == orders[i].getId())
                 {
                     return orders[i];
                 }

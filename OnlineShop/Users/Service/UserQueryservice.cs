@@ -58,7 +58,7 @@ namespace OnlineShop.Users.Service
 
             for(int i=0;i<users.Count; i++)
             {
-                if (users[i].Id == id) return users[i];
+                if (users[i].getId() == id) return users[i];
             }
 
             return null;
@@ -69,7 +69,7 @@ namespace OnlineShop.Users.Service
 
             for (int i = 0; i < users.Count; i++)
             {
-                if (users[i].Email == email && users[i].Password == pass) return users[i];
+                if (users[i].getEmail() == email && users[i].getEmail() == pass) return users[i];
             }
 
             return null;
