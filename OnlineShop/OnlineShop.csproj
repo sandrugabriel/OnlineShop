@@ -112,6 +112,7 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="Products\Service\interfaces\IProductBuilder.cs" />
     <Compile Include="Products\Service\interfaces\IProductComandService.cs" />
     <Compile Include="Products\Service\interfaces\IProductQueryService.cs" />
     <Compile Include="Products\Service\ProductComandService.cs" />

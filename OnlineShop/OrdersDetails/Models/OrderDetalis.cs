@@ -150,6 +150,9 @@ namespace OnlineShop.Models
             this.idProducts = ids; return this;
         }
 
-
+        public static OrderDetalis Build()
+        {
+            return new OrderDetalis();
+        }
     }
 }
