@@ -108,5 +108,10 @@ namespace OnlineShop.Models
         
         }
 
+        public static Order Build()
+        {
+            return new Order();
+        }
+
     }
 }

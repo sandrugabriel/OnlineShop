@@ -17,11 +17,6 @@ namespace OnlineShop.OrdersDetails.Service.interfaces
         OrderDetalis IdProducts(List<int> ids);
         OrderDetalis Quantities(List<int> quantity);
 
-        static OrderDetalis Build()
-        {
-            return new OrderDetalis();
-        }
-
     }
 
 }

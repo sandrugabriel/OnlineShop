@@ -14,10 +14,6 @@ namespace OnlineShop.Orders.Service.interafaces
         Order Price(double price);
         Order IdUser(int id);
         Order IdProducts(List<int> ids);
-
-        static Order Build()
-        {
-            return new Order();
-        }
+     
     }
 }
