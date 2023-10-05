@@ -46,6 +46,11 @@ namespace OnlineShop.Models
 
         }
 
+        public Product()
+        {
+
+        }
+
         public int getId() { return _id; }
 
         public void setid(int id) { _id = id; }
@@ -133,6 +138,11 @@ namespace OnlineShop.Models
         {
             this._name = name;
             return this;
+        }
+
+        public static Product Build()
+        {
+            return new Product();
         }
 
     }

@@ -102,29 +102,37 @@
     </Compile>
     <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsComandService.cs" />
     <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsQueryService.cs" />
-    <Compile Include="OrdersDetails\Service\interfaces\IOrderDetalisBuilder.cs" />
+    <Compile Include="OrdersDetails\Models\IOrderDetalisBuilder.cs" />
     <Compile Include="OrdersDetails\Service\OrderDetailsComandService.cs" />
     <Compile Include="OrdersDetails\Service\OrderDetailsQueryServicecs.cs" />
+    <Compile Include="OrdersDetails\Service\OrderDetailsQueryServiceSingleton.cs" />
     <Compile Include="Orders\Service\interafaces\IOrderComandSerice.cs" />
     <Compile Include="Orders\Service\interafaces\IOrderQueryService.cs" />
-    <Compile Include="Orders\Service\interafaces\IOrdersBuilder.cs" />
+    <Compile Include="Orders\Models\IOrdersBuilder.cs" />
+    <Compile Include="Orders\Service\OrderQueryServiceSingleton.cs" />
     <Compile Include="Orders\Service\OrderComandService.cs" />
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
-    <Compile Include="Products\Service\interfaces\IProductBuilder.cs" />
+    <Compile Include="Products\Models\IProductBuilder.cs" />
     <Compile Include="Products\Service\interfaces\IProductComandService.cs" />
     <Compile Include="Products\Service\interfaces\IProductQueryService.cs" />
     <Compile Include="Products\Service\ProductComandService.cs" />
     <Compile Include="Products\Models\Product.cs" />
     <Compile Include="Products\Service\ProductQueryService.cs" />
+    <Compile Include="Products\Service\ProductQueryServiceSingleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Models\IUserBuilder.cs" />
     <Compile Include="Users\Models\User.cs" />
     <Compile Include="Users\Service\interfaces\IUserComandService.cs" />
     <Compile Include="Users\Service\interfaces\IUserQueryService.cs" />
     <Compile Include="Users\Service\UserComandService.cs" />
     <Compile Include="Users\Service\UserQueryservice.cs" />
+    <Compile Include="Users\Service\UserQueryServiceSingleton.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>
     </EmbeddedResource>

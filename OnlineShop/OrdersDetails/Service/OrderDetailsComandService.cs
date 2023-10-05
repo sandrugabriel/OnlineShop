@@ -61,7 +61,7 @@ namespace OnlineShop.OrdersDetails.Service
 
             for (int i = 0; i < ordersDetails.Count; i++)
             {
-                if (id == ordersDetails[i].Id)
+                if (id == ordersDetails[i].getId())
                 {
                     return ordersDetails[i];
                 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Users.Models
 {
-    public class User :IComparable<User>
+    public class User :IComparable<User> , IUserBuilder
     {
 
         private int _id;
@@ -41,13 +42,35 @@ namespace OnlineShop.Users.Models
             _varsta = int.Parse(prop[6]);
         }
 
-        public int Id { get => _id; set => _id = value; }
-        public string Name { get => _name; set => _name = value; }
-        public string Email { get => _email; set => _email = value; }
-        public string Password { get => _password; set => _password = value; }
-        public string Phone { get => _phone; set => _phone = value; }
-        public string Address { get => _address; set => _address = value; }
+        public User()
+        {
 
+        }
+
+        public int getId() { return _id; }
+
+        public void setId(int id) { _id = id; }
+
+        public string getName() {return _name; }
+
+        public void setName(string name) { _name = name; }
+
+        public string getEmail() { return _email; }
+
+        public void setEmail(string email) { _email = email; }
+
+        public string getPassword() { return _password; }
+
+        public void setPassword(string password) { _password = password; }
+
+        public string getPhone() {return _phone; }
+
+        public void setPhone(string phone) { _phone = phone; }
+
+        public string getAddress() {return _address; }
+
+        public void setAddress(string address) { _address = address; }
+        
         public int CompareTo(User other)
         {
             if (this._varsta > other._varsta)
@@ -63,5 +86,51 @@ namespace OnlineShop.Users.Models
             }
 
         }
+
+        public User Id(int id)
+        {
+            this._id = id;
+            return this;
+        }
+
+        public User Name(string name) { 
+            this._name = name;
+        return this; 
+        }
+
+        public User Email(string email) { 
+            this._email = email;
+        return this; 
+        }
+
+        public User Password(string pass)
+        {
+            this._password = pass;
+            return this;
+        }
+
+        public User Phone(string phone)
+        {
+            this._phone = phone;
+            return this;
+        }
+
+        public User Address(string address)
+        {
+            this._address = address;
+            return this;
+        }
+
+        public User Varsta(int varsta)
+        {
+            this._varsta = varsta;
+            return this;
+        }
+
+        public static User Build()
+        {
+            return new User();
+        }
+
     }
 }
