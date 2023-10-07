@@ -69,7 +69,7 @@ namespace OnlineShop.Users.Service
 
             for (int i = 0; i < users.Count; i++)
             {
-                if (users[i].getEmail() == email && users[i].getEmail() == pass) return users[i];
+                if (users[i].getEmail() == email && users[i].getPassword() == pass) return users[i];
             }
 
             return null;

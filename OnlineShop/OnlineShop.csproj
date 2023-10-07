@@ -114,6 +114,9 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="Panels\PnlLogin.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Products\Models\IProductBuilder.cs" />
     <Compile Include="Products\Service\interfaces\IProductComandService.cs" />
     <Compile Include="Products\Service\interfaces\IProductQueryService.cs" />
