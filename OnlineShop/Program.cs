@@ -19,25 +19,15 @@ namespace OnlineShop
         static void Main()
         {
 
-
             if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MockupHome());
-            /*
-                        ControllerProducts controllerProducts = new ControllerProducts();
-                        controllerProducts.afisare();
-            */
-            /*
-                        ControllerOrders controllerOrders = new ControllerOrders();
-                        controllerOrders.afisare();*/
-            /*
-                        ServiceOrderDetails controllerOrderDetails = new ServiceOrderDetails();
-                        controllerOrderDetails.afisare();
-            */
+            Application.Run(new Form1());
+
+
         }
 
 
