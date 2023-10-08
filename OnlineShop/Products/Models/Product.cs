@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.LinkLabel;
 
 namespace OnlineShop.Models
 {
@@ -40,8 +41,8 @@ namespace OnlineShop.Models
             _price = double.Parse(prop[2]);
             _stock = int.Parse(prop[3]);
             _pathImage = prop[4];
-            _description = prop[5];
-            _categorie = prop[6];
+            _categorie = prop[5];
+            _description = prop[6];
 
         }
 
