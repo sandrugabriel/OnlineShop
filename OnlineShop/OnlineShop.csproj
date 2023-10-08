@@ -58,6 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Favourites\Models\Favourite.cs" />
+    <Compile Include="Favourites\Service\FavouriteComandService.cs" />
+    <Compile Include="Favourites\Service\FavouriteQueryService.cs" />
+    <Compile Include="Favourites\Service\interfaces\IFavouriteComandService.cs" />
+    <Compile Include="Favourites\Service\interfaces\IFavouriteQueryService.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +74,12 @@
     </Compile>
     <Compile Include="Mockups\MockupAllCards.Designer.cs">
       <DependentUpon>MockupAllCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupCard.Designer.cs">
+      <DependentUpon>MockupCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Mockups\MockupCart.cs">
       <SubType>Form</SubType>
@@ -120,6 +131,9 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="Panels\PnlCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panels\PnlHome.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -150,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupAllCards.resx">
       <DependentUpon>MockupAllCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupCard.resx">
+      <DependentUpon>MockupCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>
@@ -194,6 +211,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Favourites\Data\favourites.txt" />
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Orders\Data\orders.txt" />
     <Content Include="Products\Data\products.txt" />

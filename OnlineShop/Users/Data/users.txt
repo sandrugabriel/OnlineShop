@@ -1,3 +1,4 @@
 ﻿1|Gabi|gabi@mail.com|gabi1234|0777777|Sadu, Livezi|17
 2619|ana|ana@email.com|ana1234| | |0 
 2845|alex|alex@gmail.com|alex1234| | |0
+1205|asd|asd@mail.com|asd| | |0

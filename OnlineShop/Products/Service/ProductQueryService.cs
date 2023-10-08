@@ -50,17 +50,13 @@ namespace OnlineShop.Products.Service
             return products;
         }
 
-        public List<Product> getProductWithTag(int idTag)
+        public List<Product> getProductWithCateg(string c)
         {
             List<Product> list = new List<Product>();
 
             for (int i = 0; i < products.Count; i++)
             {
-                List<int> tags = products[i].getIdTags();
-                for(int j = 0; j < tags.Count; j++)
-                {
-                    if (tags[j] == idTag) list.Add(products[i]);
-                }
+                    if (c == products[i].getCategorie()) list.Add(products[i]);
             }
 
             return list;
