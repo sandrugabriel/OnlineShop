@@ -117,6 +117,9 @@
     <Compile Include="Panels\PnlLogin.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Panels\PnlSignUp.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Products\Models\IProductBuilder.cs" />
     <Compile Include="Products\Service\interfaces\IProductComandService.cs" />
     <Compile Include="Products\Service\interfaces\IProductQueryService.cs" />
