@@ -58,6 +58,13 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,6 +77,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -81,7 +91,7 @@
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(1242, 111);
+            this.panel4.Location = new System.Drawing.Point(1242, 16);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(336, 437);
             this.panel4.TabIndex = 6;
@@ -131,7 +141,7 @@
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label16);
-            this.panel3.Location = new System.Drawing.Point(872, 111);
+            this.panel3.Location = new System.Drawing.Point(872, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(336, 437);
             this.panel3.TabIndex = 7;
@@ -181,7 +191,7 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Location = new System.Drawing.Point(501, 111);
+            this.panel2.Location = new System.Drawing.Point(501, 16);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(336, 437);
             this.panel2.TabIndex = 8;
@@ -231,7 +241,7 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(114, 111);
+            this.panel1.Location = new System.Drawing.Point(114, 16);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 437);
             this.panel1.TabIndex = 9;
@@ -280,7 +290,7 @@
             "Featured",
             "Price: Low to High",
             "Price: High to Low"});
-            this.comboBox1.Location = new System.Drawing.Point(271, 59);
+            this.comboBox1.Location = new System.Drawing.Point(303, 588);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(190, 31);
             this.comboBox1.TabIndex = 5;
@@ -292,7 +302,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(163, 55);
+            this.label7.Location = new System.Drawing.Point(195, 584);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 31);
             this.label7.TabIndex = 4;
@@ -462,14 +472,106 @@
             this.pictureBox10.TabIndex = 0;
             this.pictureBox10.TabStop = false;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel5.Controls.Add(this.pictureBox1);
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Location = new System.Drawing.Point(114, 488);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(336, 437);
+            this.panel5.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::OnlineShop.Properties.Resources.heart__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(294, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Orange;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Image = global::OnlineShop.Properties.Resources.shopping_cart__2_;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 390);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(336, 47);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add to Cart";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(336, 235);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(3, 351);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 28);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "3.199 Lei";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(5, 326);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "PRP: 4000 Lei";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12.8F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(3, 238);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(333, 75);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Laptop Acer Aspire 5 A515-57 \r\ncu procesor Intel® Core™ \r\ni7-1255U";
+            // 
             // MockupAllCards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1692, 855);
+            this.ClientSize = new System.Drawing.Size(1692, 943);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
@@ -494,6 +596,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,5 +637,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

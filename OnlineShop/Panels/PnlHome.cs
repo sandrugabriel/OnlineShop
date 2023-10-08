@@ -1,4 +1,7 @@
-﻿using OnlineShop.Properties;
+﻿using OnlineShop.Models;
+using OnlineShop.Products.Service;
+using OnlineShop.Products.Service.interfaces;
+using OnlineShop.Properties;
 using OnlineShop.Users.Models;
 using System;
 using System.Collections.Generic;
@@ -53,6 +56,10 @@ namespace OnlineShop.Panels
         string path;
         bool sidebar;
 
+        PnlCards pnlCards;
+        IProductQueryService productQueryService;
+        List<Product> list;
+
         public PnlHome(Form1 form1, User user1)
         {
 
@@ -60,6 +67,13 @@ namespace OnlineShop.Panels
             this.user = user1;
 
             path = Application.StartupPath.Remove(44) + @"Images\";
+            productQueryService = new ProductQueryService();
+
+
+            list = productQueryService.getAll();
+
+            pnlCards = new PnlCards(4, form, list, user);
+            pnlCards.Name = "PnlCards";
 
             //PnlHome
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -102,6 +116,8 @@ namespace OnlineShop.Panels
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.timeSlideMenu = new System.Windows.Forms.Timer();
 
+
+            this.Controls.Add(this.pnlCards);
             this.Controls.Add(this.pnlSideBar);
             this.Controls.Add(this.grandTop);
 
@@ -420,7 +436,7 @@ namespace OnlineShop.Panels
             this.lblCountFav.Name = "lblCountFav";
             this.lblCountFav.Size = new System.Drawing.Size(18, 19);
             this.lblCountFav.TabIndex = 1;
-            this.lblCountFav.Text = "2";
+            this.lblCountFav.Text = "0";
              
             // pctRedCart
             this.pctRedCart.BackColor = System.Drawing.Color.Transparent;
@@ -441,7 +457,7 @@ namespace OnlineShop.Panels
             this.lblCountCart.Name = "lblCountCart";
             this.lblCountCart.Size = new System.Drawing.Size(18, 19);
             this.lblCountCart.TabIndex = 1;
-            this.lblCountCart.Text = "1";
+            this.lblCountCart.Text = "0";
              
             // pctAccount
             this.pctAccount.BackColor = System.Drawing.Color.Transparent;
@@ -517,6 +533,9 @@ namespace OnlineShop.Panels
             this.timeSlideMenu.Interval = 1;
             this.timeSlideMenu.Tick += new System.EventHandler(this.timeSlideMenu_Tick);
 
+
+            pnlCards.Dock = DockStyle.Fill;
+            //pnlCards.BackColor = Color.Red;
         }
 
         private void pctClose_Click(object sender, EventArgs e)
@@ -578,11 +597,13 @@ namespace OnlineShop.Panels
 
                 }
             }
+
         }
 
         private void pctMenu_Click(object sender, EventArgs e)
         {
             timeSlideMenu.Start();
+           
         }
 
     }

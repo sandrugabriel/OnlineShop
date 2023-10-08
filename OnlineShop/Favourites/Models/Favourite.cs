@@ -56,7 +56,7 @@ namespace OnlineShop.Favourites.Models
                     text += "|" + _items[i].ToString();
                 }
             else text += "|";
-            MessageBox.Show(text);
+            //MessageBox.Show(text);
             return text;
         }
 

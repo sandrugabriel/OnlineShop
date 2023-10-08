@@ -56,6 +56,7 @@ namespace OnlineShop.Panels
             this.Size = new System.Drawing.Size(336, 437);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PnlCard";
+            //this.BackColor = System.Drawing.Color.Gray;    
 
             this.pctUnFav = new System.Windows.Forms.PictureBox();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -66,9 +67,9 @@ namespace OnlineShop.Panels
             this.btnAddCart = new System.Windows.Forms.Button();
             this.eliCard = new  Bunifu.Framework.UI.BunifuElipse();
 
-            this.Controls.Add(this.pctUnFav);
+            this.pctImage.Controls.Add(this.pctUnFav);
             this.Controls.Add(this.btnAddCart);
-            this.Controls.Add(this.pctFav);
+            this.pctImage.Controls.Add(this.pctFav);
             this.Controls.Add(this.pctImage);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblPRP);
@@ -108,6 +109,7 @@ namespace OnlineShop.Panels
 
             // pctFav
             this.pctFav.Image = Image.FromFile(path + "fav.png");
+            this.pctFav.BackColor = System.Drawing.Color.Transparent;
             this.pctFav.Location = new System.Drawing.Point(300, 12);
             this.pctFav.Name = "pctFav";
             this.pctFav.Size = new System.Drawing.Size(24, 28);
@@ -117,6 +119,7 @@ namespace OnlineShop.Panels
 
             // pctUnFav
             this.pctUnFav.Image = Image.FromFile(path + "unfav.png");
+            this.pctUnFav.BackColor = System.Drawing.Color.Transparent;
             this.pctUnFav.Location = new System.Drawing.Point(300, 12);
             this.pctUnFav.Name = "pctFav";
             this.pctUnFav.Size = new System.Drawing.Size(24, 28);
