@@ -19,8 +19,9 @@ namespace OnlineShop
         public Form1()
         {
             InitializeComponent();
+            this.Size = new Size(1797, 981);
 
-            this.Controls.Add(new PnlLogin(this));
+            this.Controls.Add(new PnlSignUp(this));
 
         }
 
