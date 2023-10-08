@@ -15,7 +15,10 @@ namespace OnlineShop.Products.Service.interfaces
         Product Price(int price);
         Product Stock(int stock);
         Product PathImage(string path);
-        Product IdTags(List<int> tags);
+
+        Product Descriere(string descriere);
+
+        Product Categorie(string c);
 
 
     }

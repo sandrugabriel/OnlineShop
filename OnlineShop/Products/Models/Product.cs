@@ -17,16 +17,18 @@ namespace OnlineShop.Models
         private double _price;
         private int _stock;
         private string _pathImage;
-        private List<int> idTags = new List<int>();
+        private string _description;
+        private string _categorie;
 
-        public Product(int id, string name, double price, int stock, string pathImage, List<int> idTags)
+        public Product(int id, string name, double price, int stock, string pathImage,string d, string categ)
         {
             _id = id;
             _name = name;
             _price = price;
             _stock = stock;
             _pathImage = pathImage;
-            this.idTags = idTags;
+            _description = d;
+            this._categorie = categ;
         }
 
         public Product(string text)
@@ -38,11 +40,8 @@ namespace OnlineShop.Models
             _price = double.Parse(prop[2]);
             _stock = int.Parse(prop[3]);
             _pathImage = prop[4];
-
-            for (int i = 5; i < prop.Length; i++)
-            {
-                idTags.Add(int.Parse(prop[i]));
-            }
+            _description = prop[5];
+            _categorie = prop[6];
 
         }
 
@@ -71,9 +70,13 @@ namespace OnlineShop.Models
 
         public void setPathImage(string path) {  _pathImage = path; }
 
-        public List<int> getIdTags() {return idTags;}
+        public string getDescriere() {return _description;}
 
-        public void setIdTags(List<int> ids) {  idTags = ids; }
+        public void setDescriere(string d) {  _description = d; }
+
+        public string getCategorie() { return _categorie; }
+
+        public void setCategorie(string d) { _categorie = d; }
 
         public string descriere()
         {
@@ -116,9 +119,15 @@ namespace OnlineShop.Models
             return this;
         }
 
-        public Product IdTags(List<int> idTags)
+        public Product Categorie(string c)
         {
-            this.idTags = idTags;
+            this._categorie = c;
+            return this;
+        }
+
+        public Product Descriere(string d)
+        {
+            this._description = d;
             return this;
         }
 

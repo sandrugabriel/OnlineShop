@@ -12,7 +12,7 @@ namespace OnlineShop.Products.Service.interfaces
 
         List<Product> getAll();
 
-        List<Product> getProductWithTag(int idTag);
+        List<Product> getProductWithCateg(string c);
 
         Product getByID(int id);
 

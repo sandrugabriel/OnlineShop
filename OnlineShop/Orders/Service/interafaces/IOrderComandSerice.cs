@@ -16,7 +16,6 @@ namespace OnlineShop.Orders.Service
 
         void load();
 
-
         string Path();
 
     }

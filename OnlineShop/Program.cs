@@ -1,4 +1,5 @@
-﻿using OnlineShop.Mockups;
+﻿using OnlineShop.Favourites.Service;
+using OnlineShop.Mockups;
 using OnlineShop.Orders;
 using OnlineShop.OrdersDetails.Service;
 using OnlineShop.Products;
@@ -27,6 +28,9 @@ namespace OnlineShop
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
+            /*
+                        FavouriteQueryService favouriteQueryService = new FavouriteQueryService();
+                        favouriteQueryService.af();*/
 
         }
 

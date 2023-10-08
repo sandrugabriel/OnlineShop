@@ -1,4 +1,6 @@
-﻿using OnlineShop.Users.Models;
+﻿using OnlineShop.Favourites.Models;
+using OnlineShop.Favourites.Service;
+using OnlineShop.Users.Models;
 using OnlineShop.Users.Service;
 using OnlineShop.Users.Service.interfaces;
 using System;
@@ -478,6 +480,8 @@ namespace OnlineShop.Panels
 
         }
 
+        FavouriteComandService serviceFav = new FavouriteComandService();
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             error();
@@ -510,8 +514,11 @@ namespace OnlineShop.Panels
 
                 userComandService.saveFisier(text);
                 User user = queryService.getById(id);
-                this.form.removePnl("PnlSignUp");
+                string tfav = serviceFav.generareId()+"|"+id.ToString()+"| " ;
+                serviceFav.saveFisier(tfav);
 
+                this.form.removePnl("PnlSignUp");
+                this.form.Controls.Add(new PnlHome(this.form, user));
 
             }
 
