@@ -64,6 +64,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupAllCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupAllCards.Designer.cs">
+      <DependentUpon>MockupAllCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mockups\MockupCart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="Panels\PnlHome.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panels\PnlLogin.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -138,6 +147,9 @@
     <Compile Include="Users\Service\UserQueryServiceSingleton.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupAllCards.resx">
+      <DependentUpon>MockupAllCards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>
@@ -185,6 +197,15 @@
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Orders\Data\orders.txt" />
     <Content Include="Products\Data\products.txt" />
+    <None Include="Resources\menu-button-of-three-horizontal-lines %281%29.png" />
+    <None Include="Resources\menu %283%29.png" />
+    <None Include="Resources\responsive.png" />
+    <None Include="Resources\responsive %281%29.png" />
+    <None Include="Resources\electronics %281%29.png" />
+    <None Include="Resources\gardening %281%29.png" />
+    <None Include="Resources\toy-blocks %281%29.png" />
+    <None Include="Resources\home-theater %281%29.png" />
+    <None Include="Resources\logout.png" />
     <Content Include="Users\Data\users.txt" />
     <None Include="Resources\new-moon.png" />
     <None Include="Resources\fast-forward-double-right-arrows-symbol.png" />

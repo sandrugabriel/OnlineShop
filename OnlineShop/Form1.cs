@@ -1,6 +1,7 @@
 ﻿using OnlineShop.Panels;
 using OnlineShop.Products.Service;
 using OnlineShop.Products.Service.interfaces;
+using OnlineShop.Users.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,8 @@ namespace OnlineShop
         {
             InitializeComponent();
             this.Size = new Size(1797, 981);
-
-            this.Controls.Add(new PnlSignUp(this));
+            User user = new User("1|Gabi|gabi@mail.com|gabi1234|0777777|Sadu, Livezi|17");
+            this.Controls.Add(new PnlHome(this,user));
 
         }
 
