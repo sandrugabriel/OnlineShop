@@ -5,6 +5,7 @@ using OnlineShop.Properties;
 using OnlineShop.Users.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -60,6 +61,8 @@ namespace OnlineShop.Panels
         IProductQueryService productQueryService;
         List<Product> list;
 
+        int ct = 0;
+
         public PnlHome(Form1 form1, User user1)
         {
 
@@ -70,10 +73,13 @@ namespace OnlineShop.Panels
             productQueryService = new ProductQueryService();
 
 
-            list = productQueryService.getAll();
+            list = productQueryService.getProductWithCateg("it");
+            ct = 4;
+            pnlCards = new PnlCards(ct, form, list, user);
+            //pnlCards.Name = "PnlCards";
 
-            pnlCards = new PnlCards(4, form, list, user);
-            pnlCards.Name = "PnlCards";
+            this.pnlCards.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
 
             //PnlHome
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -115,7 +121,6 @@ namespace OnlineShop.Panels
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.timeSlideMenu = new System.Windows.Forms.Timer();
-
 
             this.Controls.Add(this.pnlCards);
             this.Controls.Add(this.pnlSideBar);
@@ -192,7 +197,8 @@ namespace OnlineShop.Panels
             this.btnIT.Text = "            IT, Mobile, Gaming";
             this.btnIT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIT.UseVisualStyleBackColor = false;
-             
+            this.btnIT.Click += new EventHandler(btnIT_Click); 
+
             // pctIT
             this.pctIT.BackColor = System.Drawing.Color.Transparent;
             this.pctIT.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -201,9 +207,8 @@ namespace OnlineShop.Panels
             this.pctIT.Name = "pctIT";
             this.pctIT.Size = new System.Drawing.Size(54, 54);
             this.pctIT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctIT.TabIndex = 0;
-            this.pctIT.TabStop = false;
-             
+            this.pctIT.Click += new EventHandler(btnIT_Click);
+
             // btnTV
             this.btnTV.BackColor = System.Drawing.Color.Transparent;
             this.btnTV.Controls.Add(this.pctTV);
@@ -221,7 +226,8 @@ namespace OnlineShop.Panels
             this.btnTV.Text = "            TV, Audio-Video, Foto";
             this.btnTV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTV.UseVisualStyleBackColor = false;
-             
+            this.btnTV.Click += new EventHandler(btnTV_Cick); 
+
             // pctTV
             this.pctTV.BackColor = System.Drawing.Color.Transparent;
             this.pctTV.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -232,7 +238,8 @@ namespace OnlineShop.Panels
             this.pctTV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctTV.TabIndex = 0;
             this.pctTV.TabStop = false;
-             
+            this.pctTV.Click += new EventHandler(btnTV_Cick);
+
             // lblMenu
             this.lblMenu.AutoSize = true;
             this.lblMenu.BackColor = System.Drawing.Color.Transparent;
@@ -273,7 +280,8 @@ namespace OnlineShop.Panels
             this.btnToys.Text = "            Children, Toys";
             this.btnToys.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnToys.UseVisualStyleBackColor = false;
-            
+            this.btnToys.Click += new EventHandler(btnToys_Click);
+
             // pctToys
             this.pctToys.BackColor = System.Drawing.Color.Transparent;
             this.pctToys.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -284,7 +292,8 @@ namespace OnlineShop.Panels
             this.pctToys.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctToys.TabIndex = 0;
             this.pctToys.TabStop = false;
-            
+            this.pctToys.Click += new EventHandler(btnToys_Click);
+
             // btnElectro
             this.btnElectro.BackColor = System.Drawing.Color.Transparent;
             this.btnElectro.Controls.Add(this.pctElectro);
@@ -302,7 +311,8 @@ namespace OnlineShop.Panels
             this.btnElectro.Text = "            Electronics";
             this.btnElectro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnElectro.UseVisualStyleBackColor = false;
-             
+            this.btnElectro.Click += new EventHandler(btnElectro_Click); 
+
             // pctElectro
             this.pctElectro.BackColor = System.Drawing.Color.Transparent;
             this.pctElectro.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -313,7 +323,8 @@ namespace OnlineShop.Panels
             this.pctElectro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctElectro.TabIndex = 0;
             this.pctElectro.TabStop = false;
-             
+            this.pctElectro.Click += new EventHandler(btnElectro_Click);
+
             // btnGarden
             this.btnGarden.BackColor = System.Drawing.Color.Transparent;
             this.btnGarden.Controls.Add(this.pctGarden);
@@ -331,7 +342,8 @@ namespace OnlineShop.Panels
             this.btnGarden.Text = "            House, Garden";
             this.btnGarden.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGarden.UseVisualStyleBackColor = false;
-             
+            this.btnGarden.Click += new EventHandler(btnGarden_Click); 
+
             // pctGarden
             this.pctGarden.BackColor = System.Drawing.Color.Transparent;
             this.pctGarden.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -342,7 +354,8 @@ namespace OnlineShop.Panels
             this.pctGarden.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctGarden.TabIndex = 0;
             this.pctGarden.TabStop = false;
-             
+            this.pctGarden.Click += new EventHandler(btnGarden_Click);
+
             // pctMenu
             this.pctMenu.BackColor = System.Drawing.Color.Transparent;
             this.pctMenu.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -533,10 +546,31 @@ namespace OnlineShop.Panels
             this.timeSlideMenu.Interval = 1;
             this.timeSlideMenu.Tick += new System.EventHandler(this.timeSlideMenu_Tick);
 
-
-            pnlCards.Dock = DockStyle.Fill;
+            pnlCards.Dock = DockStyle.Fill;/*
+            this.pnlSideBar.Dock = DockStyle.Fill; // Poziționați pnlSideBar pentru a umple spațiul disponibil
+            this.grandTop.Dock = DockStyle.Fill;*/
             //pnlCards.BackColor = Color.Red;
         }
+        PnlCards pnlc = null;
+        public void removePnlFromHome(string pnl)
+        {
+
+            Control control = null;
+
+            foreach (Control c in this.Controls)
+            {
+
+                if (c.Name.Equals(pnl))
+                {
+                    control = c;
+                }
+
+            }
+
+            this.Controls.Remove(control);
+
+        }
+
 
         private void pctClose_Click(object sender, EventArgs e)
         {
@@ -575,11 +609,15 @@ namespace OnlineShop.Panels
 
             if (sidebar)
             {
-
+                if (pnlc != null)
+                {
+                Point newLocation = pnlc.Location;
+                newLocation.X -= 10;
+                pnlc.Location = newLocation;
+                }
                 pnlSideBar.Width -= 10;
                 if (pnlSideBar.Width == pnlSideBar.MinimumSize.Width)
                 {
-
                     sidebar = false;
                     timeSlideMenu.Stop();
 
@@ -588,16 +626,68 @@ namespace OnlineShop.Panels
             }
             else
             {
+                if (pnlc != null){
+
+                Point newLocation = pnlc.Location;
+                newLocation.X += 10;
+                pnlc.Location = newLocation;
+                }
                 pnlSideBar.Width += 10;
                 if (pnlSideBar.Width == pnlSideBar.MaximumSize.Width)
                 {
-
                     sidebar = true;
                     timeSlideMenu.Stop();
 
                 }
             }
 
+        }
+       
+        private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PnlCards pnl = GetPnlCards();
+            string name = pnl.cmbSort.SelectedItem.ToString();
+            //MessageBox.Show(name);
+            if (name == "Price: High to Low")
+            {
+                List<Product> descrescator = new List<Product>();
+                descrescator = pnl.products.OrderByDescending(p => p.getPrice()).ToList();
+                this.removePnlFromHome("PnlCards");
+                pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+                 pnlc = new PnlCards(ct, form, descrescator, user);
+                this.Controls.Add(pnlc);
+                this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+            }
+            else if (name == "Price: Low to High")
+            {
+                List<Product> crescator = new List<Product>();
+                crescator = pnl.products.OrderBy(p => p.getPrice()).ToList();
+                this.removePnlFromHome("PnlCards");
+                pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+
+                pnlc = new PnlCards(ct, form, crescator, user);
+                this.Controls.Add(pnlc);
+                // pnl.Dock = DockStyle.Fill;
+                //pnl.Location = new Point(105, 126);
+                this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+            }
+
+
+        }
+
+        public PnlCards GetPnlCards()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Panel && control.Name == "PnlCards")
+                {
+                    return (PnlCards)control;
+                }
+            }
+
+            return null; 
         }
 
         private void pctMenu_Click(object sender, EventArgs e)
@@ -606,5 +696,79 @@ namespace OnlineShop.Panels
            
         }
 
+        private void btnIT_Click(object sender, EventArgs e)
+        {
+            PnlCards pnl = GetPnlCards();
+
+            List<Product> getIt = new List<Product>();
+            getIt = productQueryService.getProductWithCateg("it");
+            this.removePnlFromHome("PnlCards");
+            pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+            pnlc = new PnlCards(ct, form, getIt, user);
+            this.Controls.Add(pnlc);
+            this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+
+        }
+
+        private void btnTV_Cick(object sender, EventArgs e)
+        {
+            PnlCards pnl = GetPnlCards();
+
+            List<Product> getIt = new List<Product>();
+            getIt = productQueryService.getProductWithCateg("tv");
+            this.removePnlFromHome("PnlCards");
+            pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+            pnlc = new PnlCards(ct, form, getIt, user);
+            this.Controls.Add(pnlc);
+            this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+
+        }
+
+        private void btnToys_Click(object sender, EventArgs e)
+        {
+            PnlCards pnl = GetPnlCards();
+
+            List<Product> getIt = new List<Product>();
+            getIt = productQueryService.getProductWithCateg("toy");
+            this.removePnlFromHome("PnlCards");
+            pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+            pnlc = new PnlCards(ct, form, getIt, user);
+            this.Controls.Add(pnlc);
+            this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+
+        }
+
+        private void btnElectro_Click(object sender, EventArgs e)
+        {
+            PnlCards pnl = GetPnlCards();
+
+            List<Product> getIt = new List<Product>();
+            getIt = productQueryService.getProductWithCateg("electro");
+            this.removePnlFromHome("PnlCards");
+            pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+            pnlc = new PnlCards(ct, form, getIt, user);
+            this.Controls.Add(pnlc);
+            this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+
+        }
+
+        private void btnGarden_Click(object sender, EventArgs e)
+        {
+            PnlCards pnl = GetPnlCards();
+
+            List<Product> getIt = new List<Product>();
+            getIt = productQueryService.getProductWithCateg("garden");
+            this.removePnlFromHome("PnlCards");
+            pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+            pnlc = new PnlCards(ct, form, getIt, user);
+            this.Controls.Add(pnlc);
+            this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
+
+        }
     }
 }
