@@ -17,7 +17,7 @@ namespace OnlineShop.Panels
 {
     public class PnlHome : Panel
     {
-
+        PnlCards pnlc = null;
         private Bunifu.Framework.UI.BunifuElipse eliPnl;
         private Bunifu.Framework.UI.BunifuGradientPanel grandTop;
         private System.Windows.Forms.PictureBox pctLogo;
@@ -72,15 +72,13 @@ namespace OnlineShop.Panels
             path = Application.StartupPath.Remove(44) + @"Images\";
             productQueryService = new ProductQueryService();
 
-
             list = productQueryService.getProductWithCateg("it");
             ct = 4;
             pnlCards = new PnlCards(ct, form, list, user);
             //pnlCards.Name = "PnlCards";
 
             this.pnlCards.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
-
-
+            
             //PnlHome
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1797, 981);
@@ -546,12 +544,11 @@ namespace OnlineShop.Panels
             this.timeSlideMenu.Interval = 1;
             this.timeSlideMenu.Tick += new System.EventHandler(this.timeSlideMenu_Tick);
 
-            pnlCards.Dock = DockStyle.Fill;/*
-            this.pnlSideBar.Dock = DockStyle.Fill; // Poziționați pnlSideBar pentru a umple spațiul disponibil
-            this.grandTop.Dock = DockStyle.Fill;*/
-            //pnlCards.BackColor = Color.Red;
+            pnlCards.Dock = DockStyle.Fill;
+            
+           // this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+
         }
-        PnlCards pnlc = null;
         public void removePnlFromHome(string pnl)
         {
 
@@ -570,7 +567,6 @@ namespace OnlineShop.Panels
             this.Controls.Remove(control);
 
         }
-
 
         private void pctClose_Click(object sender, EventArgs e)
         {
@@ -592,8 +588,31 @@ namespace OnlineShop.Panels
 
         }
 
+        PnlAccount pnlAccount = null;
+
         private void pctAccount_Click(object sender, EventArgs e)
         {
+            this.removePnlFromHome("PnlCards");
+            this.pnlSideBar.Visible = false;
+            pnlAccount = new PnlAccount(form, user);
+            this.Controls.Add(pnlAccount);
+            this.pnlAccount.pctBack.Click += new EventHandler(pctBack_Click);
+
+        }
+
+        private void pctBack_Click(object sender, EventArgs e)
+        {
+
+            this.removePnlFromHome("PnlAccount");
+            this.pnlSideBar.Visible = true;
+
+            PnlCards pnl = GetPnlCards();
+
+            List<Product> get = new List<Product>();
+            get = productQueryService.getProductWithCateg("it");
+            pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
+            pnlc = new PnlCards(ct, form, get, user);
+            this.Controls.Add(pnlc);
 
         }
 
