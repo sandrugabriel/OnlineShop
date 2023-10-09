@@ -26,8 +26,11 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+          //  private devexpress.Utils.FormShadow.PopupFormShadow ShadowNew = new DevExpress.Utils.FormShadow.PopupFormShadow();
         private void InitializeComponent()
         {
+     
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MockupHome));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);

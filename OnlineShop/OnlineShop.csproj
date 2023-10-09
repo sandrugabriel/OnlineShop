@@ -137,6 +137,9 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="Panels\PnlAccount.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panels\PnlCard.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -236,6 +239,13 @@
     <None Include="Resources\toy-blocks %281%29.png" />
     <None Include="Resources\home-theater %281%29.png" />
     <None Include="Resources\logout.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\21.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\profile-user.png" />
+    <None Include="Resources\camera.png" />
+    <None Include="Resources\camera %281%29.png" />
+    <None Include="Resources\left-arrow.png" />
     <Content Include="Users\Data\users.txt" />
     <None Include="Resources\new-moon.png" />
     <None Include="Resources\fast-forward-double-right-arrows-symbol.png" />

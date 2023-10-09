@@ -57,7 +57,7 @@ namespace OnlineShop.Panels
             "Price: High to Low"});
             this.cmbSort.Location = new System.Drawing.Point(271, 41);
             this.cmbSort.Name = "cmbSort";
-            this.cmbSort.Size = new System.Drawing.Size(210, 31);
+            this.cmbSort.Size = new System.Drawing.Size(210, 100);
             this.cmbSort.Text = "Price: Low to High";
 
             createCard(nrCollom);
