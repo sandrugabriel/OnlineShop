@@ -1,4 +1,5 @@
-﻿using OnlineShop.Favourites.Models;
+﻿using Bunifu.Framework.UI;
+using OnlineShop.Favourites.Models;
 using OnlineShop.Favourites.Service;
 using OnlineShop.Favourites.Service.interfaces;
 using OnlineShop.Models;
@@ -27,6 +28,7 @@ namespace OnlineShop.Panels
         private System.Windows.Forms.Label lblTile;
         private System.Windows.Forms.Button btnAddCart;
         private Bunifu.Framework.UI.BunifuElipse eliCard;
+        private BunifuElipse eliImage;
 
         Form1 form;
         User user;
@@ -42,8 +44,6 @@ namespace OnlineShop.Panels
             this.user = user1;
             this.product = product1;
 
-            this.form.FormClosing += Form1_FormClosing;
-
             favouriteQueryService = new FavouriteQueryService();
             favourite = new Favourite();
             favourite = favouriteQueryService.getByIdClient(user.getId());
@@ -56,7 +56,7 @@ namespace OnlineShop.Panels
             this.Size = new System.Drawing.Size(336, 437);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PnlCard";
-            //this.BackColor = System.Drawing.Color.Gray;    
+            this.BackColor = System.Drawing.SystemColors.ControlLight;    
 
             this.pctUnFav = new System.Windows.Forms.PictureBox();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@ namespace OnlineShop.Panels
             this.pctImage = new System.Windows.Forms.PictureBox();
             this.btnAddCart = new System.Windows.Forms.Button();
             this.eliCard = new  Bunifu.Framework.UI.BunifuElipse();
+            this.eliImage = new BunifuElipse();
 
             this.pctImage.Controls.Add(this.pctUnFav);
             this.Controls.Add(this.btnAddCart);
@@ -91,7 +92,7 @@ namespace OnlineShop.Panels
             this.lblPRP.BackColor = System.Drawing.Color.Transparent;
             this.lblPRP.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblPRP.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPRP.Location = new System.Drawing.Point(13, 317);
+            this.lblPRP.Location = new System.Drawing.Point(13, 325);
             this.lblPRP.Name = "lblPRP";
             this.lblPRP.Size = new System.Drawing.Size(100, 20);
             this.lblPRP.Text = "PRP: " + (product.getPrice()*1.5).ToString("F2") + "Lei";
@@ -101,7 +102,7 @@ namespace OnlineShop.Panels
             this.lblTile.BackColor = System.Drawing.Color.Transparent;
             this.lblTile.Font = new System.Drawing.Font("Century Gothic", 12.8F);
             this.lblTile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTile.Location = new System.Drawing.Point(4, 227);
+            this.lblTile.Location = new System.Drawing.Point(4, 240);
             this.lblTile.Name = "lblTile";
             this.lblTile.Size = new System.Drawing.Size(333, 75);
             this.lblTile.Text = product.getName();
@@ -148,13 +149,15 @@ namespace OnlineShop.Panels
             // pctImage
             this.pctImage.BackColor = System.Drawing.Color.White;
             this.pctImage.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pctImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pctImage.Image = Image.FromFile(path + @"Products\" + product.getPathImage());
-            this.pctImage.Location = new System.Drawing.Point(0, 0);
+            this.pctImage.Location = new System.Drawing.Point(6, 6);
             this.pctImage.Name = "pctImage";
-            this.pctImage.Size = new System.Drawing.Size(336, 215);
+            this.pctImage.Size = new System.Drawing.Size(325, 229);
             this.pctImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-             
+
+            this.eliImage.TargetControl = pctImage;
+            this.eliImage.ElipseRadius = 40;
+
             // btnAddCart
             this.btnAddCart.BackColor = System.Drawing.Color.Orange;
             this.btnAddCart.Cursor = System.Windows.Forms.Cursors.Hand;

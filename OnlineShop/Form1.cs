@@ -30,7 +30,7 @@ namespace OnlineShop
 
         public void removePnl(string pnl)
         {
-           // MessageBox.Show("Sdf");
+
             Control control = null;
 
             foreach (Control c in this.Controls)
@@ -44,6 +44,7 @@ namespace OnlineShop
             }
 
             this.Controls.Remove(control);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

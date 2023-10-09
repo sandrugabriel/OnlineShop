@@ -3,3 +3,21 @@
 3|Laptop Acer Aspire 5 A515-58M cu procesor Intel® Core™ i5-1335U pana la 4.6 GHz, 15.6", Full HD, IPS, 8GB DDR5, 512GB SSD, Intel® UHD Graphics, No OS, Iron|2999|15|aspire.png|it|3.txt
 4|Laptop Gaming Lenovo IdeaPad 3 15IAH7 cu procesor Intel® Core™ i5-12450H pana la 4.40 GHz, 15.6", Full HD, IPS, 16GB, 512GB SSD, NVIDIA GeForce RTX 3050 4GB, No OS, Onyx Grey|3599|17|4.png|it|4.txt
 5|Laptop Allview Allbook H cu procesor Intel Celeron N4000 pana la 2.60 GHz, 15.6", Full HD, 4GB, 256GB SSD, Intel UHD 600, Ubuntu, Grey|837|40|5.png|it|5.txt
+6|Uscator de rufe Electrolux PerfectCare800 EW8H458B, Pompa de caldura, 8 kg, 12 programe, Clasa A++, Motor Inverter, DelicateCare, GentleCare, SensiCare, Display touch LCD, Alb|3249|5|6.png|electro|6.txt
+7|Cuptor cu microunde Samsung MS23K3515AK/OL, 23 l, 800 W, Auto cook, Quick Defrost, Interior ceramic, Child lock, Negru|452|12|7.png|electro|7.txt
+8|Frigider cu doua usi Heinner HF-205SWDF+, 205 l, Clasa F, Dozator de apa, Iluminare LED, H 143.4 cm, Argintiu|1189|25|8.png|electro|8.txt
+9|Plita incorporabila Arctic ARSGW64120SMG, Gaz, 4 arzatoare, Arzator wok, 60 cm, Gri|534|100|9.png|electro|9.txt
+10|Piscina Intex 28202NP, cadru metalic, 305 x 76 cm, Pompa filtrare inclusa|499.99|60|10.png|garden|10.txt
+11|Cort Pavilion De Gradina, 3x3 m, 4 Pereti Laterali Cu Ferestre, Albastru|399.99|200|11.png|garden|11.txt
+12|Pavilion cu plasa anti-tantari & lumini LED crem 3x3x2 vidaXL,73m, 30.23 kg|1589.99|12|12.png|garden|12.txt
+13|Foisor cu pereti laterali si acoperisuri duble antracit 3x4 m, Rezistenta UV si apa 318544|2589.99|10|13.png|garden|13.txt
+14|Set mobilier gradina ALLIBERT Armona, 4 piese, grafit|1700|5|14.png|garden|14.txt
+15|LEGO® City - Masina sport electrica 60383, 95 piese|37.99|500|15.png|toy|15.txt
+16|Set arme de jucarie pentru doua persoane, Laser X, Evolution, 90 m+, multicolor|439.99|250|16.png|toy|16.txt
+17|LEGO Super Mario - Aventurile lui Mario set de baza 71360, 231 piese|450|100|17.png|toy|17.txt
+18|LEGO Creator Expert Titanic, 9090 piese|4199.99|10|18.png|toy|18.txt
+19|Televizor SAMSUNG LED 55CU7172, 138 cm, Smart, 4K Ultra HD, Clasa G (Model 2023)|2099|17|19.png|tv|19.txt
+20|Televizor TCL LED 43P735, 108 cm, Smart Google TV, 4K Ultra HD, Clasa F|1200|24|20.png|tv|20.txt
+21|Pick-up Sony PS-LX310BT, Bluetooth, Redare automata, Negru|1149.99|18|21.png|tv|21.txt
+22|Pick-up Pioneer Dj, PLX-500-K, Negru|2800|2|22.png|tv|22.txt
+23|Aparat foto Mirrorless Fujifilm GFX-100S, Body,Format Mediu, 102MP, 4K, Negru|26999.99|2|23.png|tv|23.txt

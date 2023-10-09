@@ -69,6 +69,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupAccount.Designer.cs">
+      <DependentUpon>MockupAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mockups\MockupAllCards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <Compile Include="Users\Service\UserQueryServiceSingleton.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupAccount.resx">
+      <DependentUpon>MockupAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupAllCards.resx">
       <DependentUpon>MockupAllCards.cs</DependentUpon>
