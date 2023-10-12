@@ -14,5 +14,6 @@ namespace OnlineShop.Favourites.Service.interfaces
 
         List<Favourite> getByIdClient(int idClient);
 
+        Favourite getByIdUserPro(int idUser, int idProduct);
     }
 }

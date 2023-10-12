@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Favourites.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,12 @@ namespace OnlineShop.Favourites.Service.interfaces
         void saveFisier(string text);
 
         void update();
+
+        int pozFavourite(int id);
+
+        void stergere(int id);
+
+        void deleteCard(Favourite favourite);
 
         void load();
 
