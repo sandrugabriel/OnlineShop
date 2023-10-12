@@ -30,16 +30,14 @@ namespace OnlineShop.Panels
         private Bunifu.Framework.UI.BunifuElipse eliCard;
         private BunifuElipse eliImage;
 
-        Form1 form;
-        User user;
-        Product product;
-        IFavouriteQueryService favouriteQueryService;
-        IFavouriteComandService favouriteComandService;
-        string path;
+       private Form1 form;
+       private User user;
+       private Product product;
+       private IFavouriteQueryService favouriteQueryService;
+       private IFavouriteComandService favouriteComandService;
+       private string path;
 
         List<Favourite> favourites = new List<Favourite>();
-
-     
 
         public PnlCard(Form1 form1, Product product1, User user1) {
 
@@ -211,6 +209,8 @@ namespace OnlineShop.Panels
             
 
         }
+
+
 /*
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
