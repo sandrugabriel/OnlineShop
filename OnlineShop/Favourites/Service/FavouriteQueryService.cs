@@ -77,5 +77,17 @@ namespace OnlineShop.Favourites.Service
             return list;
         }
 
+        public Favourite getByIdUserPro(int idUser, int idPro) { 
+        
+            for(int i = 0; i < favourites.Count; i++)
+            {
+                if (favourites[i].IdProduct ==  idPro && favourites[i].IdClient == idUser)
+                {
+                    return favourites[i];
+                }
+            }
+
+            return null;
+        }
     }
 }

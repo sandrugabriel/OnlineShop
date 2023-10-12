@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +31,6 @@ namespace OnlineShop.Favourites.Service
         {
             this.favourites = favourites;
         }
-
 
         public void load()
         {
@@ -127,6 +128,41 @@ namespace OnlineShop.Favourites.Service
             }
 
             return -1;    
+        }
+
+        public int pozFavourite(int id)
+        {
+            for (int i = 0; i < favourites.Count; i++)
+            {
+                if (favourites[i].Id == id)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void stergere(int id)
+        {
+            int p = pozFavourite(id);
+                favourites.RemoveAt(p);
+            
+        }
+
+        public void deleteCard(Favourite favourite)
+        {
+
+            this.stergere(favourite.Id);
+            //favourites.Remove(favourite);
+
+            string path = Application.StartupPath + Path();
+
+            StreamWriter stream = new StreamWriter(path);
+
+            stream.Write(this.toSaveFisier());
+
+            stream.Close();
         }
 
     }

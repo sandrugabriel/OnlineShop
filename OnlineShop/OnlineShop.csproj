@@ -60,7 +60,9 @@
   <ItemGroup>
     <Compile Include="Favourites\Models\Favourite.cs" />
     <Compile Include="Favourites\Service\FavouriteComandService.cs" />
+    <Compile Include="Favourites\Service\FavouriteComandServiceSingleton.cs" />
     <Compile Include="Favourites\Service\FavouriteQueryService.cs" />
+    <Compile Include="Favourites\Service\FavouriteQueryServiceSingleton.cs" />
     <Compile Include="Favourites\Service\interfaces\IFavouriteComandService.cs" />
     <Compile Include="Favourites\Service\interfaces\IFavouriteQueryService.cs" />
     <Compile Include="Form1.cs">
@@ -226,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Favourites\Data\" />
+    <Folder Include="view\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />

@@ -38,15 +38,17 @@ namespace OnlineShop.Panels
         string path;
 
         List<Favourite> favourites = new List<Favourite>();
-        
+
+     
+
         public PnlCard(Form1 form1, Product product1, User user1) {
 
             this.form = form1;
             this.user = user1;
             this.product = product1;
 
-            favouriteQueryService = new FavouriteQueryService();
-            favouriteComandService = new FavouriteComandService();
+            favouriteQueryService = FavouriteQueryServiceSingleton.Instance;
+            favouriteComandService= FavouriteComandServiceSingleton.Instance;
 
             favourites = favouriteQueryService.getByIdClient(user.getId());
 
@@ -188,11 +190,10 @@ namespace OnlineShop.Panels
             this.pctFav.Visible = false;
             this.pctUnFav.Visible = true;
 
-            int poz = favouriteComandService.pozProduct(user.getId(), product.getId());
-            favourites.RemoveAt(poz);
+            Favourite favourite = favouriteQueryService.getByIdUserPro(user.getId(), product.getId());
 
-            favouriteComandService.update();
-
+            favourites.RemoveAt(favouriteComandService.pozFavourite(favourite.Id));
+            favouriteComandService.deleteCard(favourite);
         }
 
         private void pctUnFav_Click(object sender, EventArgs e)
@@ -202,7 +203,9 @@ namespace OnlineShop.Panels
             this.pctFav.Visible = true;
             this.pctUnFav.Visible = false;
             Favourite favourite = new Favourite(favouriteComandService.generareId(),user.getId(),product.getId());
+
                 favourites.Add(favourite);
+
             string t = favouriteComandService.generareId() + "|"+ user.getId() +"|"+ product.getId();
             favouriteComandService.saveFisier(t);
             
