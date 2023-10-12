@@ -34,7 +34,7 @@ namespace OnlineShop.Favourites.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + Path();
+            string path = Application.StartupPath + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -50,12 +50,12 @@ namespace OnlineShop.Favourites.Service
 
         public string Path()
         {
-            return @"Favourites\Data\favourites.txt";
+            return @"/data/favourites.txt";
         }
 
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
+            File.AppendAllText(Application.StartupPath + Path(), text + "\n");
         }
 
         public Favourite getById(int id)
@@ -77,26 +77,14 @@ namespace OnlineShop.Favourites.Service
 
             Random rand = new Random();
 
-            int id = rand.Next(1, 10000);
+            int id = rand.Next(1, 1000000);
 
             while (this.getById(id) != null)
             {
-                id = rand.Next(1, 10000);
+                id = rand.Next(1, 1000000);
             }
 
             return id;
-        }
-
-        public void setList(int id,List<int> items)
-        {
-            for(int i=0;i<favourites.Count;i++)
-            {
-                if(id == favourites[i].Id)
-                {
-                    favourites[i].Items = items;
-                }
-            }
-
         }
 
         public string toSaveFisier()
@@ -114,33 +102,31 @@ namespace OnlineShop.Favourites.Service
 
         public void update()
         {
-           // MessageBox.Show(toSaveFisier());
-            StreamWriter streamWriter = new StreamWriter(Application.StartupPath.Remove(44) + Path());
+            
+            StreamWriter streamWriter = new StreamWriter(Application.StartupPath + Path());
 
-            streamWriter.Write(this.toSaveFisier());
+
+            string value = toSaveFisier();
+            streamWriter.Write(value);
+
+          //  MessageBox.Show(value);
+   
 
             streamWriter.Close();
         }
 
-        public int pozProduct(int id, int idProduct)
+        public int pozProduct(int idClient, int idProduct)
         {
             int poz = -1;
             for (int i = 0; i < favourites.Count; i++)
             {
-                if (id == favourites[i].IdClient)
+                if (idClient == favourites[i].IdClient && idProduct == favourites[i].IdProduct)
                 {
-                    for(int j = 0; j < favourites[i].Items.Count; j++)
-                    {
-                        if (favourites[i].Items[j] == idProduct)
-                        {
-                            poz = j;
-                        }
-                    }
-                   
+                    return poz; 
                 }
             }
 
-            return poz;    
+            return -1;    
         }
 
     }

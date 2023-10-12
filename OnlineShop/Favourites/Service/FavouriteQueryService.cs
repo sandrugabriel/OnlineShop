@@ -26,7 +26,7 @@ namespace OnlineShop.Favourites.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + @"Favourites\Data\favourites.txt";
+            string path = Application.StartupPath + @"/data/favourites.txt";
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -62,18 +62,19 @@ namespace OnlineShop.Favourites.Service
             return null;
         }
 
-        public Favourite getByIdClient(int idClient)
+        public List<Favourite> getByIdClient(int idClient)
         {
+            List<Favourite> list = new List<Favourite>();
 
             for (int i = 0; i < favourites.Count; i++)
             {
                 if (idClient == favourites[i].IdClient)
                 {
-                    return favourites[i];
+                    list.Add(favourites[i]);
                 }
             }
 
-            return null;
+            return list;
         }
 
     }

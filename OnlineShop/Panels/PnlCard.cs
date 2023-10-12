@@ -33,11 +33,12 @@ namespace OnlineShop.Panels
         Form1 form;
         User user;
         Product product;
-        Favourite favourite;
         IFavouriteQueryService favouriteQueryService;
         IFavouriteComandService favouriteComandService;
         string path;
 
+        List<Favourite> favourites = new List<Favourite>();
+        
         public PnlCard(Form1 form1, Product product1, User user1) {
 
             this.form = form1;
@@ -45,11 +46,10 @@ namespace OnlineShop.Panels
             this.product = product1;
 
             favouriteQueryService = new FavouriteQueryService();
-            favourite = new Favourite();
-            favourite = favouriteQueryService.getByIdClient(user.getId());
             favouriteComandService = new FavouriteComandService();
-            //favourite.Items = favouriteQueryService.getByIdClient(user.getId()).Items;
-           // MessageBox.Show(favourite.Id.ToString());
+
+            favourites = favouriteQueryService.getByIdClient(user.getId());
+
             path = Application.StartupPath.Remove(44) + @"Images\";
 
             //PnlCard
@@ -128,21 +128,14 @@ namespace OnlineShop.Panels
             this.pctUnFav.Click += new System.EventHandler(this.pctUnFav_Click);
             this.pctUnFav.Visible = true;
 
-            if(favourite!=null)
-            if(favourite.Items!=null)
-            for(int i = 0; i < favourite.Items.Count; i++)
+            if(favourites!=null)
+            for(int i = 0; i < favourites.Count; i++)
             {
-                if (favourite.Items[i] == product.getId())
+                if (favourites[i].IdProduct == product.getId())
                 {
                     this.pctFav.Visible = true;
                     this.pctUnFav.Visible = false;
-                    break;
-                }
-                else
-                {
-                    this.pctFav.Visible = false;
-                    this.pctUnFav.Visible = true;
-                    break;
+                    
                 }
             }
 
@@ -196,8 +189,8 @@ namespace OnlineShop.Panels
             this.pctUnFav.Visible = true;
 
             int poz = favouriteComandService.pozProduct(user.getId(), product.getId());
-            favourite.Items.RemoveAt(poz);
-            favouriteComandService.setList(favourite.Id,favourite.Items);
+            favourites.RemoveAt(poz);
+
             favouriteComandService.update();
 
         }
@@ -205,19 +198,20 @@ namespace OnlineShop.Panels
         private void pctUnFav_Click(object sender, EventArgs e)
         {
 
+     
             this.pctFav.Visible = true;
             this.pctUnFav.Visible = false;
-            if (favourite.Items != null)
-                favourite.Items.Add(product.getId());
-            else favourite.Items = new List<int>();
-            favouriteComandService.setList(favourite.Id, favourite.Items);
-            favouriteComandService.update();
+            Favourite favourite = new Favourite(favouriteComandService.generareId(),user.getId(),product.getId());
+                favourites.Add(favourite);
+            string t = favouriteComandService.generareId() + "|"+ user.getId() +"|"+ product.getId();
+            favouriteComandService.saveFisier(t);
+            
 
         }
-
+/*
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             favouriteComandService.update();
-        }
+        }*/
     }
 }
