@@ -13,7 +13,6 @@ namespace OnlineShop.Orders.Service.interafaces
         Order Id(int id);
         Order Price(double price);
         Order IdUser(int id);
-        Order IdProducts(List<int> ids);
      
     }
 }

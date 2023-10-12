@@ -12,13 +12,13 @@ namespace OnlineShop.Favourites.Models
 
         private int _id;
         private int _idClient;
-        private List<int> _items = new List<int>();
+        private int _idProduct;
 
-        public Favourite(int id, int idClient, List<int> items)
+        public Favourite(int id, int idClient, int idpro)
         {
             _id = id;
             _idClient = idClient;
-            _items = items;
+            _idProduct = idpro;
         }
 
         public Favourite() { }
@@ -27,15 +27,11 @@ namespace OnlineShop.Favourites.Models
         {
 
             string[] prop = text.Split('|');
-            _items = null;
 
             _id = int.Parse(prop[0]);
             _idClient = int.Parse(prop[1]);
-            
-            if (prop.Length >2)
-                for (int i = 2; i < prop.Length-1; i++)
-                    _items.Add(int.Parse(prop[i]));
-            else _items = null;
+            _idProduct = int.Parse(prop[2]);
+
         }
 
 
@@ -43,19 +39,14 @@ namespace OnlineShop.Favourites.Models
 
         public int IdClient { get => _idClient; set => _idClient = value; }
 
-        public List<int> Items { get => _items; set => _items = value; }
+        public int IdProduct { get => _idProduct; set => _idProduct = value; }
 
         public string toSave()
         {
             string text = "";
 
-            text = _id.ToString() + "|" + _idClient.ToString();
-            if (_items != null)
-                for (int i = 0; i < _items.Count; i++)
-                {
-                    text += "|" + _items[i].ToString();
-                }
-            else text += "|";
+            text = _id.ToString() + "|" + _idClient.ToString() + "|" + _idProduct.ToString();
+
             //MessageBox.Show(text);
             return text;
         }

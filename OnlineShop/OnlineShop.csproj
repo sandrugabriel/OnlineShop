@@ -224,9 +224,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Favourites\Data\favourites.txt" />
+    <Folder Include="Favourites\Data\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Orders\Data\orders.txt" />
     <Content Include="Products\Data\products.txt" />

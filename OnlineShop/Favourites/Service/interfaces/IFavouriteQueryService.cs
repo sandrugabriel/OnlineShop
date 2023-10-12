@@ -12,7 +12,7 @@ namespace OnlineShop.Favourites.Service.interfaces
 
         Favourite getById(int id);
 
-        Favourite getByIdClient(int idClient);
+        List<Favourite> getByIdClient(int idClient);
 
     }
 }

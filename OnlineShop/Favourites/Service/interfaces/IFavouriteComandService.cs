@@ -14,8 +14,6 @@ namespace OnlineShop.Favourites.Service.interfaces
 
         void update();
 
-        void setList(int id,List<int> _items);
-
         void load();
 
         string Path();
