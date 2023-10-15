@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.eliBtn = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pctDesign = new System.Windows.Forms.PictureBox();
-            this.chk2FA = new Bunifu.Framework.UI.BunifuCheckbox();
             this.txtAddress = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtPhone = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtPass = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.lbl2fa = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtEmail = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -57,6 +55,21 @@
             this.eliBtn.ElipseRadius = 25;
             this.eliBtn.TargetControl = this.btnSave;
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Location = new System.Drawing.Point(218, 795);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(427, 57);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save Settings";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::OnlineShop.Properties.Resources.left_arrow;
@@ -73,11 +86,9 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.pctDesign);
-            this.panel1.Controls.Add(this.chk2FA);
             this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Controls.Add(this.txtPhone);
             this.panel1.Controls.Add(this.txtPass);
-            this.panel1.Controls.Add(this.lbl2fa);
             this.panel1.Controls.Add(this.lblAddress);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.lblPhone);
@@ -91,21 +102,6 @@
             this.panel1.Size = new System.Drawing.Size(879, 964);
             this.panel1.TabIndex = 2;
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(218, 795);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(427, 57);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save Settings";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
             // pctDesign
             // 
             this.pctDesign.Location = new System.Drawing.Point(161, 759);
@@ -113,19 +109,6 @@
             this.pctDesign.Size = new System.Drawing.Size(544, 3);
             this.pctDesign.TabIndex = 6;
             this.pctDesign.TabStop = false;
-            // 
-            // chk2FA
-            // 
-            this.chk2FA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.chk2FA.ChechedOffColor = System.Drawing.Color.White;
-            this.chk2FA.Checked = true;
-            this.chk2FA.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.chk2FA.ForeColor = System.Drawing.Color.White;
-            this.chk2FA.Location = new System.Drawing.Point(685, 719);
-            this.chk2FA.Margin = new System.Windows.Forms.Padding(7);
-            this.chk2FA.Name = "chk2FA";
-            this.chk2FA.Size = new System.Drawing.Size(20, 20);
-            this.chk2FA.TabIndex = 5;
             // 
             // txtAddress
             // 
@@ -186,18 +169,6 @@
             this.txtPass.Size = new System.Drawing.Size(544, 49);
             this.txtPass.TabIndex = 4;
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // lbl2fa
-            // 
-            this.lbl2fa.AutoSize = true;
-            this.lbl2fa.BackColor = System.Drawing.Color.Transparent;
-            this.lbl2fa.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2fa.ForeColor = System.Drawing.Color.White;
-            this.lbl2fa.Location = new System.Drawing.Point(157, 708);
-            this.lbl2fa.Name = "lbl2fa";
-            this.lbl2fa.Size = new System.Drawing.Size(360, 25);
-            this.lbl2fa.TabIndex = 2;
-            this.lbl2fa.Text = "Two-Factor Authentication (2FA)";
             // 
             // lblAddress
             // 
@@ -346,9 +317,7 @@
         private System.Windows.Forms.Label lblPhone;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtAddress;
         private System.Windows.Forms.Label lblAddress;
-        private Bunifu.Framework.UI.BunifuCheckbox chk2FA;
         private System.Windows.Forms.PictureBox pctDesign;
-        private System.Windows.Forms.Label lbl2fa;
         private System.Windows.Forms.Button btnSave;
         private Bunifu.Framework.UI.BunifuElipse eliBtn;
         private System.Windows.Forms.PictureBox pictureBox1;

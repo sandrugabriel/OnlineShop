@@ -30,12 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.gunaAnimateWindow1 = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+            this.gunaAnimateWindow2 = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 35;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // gunaAnimateWindow1
+            // 
+            this.gunaAnimateWindow1.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+            this.gunaAnimateWindow1.Interval = 1500;
+            this.gunaAnimateWindow1.TargetControl = this;
+            // 
+            // gunaAnimateWindow2
+            // 
+            this.gunaAnimateWindow2.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_ACTIVATE;
+            this.gunaAnimateWindow2.Interval = 200;
+            this.gunaAnimateWindow2.TargetControl = this;
             // 
             // Form1
             // 
@@ -56,6 +70,8 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow1;
+        private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow2;
     }
 }
 

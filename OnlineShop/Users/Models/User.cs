@@ -132,5 +132,10 @@ namespace OnlineShop.Users.Models
             return new User();
         }
 
+        public string toSave()
+        {
+            return _id.ToString() + "|" + _name + "|" + _email + "|" + _password + "|" + _phone + "|" + _address + "|" + _varsta;
+        }
+
     }
 }

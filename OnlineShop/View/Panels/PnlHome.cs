@@ -613,6 +613,9 @@ namespace OnlineShop.Panels
 
         private void pctFav_Click(object sender, EventArgs e)
         {
+            this.pnlSideBar.Visible = true;
+
+            this.removePnlFromHome("PnlAccount");
             this.removePnlFromHome("PnlCards");
             List<int> ids = favouriteQueryService.getByClient(user.getId());
             List<Product> products = productQueryService.getByListId(ids);
