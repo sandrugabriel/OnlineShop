@@ -16,5 +16,7 @@ namespace OnlineShop.Products.Service.interfaces
 
         Product getByID(int id);
 
+        List<Product> getByListId(List<int> ids);
+
     }
 }

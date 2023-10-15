@@ -11,11 +11,12 @@ namespace OnlineShop.OrdersDetails.Service.interfaces
     {
 
         OrderDetalis Id(int id);
+
         OrderDetalis IdUser(int idUser);
-        OrderDetalis OrderAddress(string orderAddress);
-        OrderDetalis OrderDate(DateTime orderDate);
-        OrderDetalis IdProducts(List<int> ids);
-        OrderDetalis Quantities(List<int> quantity);
+
+        OrderDetalis IdProduct(int id);
+
+        OrderDetalis Quantities(int quantity);
 
     }
 

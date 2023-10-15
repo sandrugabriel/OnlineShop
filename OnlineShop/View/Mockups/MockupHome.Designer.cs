@@ -30,7 +30,6 @@
           //  private devexpress.Utils.FormShadow.PopupFormShadow ShadowNew = new DevExpress.Utils.FormShadow.PopupFormShadow();
         private void InitializeComponent()
         {
-     
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MockupHome));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -101,6 +100,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.alphaBlendTextBox1 = new ZBobb.AlphaBlendTextBox();
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).BeginInit();
@@ -1002,6 +1002,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.alphaBlendTextBox1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -1013,6 +1014,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1692, 855);
             this.panel1.TabIndex = 5;
+            // 
+            // alphaBlendTextBox1
+            // 
+            this.alphaBlendTextBox1.BackAlpha = 10;
+            this.alphaBlendTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.alphaBlendTextBox1.Location = new System.Drawing.Point(528, 26);
+            this.alphaBlendTextBox1.Name = "alphaBlendTextBox1";
+            this.alphaBlendTextBox1.Size = new System.Drawing.Size(100, 36);
+            this.alphaBlendTextBox1.TabIndex = 16;
             // 
             // MockupHome
             // 
@@ -1150,5 +1160,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbSort;
         private System.Windows.Forms.Label lblSort;
+        private ZBobb.AlphaBlendTextBox alphaBlendTextBox1;
     }
 }

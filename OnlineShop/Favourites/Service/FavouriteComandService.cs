@@ -165,5 +165,22 @@ namespace OnlineShop.Favourites.Service
             stream.Close();
         }
 
+        public void save(List<Favourite> favourites)
+        {
+            this.favourites = favourites;
+        }
+
+        public int ctFav(int idUser)
+        {
+            int ct = 0;
+            for(int i=0;i<favourites.Count;i++)
+            {
+                if (favourites[i].IdClient == idUser)
+                    ct++;
+            }
+
+            return ct;
+        }
+
     }
 }

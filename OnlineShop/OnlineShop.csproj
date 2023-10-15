@@ -65,6 +65,8 @@
     <Compile Include="Favourites\Service\FavouriteQueryServiceSingleton.cs" />
     <Compile Include="Favourites\Service\interfaces\IFavouriteComandService.cs" />
     <Compile Include="Favourites\Service\interfaces\IFavouriteQueryService.cs" />
+    <Compile Include="OrdersDetails\Service\OrderDetailsComandServiceSingleton.cs" />
+    <Compile Include="Products\Service\ProductComandServiceSingleton.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +90,12 @@
     </Compile>
     <Compile Include="View\Mockups\MockupCard.Designer.cs">
       <DependentUpon>MockupCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\MockupCardFav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\MockupCardFav.Designer.cs">
+      <DependentUpon>MockupCardFav.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Mockups\MockupCart.cs">
       <SubType>Form</SubType>
@@ -145,7 +153,13 @@
     <Compile Include="View\Panels\PnlCard.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Panels\PnlCardFav.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\PnlCards.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\PnlFavorites.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\PnlHome.cs">
@@ -184,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\MockupCard.resx">
       <DependentUpon>MockupCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\MockupCardFav.resx">
+      <DependentUpon>MockupCardFav.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>

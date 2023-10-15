@@ -30,7 +30,7 @@ namespace OnlineShop.Products
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + Path();
+            string path = Application.StartupPath + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -47,11 +47,11 @@ namespace OnlineShop.Products
 
         public string Path()
         {
-            return @"Users\Data\users.txt";
+            return @"\data\users.txt";
         }
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
+            File.AppendAllText(Application.StartupPath + Path(), text + "\n");
         }
 
         public Product getById(int id)

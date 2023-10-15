@@ -13,19 +13,15 @@ namespace OnlineShop.Models
 
         private int _id;
         private int _idUser;
-        private string _orderAddress;
-        private DateTime _orderDate;
-        private List<int> idProducts = new List<int>();
-        private List<int> quantities = new List<int>();
+        private int _idProduct;
+        private int _quantities;
 
-        public OrderDetalis(int id, int idUser, string orderAddress, DateTime orderDate, List<int> idProducts, List<int> quantities)
+        public OrderDetalis(int id, int idUser, int idProduct, int quantities)
         {
             _id = id;
             _idUser = idUser;
-            _orderAddress = orderAddress;
-            _orderDate = orderDate;
-            this.idProducts = idProducts;
-            this.quantities = quantities;
+            this._idProduct = idProduct;
+            this._quantities = quantities;
         }
 
         public OrderDetalis()
@@ -33,33 +29,16 @@ namespace OnlineShop.Models
 
         }
 
-        public OrderDetalis(string text) {
+        public OrderDetalis(string text)
+        {
 
             string[] prop = text.Split('|');
-        
+
             _id = int.Parse(prop[0]);
             _idUser = int.Parse(prop[1]);
-            _orderAddress = prop[2];
-            _orderDate = DateTime.Parse(prop[3]);
-            int ct = -1;
+            _idProduct = int.Parse(prop[2]);
+            _quantities = int.Parse(prop[3]);
 
-            for (int i = 4; i < prop.Length; i++)
-            {
-                if (prop[i] == "Quantity:")
-                {
-                    ct++;
-                    MessageBox.Show("Asd\n");
-                }
-                    
-
-                if (ct >= 0 && i+1 <= prop.Length-1)
-                    quantities.Add(int.Parse(prop[i+1]));
-                else if(ct==-1)
-                    idProducts.Add(int.Parse(prop[i]));
-
-            }
-
-            
         }
 
         public int getId() { return _id; }
@@ -70,43 +49,31 @@ namespace OnlineShop.Models
 
         public void setIdUser(int value) {  _idUser = value; }
 
-        public string getAddress() { return _orderAddress; }
+        public int getIdProduct() { return _idProduct; }
 
-        public void setAddress(string value) { _orderAddress = value; }
+        public void setIdProducts(int value) {  _idProduct = value; }
 
-        public DateTime getDate() { return _orderDate; }
+        public int getQuantities() { return _quantities; }
 
-        public void getDate(DateTime dateTime) { _orderDate = dateTime; }
-
-        public List<int> getIdProducts() { return idProducts; }
-
-        public void setIdProducts(List<int> value) {  idProducts = value; }
-
-        public List<int> getQuantities() { return quantities; }
-
-        public void setQuantities(List<int> value) { quantities = value; } 
+        public void setQuantities(int value) { _quantities = value; } 
 
         public string descriere()
         {
             string t = "";
 
             t += "Id: " + _id.ToString() + "\n";
-            t += "IdProducts:\n";
-            for(int i=0;i<idProducts.Count;i++)
-                t += idProducts[i].ToString() + ", ";
-            t += "\nQuantity: ";
-            for (int i = 0; i < quantities.Count; i++)
-                t += quantities[i].ToString() + ", ";
+            t += "IdProducts: "+_idProduct.ToString() + "\n";
+            t += "IdUser: " + _idUser.ToString() + "\n";
 
             return t;
         }
 
         public int CompareTo(OrderDetalis other)
         {
-            if(quantities.Count > other.quantities.Count)
+            if(_quantities > other._quantities)
             {
                 return 1;
-            }else if(quantities.Count == other.quantities.Count)
+            }else if(_quantities == other._quantities)
             {
                 return 0;
             }
@@ -128,26 +95,14 @@ namespace OnlineShop.Models
             return this;
         }
 
-        public OrderDetalis Quantities(List<int> quantities)
+        public OrderDetalis Quantities(int quantities)
         {
-            this.quantities = quantities; return this;
+            this._quantities = quantities; return this;
         }
 
-        public OrderDetalis OrderAddress(string orderAddress)
+        public OrderDetalis IdProduct(int id)
         {
-            this._orderAddress = orderAddress;
-            return this;
-        }
-
-        public OrderDetalis OrderDate(DateTime orderDate)
-        {
-            this._orderDate = orderDate;
-            return this;
-        }
-
-        public OrderDetalis IdProducts(List<int> ids)
-        {
-            this.idProducts = ids; return this;
+            this._idProduct = id; return this;
         }
 
         public static OrderDetalis Build()

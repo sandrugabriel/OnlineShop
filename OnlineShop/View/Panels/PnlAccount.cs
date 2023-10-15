@@ -72,7 +72,7 @@ namespace OnlineShop.Panels
             //pctBack
             this.pctBack.Location = new System.Drawing.Point(150,100);
             this.pctBack.Size = new System.Drawing.Size(35, 35);
-            this.pctBack.Image = Image.FromFile(Application.StartupPath.Remove(44) + @"Images\left.png");
+            this.pctBack.Image = Image.FromFile(Application.StartupPath + @"\Images\left.png");
             this.pctBack.SizeMode = PictureBoxSizeMode.Zoom;
             this.pctBack.Cursor = Cursors.Hand;
             this.pctBack.BackColor = Color.Transparent;

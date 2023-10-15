@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Favourites.Service;
+using OnlineShop.Models;
 using OnlineShop.Users.Models;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,7 @@ namespace OnlineShop.Panels
                 ct++;
                 PnlCard pnlCard = new PnlCard(form, p, user);
                 pnlCard.Location = new System.Drawing.Point(x, y);
+
                 this.Controls.Add(pnlCard);
                 x += 400;
 
@@ -90,12 +92,12 @@ namespace OnlineShop.Panels
                 {
                     this.AutoScroll = true;
                 }
-
             }
+        }
+
+           
+
 
 
         }
-
-
     }
-}
