@@ -13,6 +13,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Label = System.Windows.Forms.Label;
 
 namespace OnlineShop.Panels
 {
@@ -30,12 +31,12 @@ namespace OnlineShop.Panels
         private Bunifu.Framework.UI.BunifuElipse eliCard;
         private BunifuElipse eliImage;
 
-       private Form1 form;
-       private User user;
-       private Product product;
-       private IFavouriteQueryService favouriteQueryService;
-       private IFavouriteComandService favouriteComandService;
-       private string path;
+        private Form1 form;
+        private User user;
+        private Product product;
+        private IFavouriteQueryService favouriteQueryService;
+        private IFavouriteComandService favouriteComandService;
+        private string path;
 
         List<Favourite> favourites = new List<Favourite>();
 
@@ -46,17 +47,17 @@ namespace OnlineShop.Panels
             this.product = product1;
 
             favouriteQueryService = FavouriteQueryServiceSingleton.Instance;
-            favouriteComandService= FavouriteComandServiceSingleton.Instance;
+            favouriteComandService = FavouriteComandServiceSingleton.Instance;
 
             favourites = favouriteQueryService.getByIdClient(user.getId());
 
-            path = Application.StartupPath.Remove(44) + @"Images\";
+            path = Application.StartupPath + @"\Images\";
 
             //PnlCard
             this.Size = new System.Drawing.Size(336, 437);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PnlCard";
-            this.BackColor = System.Drawing.SystemColors.ControlLight;    
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
 
             this.pctUnFav = new System.Windows.Forms.PictureBox();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -65,8 +66,8 @@ namespace OnlineShop.Panels
             this.pctFav = new System.Windows.Forms.PictureBox();
             this.pctImage = new System.Windows.Forms.PictureBox();
             this.btnAddCart = new System.Windows.Forms.Button();
-            this.eliCard = new  Bunifu.Framework.UI.BunifuElipse();
-            this.eliImage = new BunifuElipse();
+            this.eliCard = new Bunifu.Framework.UI.BunifuElipse();
+            this.eliImage = new BunifuElipse();    
 
             this.pctImage.Controls.Add(this.pctUnFav);
             this.Controls.Add(this.btnAddCart);
@@ -85,8 +86,10 @@ namespace OnlineShop.Panels
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(110, 28);
             this.lblPrice.TabIndex = 5;
-            this.lblPrice.Text = product.getPrice().ToString("F2") +"Lei";
-            
+            this.lblPrice.Text = product.getPrice().ToString("F2") + "Lei";
+
+            //this.lblCountFav.BringToFront();
+
             // lblPRP
             this.lblPRP.AutoSize = true;
             this.lblPRP.BackColor = System.Drawing.Color.Transparent;
@@ -95,8 +98,8 @@ namespace OnlineShop.Panels
             this.lblPRP.Location = new System.Drawing.Point(13, 325);
             this.lblPRP.Name = "lblPRP";
             this.lblPRP.Size = new System.Drawing.Size(100, 20);
-            this.lblPRP.Text = "PRP: " + (product.getPrice()*1.5).ToString("F2") + "Lei";
-            
+            this.lblPRP.Text = "PRP: " + (product.getPrice() * 1.5).ToString("F2") + "Lei";
+
             // lblTile
             this.lblTile.AutoSize = false;
             this.lblTile.BackColor = System.Drawing.Color.Transparent;
@@ -128,16 +131,16 @@ namespace OnlineShop.Panels
             this.pctUnFav.Click += new System.EventHandler(this.pctUnFav_Click);
             this.pctUnFav.Visible = true;
 
-            if(favourites!=null)
-            for(int i = 0; i < favourites.Count; i++)
-            {
-                if (favourites[i].IdProduct == product.getId())
+            if (favourites != null)
+                for (int i = 0; i < favourites.Count; i++)
                 {
-                    this.pctFav.Visible = true;
-                    this.pctUnFav.Visible = false;
-                    
+                    if (favourites[i].IdProduct == product.getId())
+                    {
+                        this.pctFav.Visible = true;
+                        this.pctUnFav.Visible = false;
+
+                    }
                 }
-            }
 
             // pctImage
             this.pctImage.BackColor = System.Drawing.Color.White;
@@ -168,13 +171,13 @@ namespace OnlineShop.Panels
             this.btnAddCart.Text = "Add to Cart";
             this.btnAddCart.UseVisualStyleBackColor = false;
             this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
-             
+
             // eliCard
             this.eliCard.ElipseRadius = 35;
             this.eliCard.TargetControl = this;
-             
 
         }
+
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
@@ -190,31 +193,28 @@ namespace OnlineShop.Panels
 
             Favourite favourite = favouriteQueryService.getByIdUserPro(user.getId(), product.getId());
 
-            favourites.RemoveAt(favouriteComandService.pozFavourite(favourite.Id));
+
             favouriteComandService.deleteCard(favourite);
+
         }
 
         private void pctUnFav_Click(object sender, EventArgs e)
         {
 
-     
+
             this.pctFav.Visible = true;
             this.pctUnFav.Visible = false;
-            Favourite favourite = new Favourite(favouriteComandService.generareId(),user.getId(),product.getId());
+            Favourite favourite = new Favourite(favouriteComandService.generareId(), user.getId(), product.getId());
 
-                favourites.Add(favourite);
-
-            string t = favouriteComandService.generareId() + "|"+ user.getId() +"|"+ product.getId();
+            favourites.Add(favourite);
+            favouriteQueryService.save(favourites);
+            favouriteComandService.save(favourites);
+            string t = favouriteComandService.generareId() + "|" + user.getId() + "|" + product.getId();
             favouriteComandService.saveFisier(t);
-            
+            string ct = favourites.Count().ToString();
+
 
         }
 
-
-/*
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            favouriteComandService.update();
-        }*/
     }
 }

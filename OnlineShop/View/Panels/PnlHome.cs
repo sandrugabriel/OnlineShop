@@ -1,14 +1,19 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Favourites.Models;
+using OnlineShop.Favourites.Service;
+using OnlineShop.Favourites.Service.interfaces;
+using OnlineShop.Models;
 using OnlineShop.Products.Service;
 using OnlineShop.Products.Service.interfaces;
 using OnlineShop.Properties;
 using OnlineShop.Users.Models;
+using OnlineShop.View.Panels;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,9 +32,7 @@ namespace OnlineShop.Panels
         private System.Windows.Forms.PictureBox pctCart;
         private System.Windows.Forms.Label lblCountCart;
         private System.Windows.Forms.PictureBox pctRedCart;
-        private System.Windows.Forms.Label lblCountFav;
         private System.Windows.Forms.Label lblFav;
-        private System.Windows.Forms.PictureBox pctFavRed;
         private System.Windows.Forms.PictureBox pctFavorite;
         private System.Windows.Forms.Label lblAccount;
         private System.Windows.Forms.PictureBox pctAccount;
@@ -51,6 +54,9 @@ namespace OnlineShop.Panels
         private System.Windows.Forms.PictureBox pctExit;
         private System.Windows.Forms.Label lblSignOut;
         private System.Windows.Forms.Timer timeSlideMenu;
+        Timer timerFav;
+        PictureBox pctFavRed;
+        Label lblCountFav;
 
         Form1 form;
         User user;
@@ -63,22 +69,25 @@ namespace OnlineShop.Panels
 
         int ct = 0;
 
+        IFavouriteComandService favouriteComandService;
+        IFavouriteQueryService favouriteQueryService;
+
         public PnlHome(Form1 form1, User user1)
         {
 
             this.form = form1;
             this.user = user1;
 
-            path = Application.StartupPath.Remove(44) + @"Images\";
-            productQueryService = new ProductQueryService();
-
+            path = Application.StartupPath + @"/Images/";
+            productQueryService = ProductQueryServiceSingleton.Instance;
+            favouriteComandService = FavouriteComandServiceSingleton.Instance;
+            favouriteQueryService = FavouriteQueryServiceSingleton.Instance;
             list = productQueryService.getProductWithCateg("it");
             ct = 4;
             pnlCards = new PnlCards(ct, form, list, user);
             //pnlCards.Name = "PnlCards";
-
             this.pnlCards.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
-            
+
             //PnlHome
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1797, 981);
@@ -86,6 +95,8 @@ namespace OnlineShop.Panels
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "PnlHome";
 
+            this.pctFavRed = new System.Windows.Forms.PictureBox();
+            this.lblCountFav = new System.Windows.Forms.Label();
             this.eliPnl = new Bunifu.Framework.UI.BunifuElipse();
             this.lblCateg = new System.Windows.Forms.Label();
             this.pnlSideBar = new System.Windows.Forms.Panel();
@@ -108,8 +119,6 @@ namespace OnlineShop.Panels
             this.lblAccount = new System.Windows.Forms.Label();
             this.lblFav = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
-            this.pctFavRed = new System.Windows.Forms.PictureBox();
-            this.lblCountFav = new System.Windows.Forms.Label();
             this.pctRedCart = new System.Windows.Forms.PictureBox();
             this.lblCountCart = new System.Windows.Forms.Label();
             this.pctAccount = new System.Windows.Forms.PictureBox();
@@ -124,10 +133,14 @@ namespace OnlineShop.Panels
             this.Controls.Add(this.pnlSideBar);
             this.Controls.Add(this.grandTop);
 
+            timerFav = new Timer();
+            timerFav.Interval = 2000;
+            timerFav.Tick += new EventHandler(timerFav_Tick);
+
             // eliPnl
             this.eliPnl.ElipseRadius = 20;
             this.eliPnl.TargetControl = this;
-             
+
             // lblCateg
             this.lblCateg.AutoSize = true;
             this.lblCateg.BackColor = System.Drawing.Color.Transparent;
@@ -138,7 +151,7 @@ namespace OnlineShop.Panels
             this.lblCateg.Size = new System.Drawing.Size(135, 27);
             this.lblCateg.TabIndex = 1;
             this.lblCateg.Text = "Categories";
-             
+
             // pnlSideBar
             this.pnlSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(39)))));
             this.pnlSideBar.Controls.Add(this.pctExit);
@@ -159,7 +172,7 @@ namespace OnlineShop.Panels
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.Size = new System.Drawing.Size(105, 855);
             this.pnlSideBar.TabIndex = 4;
-             
+
             // pctExit
             this.pctExit.BackColor = System.Drawing.Color.Transparent;
             this.pctExit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -171,7 +184,7 @@ namespace OnlineShop.Panels
             this.pctExit.TabIndex = 0;
             this.pctExit.TabStop = false;
             this.pctExit.Click += new System.EventHandler(this.pctExit_Click);
-             
+
             // pctDesign
             this.pctDesign.BackColor = System.Drawing.Color.White;
             this.pctDesign.Location = new System.Drawing.Point(106, 78);
@@ -195,7 +208,7 @@ namespace OnlineShop.Panels
             this.btnIT.Text = "            IT, Mobile, Gaming";
             this.btnIT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIT.UseVisualStyleBackColor = false;
-            this.btnIT.Click += new EventHandler(btnIT_Click); 
+            this.btnIT.Click += new EventHandler(btnIT_Click);
 
             // pctIT
             this.pctIT.BackColor = System.Drawing.Color.Transparent;
@@ -224,7 +237,7 @@ namespace OnlineShop.Panels
             this.btnTV.Text = "            TV, Audio-Video, Foto";
             this.btnTV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTV.UseVisualStyleBackColor = false;
-            this.btnTV.Click += new EventHandler(btnTV_Cick); 
+            this.btnTV.Click += new EventHandler(btnTV_Cick);
 
             // pctTV
             this.pctTV.BackColor = System.Drawing.Color.Transparent;
@@ -248,7 +261,7 @@ namespace OnlineShop.Panels
             this.lblMenu.Size = new System.Drawing.Size(112, 40);
             this.lblMenu.TabIndex = 1;
             this.lblMenu.Text = "Menu";
-             
+
             // lblSignOut
             this.lblSignOut.AutoSize = true;
             this.lblSignOut.BackColor = System.Drawing.Color.Transparent;
@@ -260,7 +273,7 @@ namespace OnlineShop.Panels
             this.lblSignOut.Cursor = Cursors.Hand;
             this.lblSignOut.Text = "Sign Out";
             this.lblSignOut.Click += new EventHandler(pctExit_Click);
-             
+
             // btnToys
             this.btnToys.BackColor = System.Drawing.Color.Transparent;
             this.btnToys.Controls.Add(this.pctToys);
@@ -309,7 +322,7 @@ namespace OnlineShop.Panels
             this.btnElectro.Text = "            Electronics";
             this.btnElectro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnElectro.UseVisualStyleBackColor = false;
-            this.btnElectro.Click += new EventHandler(btnElectro_Click); 
+            this.btnElectro.Click += new EventHandler(btnElectro_Click);
 
             // pctElectro
             this.pctElectro.BackColor = System.Drawing.Color.Transparent;
@@ -340,7 +353,7 @@ namespace OnlineShop.Panels
             this.btnGarden.Text = "            House, Garden";
             this.btnGarden.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGarden.UseVisualStyleBackColor = false;
-            this.btnGarden.Click += new EventHandler(btnGarden_Click); 
+            this.btnGarden.Click += new EventHandler(btnGarden_Click);
 
             // pctGarden
             this.pctGarden.BackColor = System.Drawing.Color.Transparent;
@@ -365,14 +378,15 @@ namespace OnlineShop.Panels
             this.pctMenu.TabIndex = 0;
             this.pctMenu.TabStop = false;
             this.pctMenu.Click += new System.EventHandler(this.pctMenu_Click);
-             
+
             // grandTop
             this.grandTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.grandTop.Controls.Add(this.lblAccount);
             this.grandTop.Controls.Add(this.lblFav);
-            this.grandTop.Controls.Add(this.lblCart);
-            this.grandTop.Controls.Add(this.pctFavRed);
+            this.grandTop.Controls.Add(pctFavRed);
+            this.pctFavRed.Controls.Add(lblCountFav);
             this.grandTop.Controls.Add(this.pctRedCart);
+            this.grandTop.Controls.Add(this.lblCart);
             this.grandTop.Controls.Add(this.pctAccount);
             this.grandTop.Controls.Add(this.pctFavorite);
             this.grandTop.Controls.Add(this.pctCart);
@@ -389,7 +403,7 @@ namespace OnlineShop.Panels
             this.grandTop.Quality = 10;
             this.grandTop.Size = new System.Drawing.Size(1797, 126);
             this.grandTop.TabIndex = 0;
-             
+
             // lblAccount
             this.lblAccount.AutoSize = true;
             this.lblAccount.BackColor = System.Drawing.Color.Transparent;
@@ -415,6 +429,7 @@ namespace OnlineShop.Panels
             this.lblFav.Click += new System.EventHandler(this.pctFav_Click);
             this.lblFav.Cursor = System.Windows.Forms.Cursors.Hand;
 
+
             // lblCart
             this.lblCart.AutoSize = true;
             this.lblCart.BackColor = System.Drawing.Color.Transparent;
@@ -428,27 +443,6 @@ namespace OnlineShop.Panels
             this.lblCart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCart.Click += new System.EventHandler(this.pctCart_Click);
 
-            // pctFavRed
-            this.pctFavRed.BackColor = System.Drawing.Color.Transparent;
-            this.pctFavRed.Controls.Add(this.lblCountFav);
-            this.pctFavRed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctFavRed.Image = Image.FromFile(path + "circle.png");
-            this.pctFavRed.Location = new System.Drawing.Point(1349, 22);
-            this.pctFavRed.Name = "pctFavRed";
-            this.pctFavRed.Size = new System.Drawing.Size(27, 27);
-            this.pctFavRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-             
-            // lblCountFav
-            this.lblCountFav.AutoSize = true;
-            this.lblCountFav.BackColor = System.Drawing.Color.Transparent;
-            this.lblCountFav.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountFav.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCountFav.Location = new System.Drawing.Point(4, 4);
-            this.lblCountFav.Name = "lblCountFav";
-            this.lblCountFav.Size = new System.Drawing.Size(18, 19);
-            this.lblCountFav.TabIndex = 1;
-            this.lblCountFav.Text = "0";
-             
             // pctRedCart
             this.pctRedCart.BackColor = System.Drawing.Color.Transparent;
             this.pctRedCart.Controls.Add(this.lblCountCart);
@@ -458,7 +452,7 @@ namespace OnlineShop.Panels
             this.pctRedCart.Name = "pctRedCart";
             this.pctRedCart.Size = new System.Drawing.Size(27, 27);
             this.pctRedCart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-             
+
             // lblCountCart
             this.lblCountCart.AutoSize = true;
             this.lblCountCart.BackColor = System.Drawing.Color.Transparent;
@@ -469,7 +463,7 @@ namespace OnlineShop.Panels
             this.lblCountCart.Size = new System.Drawing.Size(18, 19);
             this.lblCountCart.TabIndex = 1;
             this.lblCountCart.Text = "0";
-             
+
             // pctAccount
             this.pctAccount.BackColor = System.Drawing.Color.Transparent;
             this.pctAccount.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -481,7 +475,7 @@ namespace OnlineShop.Panels
             this.pctAccount.TabIndex = 0;
             this.pctAccount.TabStop = false;
             this.pctAccount.Click += new System.EventHandler(this.pctAccount_Click);
-             
+
             // pctFavorite
             this.pctFavorite.BackColor = System.Drawing.Color.Transparent;
             this.pctFavorite.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -493,7 +487,7 @@ namespace OnlineShop.Panels
             this.pctFavorite.TabIndex = 0;
             this.pctFavorite.TabStop = false;
             this.pctFavorite.Click += new System.EventHandler(this.pctFav_Click);
-             
+
             // pctCart
             this.pctCart.BackColor = System.Drawing.Color.Transparent;
             this.pctCart.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -505,7 +499,7 @@ namespace OnlineShop.Panels
             this.pctCart.TabIndex = 0;
             this.pctCart.TabStop = false;
             this.pctCart.Click += new System.EventHandler(this.pctCart_Click);
-             
+
             // pctMini
             this.pctMini.BackColor = System.Drawing.Color.Transparent;
             this.pctMini.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -517,7 +511,7 @@ namespace OnlineShop.Panels
             this.pctMini.TabIndex = 0;
             this.pctMini.TabStop = false;
             this.pctMini.Click += new System.EventHandler(this.pctMini_Click);
-             
+
             // pctClose
             this.pctClose.BackColor = System.Drawing.Color.Transparent;
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -529,7 +523,7 @@ namespace OnlineShop.Panels
             this.pctClose.TabIndex = 0;
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-             
+
             // pctLogo
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.Image = Image.FromFile(path + "logoG.gif");
@@ -539,16 +533,42 @@ namespace OnlineShop.Panels
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctLogo.TabIndex = 0;
             this.pctLogo.TabStop = false;
-             
+
             // timeSlideMenu
             this.timeSlideMenu.Interval = 1;
             this.timeSlideMenu.Tick += new System.EventHandler(this.timeSlideMenu_Tick);
 
             pnlCards.Dock = DockStyle.Fill;
-            
-           // this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
 
+            // this.pnlc.cmbSort.SelectedIndexChanged += new EventHandler(cmbSort_SelectedIndexChanged);
+            //  pnlCards.MouseClick += pnlCards_MouseClick;
+
+
+            // pctFavRed
+            this.pctFavRed.BackColor = System.Drawing.Color.FromArgb(18, 18, 40);
+            this.pctFavRed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctFavRed.Image = Image.FromFile(path + "circle.png");
+            this.pctFavRed.Location = new System.Drawing.Point(1349, 22);
+            this.pctFavRed.Name = "pctFavRed";
+            this.pctFavRed.Size = new System.Drawing.Size(27, 27);
+            this.pctFavRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctFavRed.Click += new System.EventHandler(this.pctFav_Click);
+
+            // lblCountFav
+            this.lblCountFav.AutoSize = true;
+            this.lblCountFav.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountFav.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountFav.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCountFav.Location = new System.Drawing.Point(4, 4);
+            this.lblCountFav.Name = "lblCountFav";
+            this.lblCountFav.Size = new System.Drawing.Size(18, 19);
+            this.lblCountFav.TabIndex = 1;
+            this.lblCountFav.Text = favouriteComandService.ctFav(user.getId()).ToString();
+            this.lblCountFav.Click += new System.EventHandler(this.pctFav_Click);
+
+            timerFav.Start();
         }
+
         public void removePnlFromHome(string pnl)
         {
 
@@ -568,6 +588,12 @@ namespace OnlineShop.Panels
 
         }
 
+        private void timerFav_Tick(object sender, EventArgs e)
+        {
+            this.lblCountFav.Text = favouriteComandService.ctFav(user.getId()).ToString();
+
+        }
+
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.form.Close();
@@ -583,16 +609,30 @@ namespace OnlineShop.Panels
 
         }
 
+        PnlFavorites pnlFavorites;
+
         private void pctFav_Click(object sender, EventArgs e)
         {
+            this.removePnlFromHome("PnlCards");
+            List<int> ids = favouriteQueryService.getByClient(user.getId());
+            List<Product> products = productQueryService.getByListId(ids);
+/*
+            for(int i=0;i< products.Count; i++)
+            {
+                MessageBox.Show(products[i].getId().ToString());
+            }*/
 
+            pnlFavorites = new PnlFavorites(form, user, products);
+            this.Controls.Add(pnlFavorites);
         }
+
 
         PnlAccount pnlAccount = null;
 
         private void pctAccount_Click(object sender, EventArgs e)
         {
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
             this.pnlSideBar.Visible = false;
             pnlAccount = new PnlAccount(form, user);
             this.Controls.Add(pnlAccount);
@@ -604,6 +644,7 @@ namespace OnlineShop.Panels
         {
 
             this.removePnlFromHome("PnlAccount");
+            this.removePnlFromHome("PnlFavourites");
             this.pnlSideBar.Visible = true;
 
             PnlCards pnl = GetPnlCards();
@@ -672,6 +713,7 @@ namespace OnlineShop.Panels
                 List<Product> descrescator = new List<Product>();
                 descrescator = pnl.products.OrderByDescending(p => p.getPrice()).ToList();
                 this.removePnlFromHome("PnlCards");
+                this.removePnlFromHome("PnlFavourites");
                 pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
                  pnlc = new PnlCards(ct, form, descrescator, user);
                 this.Controls.Add(pnlc);
@@ -683,6 +725,7 @@ namespace OnlineShop.Panels
                 List<Product> crescator = new List<Product>();
                 crescator = pnl.products.OrderBy(p => p.getPrice()).ToList();
                 this.removePnlFromHome("PnlCards");
+                this.removePnlFromHome("PnlFavourites");
                 pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
 
                 pnlc = new PnlCards(ct, form, crescator, user);
@@ -722,6 +765,7 @@ namespace OnlineShop.Panels
             List<Product> getIt = new List<Product>();
             getIt = productQueryService.getProductWithCateg("it");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -737,6 +781,7 @@ namespace OnlineShop.Panels
             List<Product> getIt = new List<Product>();
             getIt = productQueryService.getProductWithCateg("tv");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -752,6 +797,7 @@ namespace OnlineShop.Panels
             List<Product> getIt = new List<Product>();
             getIt = productQueryService.getProductWithCateg("toy");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -767,6 +813,7 @@ namespace OnlineShop.Panels
             List<Product> getIt = new List<Product>();
             getIt = productQueryService.getProductWithCateg("electro");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -782,6 +829,7 @@ namespace OnlineShop.Panels
             List<Product> getIt = new List<Product>();
             getIt = productQueryService.getProductWithCateg("garden");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -88,6 +89,27 @@ namespace OnlineShop.Favourites.Service
             }
 
             return null;
+        }
+
+        public List<int> getByClient(int idC)
+        {
+            List<int> list = new List<int>();
+
+            for (int i = 0; i < favourites.Count; i++)
+            {
+                if (idC == favourites[i].IdClient)
+                {
+                    list.Add(favourites[i].IdProduct);
+                }
+            }
+
+            return list;
+
+        }
+
+        public void save(List<Favourite> favourites)
+        {
+            this.favourites = favourites;
         }
     }
 }

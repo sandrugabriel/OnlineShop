@@ -21,11 +21,14 @@ namespace OnlineShop.Favourites.Service.interfaces
 
         void deleteCard(Favourite favourite);
 
-        void load();
+       // void load();
+
+        void save(List<Favourite> favourites);
 
         string Path();
 
         int pozProduct(int id, int idProduct);
 
+        int ctFav(int idUser);
     }
 }

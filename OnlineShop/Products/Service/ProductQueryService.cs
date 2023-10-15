@@ -30,7 +30,7 @@ namespace OnlineShop.Products.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + "Products/Data/products.txt";
+            string path = Application.StartupPath + "/data/products.txt";
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -72,5 +72,21 @@ namespace OnlineShop.Products.Service
             return null;
         }
 
+        public List<Product> getByListId(List<int> ids)
+        {
+            List<Product> list = new List<Product>();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                for (int j = 0; j < ids.Count; j++)
+                {
+                    if (ids[j] == products[i].getId()) list.Add(products[i]);
+                }
+
+            }
+
+            return list;
+
+        }
     }
 }

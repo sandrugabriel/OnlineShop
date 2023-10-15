@@ -14,6 +14,13 @@ namespace OnlineShop.Favourites.Service.interfaces
 
         List<Favourite> getByIdClient(int idClient);
 
+        List<int> getByClient(int idC);
+
         Favourite getByIdUserPro(int idUser, int idProduct);
+
+       // void load();
+
+        void save(List<Favourite> favourites);
+
     }
 }
