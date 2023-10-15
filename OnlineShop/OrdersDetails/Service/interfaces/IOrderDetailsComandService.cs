@@ -18,6 +18,17 @@ namespace OnlineShop.OrdersDetails.Service.interfaces
 
         void load();
 
+        void deleteCard(OrderDetalis order);
+
+        void setQuantity(int idUser, int idProduct, int quantity);
+
+        void update();
+
+        int pozOrderDetails(int id);
+
+        void stergere(int id);
+
+        void save(List<OrderDetalis> orderDetalis);
 
     }
 }

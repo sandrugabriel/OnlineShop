@@ -2,6 +2,8 @@
 using OnlineShop.Favourites.Service;
 using OnlineShop.Favourites.Service.interfaces;
 using OnlineShop.Models;
+using OnlineShop.OrdersDetails.Service;
+using OnlineShop.OrdersDetails.Service.interfaces;
 using OnlineShop.Products.Service;
 using OnlineShop.Products.Service.interfaces;
 using OnlineShop.Properties;
@@ -71,6 +73,8 @@ namespace OnlineShop.Panels
 
         IFavouriteComandService favouriteComandService;
         IFavouriteQueryService favouriteQueryService;
+        IOrderDetailsComandService orderDetailsComandService;
+        IOrderDetailsQueryService orderDetailsQueryService;
 
         public PnlHome(Form1 form1, User user1)
         {
@@ -82,6 +86,9 @@ namespace OnlineShop.Panels
             productQueryService = ProductQueryServiceSingleton.Instance;
             favouriteComandService = FavouriteComandServiceSingleton.Instance;
             favouriteQueryService = FavouriteQueryServiceSingleton.Instance;
+            orderDetailsComandService = OrderDetailsComandServiceSingleton.Instance;
+            orderDetailsQueryService = OrderDetailsQueryServiceSingleton.Instance;
+
             list = productQueryService.getProductWithCateg("it");
             ct = 4;
             pnlCards = new PnlCards(ct, form, list, user);
@@ -604,9 +611,21 @@ namespace OnlineShop.Panels
             this.form.WindowState = FormWindowState.Minimized;
         }
 
+        PnlOrder pnlOrder;
+
         private void pctCart_Click(object sender, EventArgs e)
         {
 
+            this.pnlSideBar.Visible = true;
+
+            this.removePnlFromHome("PnlAccount"); 
+            this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlCards");
+            List<int> ids = orderDetailsQueryService.getByIdOrders(user.getId());
+            List<Product> products = productQueryService.getByListId(ids);
+
+            pnlOrder = new PnlOrder(form, user, products);
+            this.Controls.Add(pnlOrder);
         }
 
         PnlFavorites pnlFavorites;
@@ -615,6 +634,7 @@ namespace OnlineShop.Panels
         {
             this.pnlSideBar.Visible = true;
 
+            this.removePnlFromHome("PnlCart");
             this.removePnlFromHome("PnlAccount");
             this.removePnlFromHome("PnlCards");
             List<int> ids = favouriteQueryService.getByClient(user.getId());
@@ -634,6 +654,7 @@ namespace OnlineShop.Panels
 
         private void pctAccount_Click(object sender, EventArgs e)
         {
+            this.removePnlFromHome("PnlCart");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.pnlSideBar.Visible = false;
@@ -645,7 +666,7 @@ namespace OnlineShop.Panels
 
         private void pctBack_Click(object sender, EventArgs e)
         {
-
+            this.removePnlFromHome("PnlCart");
             this.removePnlFromHome("PnlAccount");
             this.removePnlFromHome("PnlFavourites");
             this.pnlSideBar.Visible = true;
@@ -716,6 +737,7 @@ namespace OnlineShop.Panels
                 List<Product> descrescator = new List<Product>();
                 descrescator = pnl.products.OrderByDescending(p => p.getPrice()).ToList();
                 this.removePnlFromHome("PnlCards");
+                this.removePnlFromHome("PnlCart");
                 this.removePnlFromHome("PnlFavourites");
                 pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
                  pnlc = new PnlCards(ct, form, descrescator, user);
@@ -729,6 +751,7 @@ namespace OnlineShop.Panels
                 crescator = pnl.products.OrderBy(p => p.getPrice()).ToList();
                 this.removePnlFromHome("PnlCards");
                 this.removePnlFromHome("PnlFavourites");
+                this.removePnlFromHome("PnlCart");
                 pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
 
                 pnlc = new PnlCards(ct, form, crescator, user);
@@ -769,6 +792,7 @@ namespace OnlineShop.Panels
             getIt = productQueryService.getProductWithCateg("it");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlCart");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -785,6 +809,7 @@ namespace OnlineShop.Panels
             getIt = productQueryService.getProductWithCateg("tv");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlCart");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -801,6 +826,7 @@ namespace OnlineShop.Panels
             getIt = productQueryService.getProductWithCateg("toy");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlCart");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -817,6 +843,7 @@ namespace OnlineShop.Panels
             getIt = productQueryService.getProductWithCateg("electro");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlCart");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -833,6 +860,7 @@ namespace OnlineShop.Panels
             getIt = productQueryService.getProductWithCateg("garden");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlCart");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);

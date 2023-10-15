@@ -109,5 +109,10 @@ namespace OnlineShop.Models
         {
             return new OrderDetalis();
         }
+
+        public string toSave()
+        {
+            return _id.ToString() + "|" + _idUser.ToString() + "|" + _idProduct.ToString() + "|" + _quantities.ToString();
+        }
     }
 }

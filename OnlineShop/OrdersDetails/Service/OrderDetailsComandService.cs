@@ -2,6 +2,7 @@
 using OnlineShop.OrdersDetails.Service.interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace OnlineShop.OrdersDetails.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + Path();
+            string path = Application.StartupPath + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -48,12 +49,12 @@ namespace OnlineShop.OrdersDetails.Service
 
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
+            File.AppendAllText(Application.StartupPath + Path(), text + "\n");
         }
 
         public string Path()
         {
-            return @"OrdersDetails\Data\ordersDetalis.txt";
+            return @"\data\ordersDetalis.txt";
         }
 
         public OrderDetalis getById(int id)
@@ -83,6 +84,79 @@ namespace OnlineShop.OrdersDetails.Service
             }
 
             return id;
+        }
+
+        public int pozOrderDetails(int id)
+        {
+            for (int i = 0; i < ordersDetails.Count; i++)
+            {
+                if (ordersDetails[i].getId() == id)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void stergere(int id)
+        {
+            int p = pozOrderDetails(id);
+            ordersDetails.RemoveAt(p);
+
+        }
+
+        public string toSaveFisier()
+        {
+
+            string t = "";
+
+            for (int i = 0; i < ordersDetails.Count; i++)
+            {
+                t += ordersDetails[i].toSave() + "\n";
+            }
+
+            return t;
+        }
+
+        public void setQuantity(int idUser,int idProduct,int quantity)
+        {
+
+            for(int i=0;i<ordersDetails.Count;i++)
+            {
+                if(idUser == ordersDetails[i].getIdUser() && idProduct == ordersDetails[i].getIdProduct()) {
+                    ordersDetails[i].setQuantities(quantity);
+                }
+            }
+
+        }
+
+        public void update()
+        {
+            string path = Application.StartupPath + Path();
+            StreamWriter writer = new StreamWriter(path);
+            writer.Write(this.toSaveFisier());
+            writer.Close();
+        }
+
+        public void deleteCard(OrderDetalis order)
+        {
+
+            this.stergere(order.getId());
+            //favourites.Remove(favourite);
+
+            string path = Application.StartupPath + @"/data/ordersDetalis.txt";
+
+            StreamWriter stream = new StreamWriter(path);
+
+            stream.Write(this.toSaveFisier());
+
+            stream.Close();
+        }
+
+        public void save(List<OrderDetalis> orderDetalis)
+        {
+            this.ordersDetails = orderDetalis;
         }
     }
 }

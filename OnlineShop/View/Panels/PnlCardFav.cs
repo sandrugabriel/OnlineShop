@@ -161,7 +161,7 @@ namespace OnlineShop.View.Panels
             Favourite favourite = favouriteQueryService.getByIdUserPro(user.getId(), product.getId());
 
             favouriteComandService.deleteCard(favourite);
-
+            favouriteComandService.save(favourites);
             this.Visible = false;
         }
 

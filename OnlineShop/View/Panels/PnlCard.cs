@@ -3,6 +3,8 @@ using OnlineShop.Favourites.Models;
 using OnlineShop.Favourites.Service;
 using OnlineShop.Favourites.Service.interfaces;
 using OnlineShop.Models;
+using OnlineShop.OrdersDetails.Service;
+using OnlineShop.OrdersDetails.Service.interfaces;
 using OnlineShop.Users.Models;
 using System;
 using System.Collections.Generic;
@@ -40,6 +42,11 @@ namespace OnlineShop.Panels
 
         List<Favourite> favourites = new List<Favourite>();
 
+        IOrderDetailsComandService orderDetailsComandService;
+        IOrderDetailsQueryService orderDetailsQueryService;
+
+        List<OrderDetalis> orderDetalis;
+
         public PnlCard(Form1 form1, Product product1, User user1) {
 
             this.form = form1;
@@ -48,6 +55,11 @@ namespace OnlineShop.Panels
 
             favouriteQueryService = FavouriteQueryServiceSingleton.Instance;
             favouriteComandService = FavouriteComandServiceSingleton.Instance;
+
+            orderDetailsComandService = OrderDetailsComandServiceSingleton.Instance;
+            orderDetailsQueryService = OrderDetailsQueryServiceSingleton.Instance;
+
+            orderDetalis = orderDetailsQueryService.getMyOrdersDetails(user.getId());  
 
             favourites = favouriteQueryService.getByIdClient(user.getId());
 
@@ -181,8 +193,12 @@ namespace OnlineShop.Panels
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
+            string t = orderDetailsComandService.generareIdOrder().ToString()+"|"+user.getId().ToString()+"|"+product.getId().ToString() + "|" + 1;
+            OrderDetalis order = new OrderDetalis(t);
+            orderDetailsComandService.saveFisier(t);
+            orderDetalis.Add(order);
 
-
+            orderDetailsComandService.save(orderDetalis);
         }
 
         private void pctFav_Click(object sender, EventArgs e)

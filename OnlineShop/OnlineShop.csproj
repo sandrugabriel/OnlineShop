@@ -107,6 +107,12 @@
     <Compile Include="View\Mockups\MockupCart.Designer.cs">
       <DependentUpon>MockupCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Mockups\MockupCartCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\MockupCartCard.Designer.cs">
+      <DependentUpon>MockupCartCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Mockups\MockupFavorites.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     <Compile Include="View\Panels\PnlCard.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Panels\PnlCardCart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\PnlCardFav.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -170,6 +179,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\PnlLogin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\PnlOrder.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\PnlSignUp.cs">
@@ -208,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\MockupCartCard.resx">
+      <DependentUpon>MockupCartCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\MockupFavorites.resx">
       <DependentUpon>MockupFavorites.cs</DependentUpon>
