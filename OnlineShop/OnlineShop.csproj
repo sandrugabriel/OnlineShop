@@ -39,6 +39,9 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Siticone.Desktop.UI">
       <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Siticone.Desktop.UI.2.0.9.0\Siticone.Desktop.UI.2.0.0.9\Siticone.Desktop.UI.dll</HintPath>
@@ -67,6 +70,7 @@
     <Compile Include="Favourites\Service\interfaces\IFavouriteQueryService.cs" />
     <Compile Include="OrdersDetails\Service\OrderDetailsComandServiceSingleton.cs" />
     <Compile Include="Products\Service\ProductComandServiceSingleton.cs" />
+    <Compile Include="Users\Service\UserComandServiceSingleton.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Favourites\Data\" />
+    <Folder Include="Users\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
@@ -266,7 +271,6 @@
     <None Include="Resources\camera.png" />
     <None Include="Resources\camera %281%29.png" />
     <None Include="Resources\left-arrow.png" />
-    <Content Include="Users\Data\users.txt" />
     <None Include="Resources\new-moon.png" />
     <None Include="Resources\fast-forward-double-right-arrows-symbol.png" />
     <None Include="Resources\trash-can %283%29.png" />

@@ -32,13 +32,13 @@ namespace OnlineShop.Users.Service
 
         public string Path()
         {
-            return @"Users\Data\users.txt";
+            return @"\data\users.txt";
         }
 
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + Path();
+            string path = Application.StartupPath + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -54,7 +54,7 @@ namespace OnlineShop.Users.Service
 
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + Path(), text + "\n");
+            File.AppendAllText(Application.StartupPath + Path(), text + "\n");
         }
 
         public User getById(int id)
@@ -84,6 +84,43 @@ namespace OnlineShop.Users.Service
             }
 
             return id;
+        }
+
+        public string toSaveFisier()
+        {
+            string t = "";
+
+            for(int i=0;i<users.Count; i++)
+            {
+                t += users[i].toSave() + "\n";
+            }
+            return t;
+        }
+
+        public void update()
+        {
+            string path = Application.StartupPath + Path();
+            StreamWriter writer = new StreamWriter(path);
+            writer.Write(this.toSaveFisier());
+            writer.Close();
+        }
+
+        public void setAll(int id,string name, string email, string pass, string address, string phone)
+        {
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (id == users[i].getId())
+                {
+                    users[i].setName(name);
+                    users[i].setEmail(email);
+                    users[i].setAddress(address);
+                    users[i].setPhone(phone);
+                    users[i].setPassword(email);
+
+                }
+            }
+
         }
 
     }

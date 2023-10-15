@@ -1,11 +1,16 @@
 ﻿using OnlineShop.Users.Models;
+using OnlineShop.Users.Service;
+using OnlineShop.Users.Service.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
 
 namespace OnlineShop.Panels
 {
@@ -13,7 +18,6 @@ namespace OnlineShop.Panels
     {
         Form1 form;
         User user;
-
 
         private System.Windows.Forms.Label lblTile;
         private System.Windows.Forms.Label lblName;
@@ -26,19 +30,20 @@ namespace OnlineShop.Panels
         private System.Windows.Forms.Label lblPhone;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtAddress;
         private System.Windows.Forms.Label lblAddress;
-        private Bunifu.Framework.UI.BunifuCheckbox chk2FA;
-        private System.Windows.Forms.PictureBox pctDesign;
-        private System.Windows.Forms.Label lbl2fa;
         private System.Windows.Forms.Button btnSave;
         private Bunifu.Framework.UI.BunifuElipse eliBtn;
         public Panel panel1;
         public PictureBox pctBack;
+
+        IUserComandService userComandService;
 
         public PnlAccount(Form1 form1, User user1)
         {
 
             this.form = form1;
             this.user = user1;
+
+            userComandService = UserComandServiceSingleton.Instance;
 
             //PnlAccount
             this.AutoSize = true;
@@ -49,7 +54,6 @@ namespace OnlineShop.Panels
 
             this.pctBack = new PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chk2FA = new Bunifu.Framework.UI.BunifuCheckbox();
             this.txtAddress = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtPhone = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtPass = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -61,8 +65,6 @@ namespace OnlineShop.Panels
             this.txtName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblTile = new System.Windows.Forms.Label();
-            this.lbl2fa = new System.Windows.Forms.Label();
-            this.pctDesign = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.eliBtn = new Bunifu.Framework.UI.BunifuElipse();
 
@@ -78,20 +80,16 @@ namespace OnlineShop.Panels
             this.pctBack.BackColor = Color.Transparent;
 
             // panel1
-            this.panel1.BackgroundImage = global::OnlineShop.Properties.Resources._3;
+            this.panel1.BackgroundImage = Image.FromFile(Application.StartupPath + @"\Images\3.png");
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(460, 72);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(879, 964);
 
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.pctDesign);
-            this.panel1.Controls.Add(this.chk2FA);
-            this.panel1.Controls.Add(this.pctDesign);
             this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Controls.Add(this.txtPhone);
             this.panel1.Controls.Add(this.txtPass);
-            this.panel1.Controls.Add(this.lbl2fa);
             this.panel1.Controls.Add(this.lblAddress);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.lblPhone);
@@ -100,18 +98,6 @@ namespace OnlineShop.Panels
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.lblTile);
-             
-            // chk2FA
-            this.chk2FA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.chk2FA.ChechedOffColor = System.Drawing.Color.White;
-            this.chk2FA.Checked = true;
-            this.chk2FA.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.chk2FA.ForeColor = System.Drawing.Color.White;
-            this.chk2FA.Location = new System.Drawing.Point(685, 719);
-            this.chk2FA.Margin = new System.Windows.Forms.Padding(7);
-            this.chk2FA.Name = "chk2FA";
-            this.chk2FA.Size = new System.Drawing.Size(20, 20);
-            this.chk2FA.TabIndex = 5;
              
             // txtAddress
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(43)))));
@@ -131,6 +117,7 @@ namespace OnlineShop.Panels
             this.txtAddress.Size = new System.Drawing.Size(544, 49);
             this.txtAddress.TabIndex = 4;
             this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAddress.Text = user.getAddress();
             
             // txtPhone
             this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(43)))));
@@ -150,6 +137,7 @@ namespace OnlineShop.Panels
             this.txtPhone.Size = new System.Drawing.Size(544, 49);
             this.txtPhone.TabIndex = 4;
             this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtPhone.Text = user.getPhone();
              
             // txtPass
             this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(43)))));
@@ -158,7 +146,7 @@ namespace OnlineShop.Panels
             this.txtPass.ForeColor = System.Drawing.Color.White;
             this.txtPass.HintForeColor = System.Drawing.Color.Empty;
             this.txtPass.HintText = "";
-            this.txtPass.isPassword = false;
+            this.txtPass.isPassword = true;
             this.txtPass.LineFocusedColor = System.Drawing.Color.AliceBlue;
             this.txtPass.LineIdleColor = System.Drawing.Color.White;
             this.txtPass.LineMouseHoverColor = System.Drawing.Color.AliceBlue;
@@ -169,7 +157,8 @@ namespace OnlineShop.Panels
             this.txtPass.Size = new System.Drawing.Size(544, 49);
             this.txtPass.TabIndex = 4;
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-             
+            this.txtPass.Text = user.getPassword(); 
+
             // lblAddress
             this.lblAddress.AutoSize = true;
             this.lblAddress.BackColor = System.Drawing.Color.Transparent;
@@ -199,7 +188,8 @@ namespace OnlineShop.Panels
             this.txtEmail.Size = new System.Drawing.Size(544, 49);
             this.txtEmail.TabIndex = 4;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-             
+            this.txtEmail.Text = user.getEmail(); 
+
             // lblPhone
             this.lblPhone.AutoSize = true;
             this.lblPhone.BackColor = System.Drawing.Color.Transparent;
@@ -251,7 +241,8 @@ namespace OnlineShop.Panels
             this.txtName.Size = new System.Drawing.Size(544, 49);
             this.txtName.TabIndex = 4;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            
+            this.txtName.Text = user.getName();
+
             // lblName
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
@@ -273,24 +264,6 @@ namespace OnlineShop.Panels
             this.lblTile.Size = new System.Drawing.Size(163, 40);
             this.lblTile.TabIndex = 0;
             this.lblTile.Text = "SETTINGS";
-             
-            // lbl2fa
-            this.lbl2fa.AutoSize = true;
-            this.lbl2fa.BackColor = System.Drawing.Color.Transparent;
-            this.lbl2fa.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2fa.ForeColor = System.Drawing.Color.White;
-            this.lbl2fa.Location = new System.Drawing.Point(157, 708);
-            this.lbl2fa.Name = "lbl2fa";
-            this.lbl2fa.Size = new System.Drawing.Size(360, 25);
-            this.lbl2fa.TabIndex = 2;
-            this.lbl2fa.Text = "Two-Factor Authentication (2FA)";
-             
-            // pctDesign
-            this.pctDesign.Location = new System.Drawing.Point(161, 759);
-            this.pctDesign.Name = "pctDesign";
-            this.pctDesign.Size = new System.Drawing.Size(544, 3);
-            this.pctDesign.TabIndex = 6;
-            this.pctDesign.TabStop = false;
             
             // btnSave
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -299,19 +272,30 @@ namespace OnlineShop.Panels
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(218, 795);
+            this.btnSave.Location = new System.Drawing.Point(218, 785);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(427, 57);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save Settings";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new EventHandler(btnSave_Click); ;
              
             // eliBtn
             this.eliBtn.ElipseRadius = 25;
             this.eliBtn.TargetControl = this.btnSave;
-
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            user.setName(txtName.Text);
+            user.setEmail(txtEmail.Text);
+            user.setAddress(txtAddress.Text);
+            user.setPhone(txtPhone.Text);
+            user.setPassword(txtPass.Text);
+
+            userComandService.setAll(user.getId(), txtName.Text, txtEmail.Text, txtPass.Text, txtAddress.Text, txtPhone.Text);
+            userComandService.update();
+
+        }
 
     }
 }

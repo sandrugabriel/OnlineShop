@@ -17,6 +17,8 @@ namespace OnlineShop.Users.Service.interfaces
 
         void load();
 
+        void setAll(int id, string name,string email, string pass, string address, string phone);
 
+        void update();
     }
 }
