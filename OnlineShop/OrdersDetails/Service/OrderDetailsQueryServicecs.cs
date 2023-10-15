@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Favourites.Models;
+using OnlineShop.Models;
 using OnlineShop.OrdersDetails.Service.interfaces;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace OnlineShop.OrdersDetails.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + @"OrdersDetails\Data\ordersDetalis.txt";
+            string path = Application.StartupPath + @"\data\ordersDetalis.txt";
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -59,11 +60,38 @@ namespace OnlineShop.OrdersDetails.Service
 
             for(int i = 0; i < ordersDetails.Count; i++)
             {
-                if (ordersDetails[i].getId() == idUser) myorderDetalis.Add(ordersDetails[i]);
+                if (ordersDetails[i].getIdUser() == idUser) myorderDetalis.Add(ordersDetails[i]);
             }
 
             return myorderDetalis;
         }
+
+        public List<int> getByIdOrders(int idUser)
+        {
+            List<int> myorderDetalis = new List<int>();
+
+            for (int i = 0; i < ordersDetails.Count; i++)
+            {
+                if (ordersDetails[i].getIdUser() == idUser) myorderDetalis.Add(ordersDetails[i].getIdProduct());
+            }
+
+            return myorderDetalis;
+        }
+
+        public OrderDetalis getByIdUserPro(int idUser, int idPro)
+        {
+
+            for (int i = 0; i < ordersDetails.Count; i++)
+            {
+                if (ordersDetails[i].getIdProduct() == idPro && ordersDetails[i].getIdUser() == idUser)
+                {
+                    return ordersDetails[i];
+                }
+            }
+
+            return null;
+        }
+
 
         public OrderDetalis getById(int id)
         {
