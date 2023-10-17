@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Favourites.Models;
+using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,5 +31,6 @@ namespace OnlineShop.OrdersDetails.Service.interfaces
 
         void save(List<OrderDetalis> orderDetalis);
 
+        int ctCart(int idUser);
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Favourites\Service\interfaces\IFavouriteComandService.cs" />
     <Compile Include="Favourites\Service\interfaces\IFavouriteQueryService.cs" />
     <Compile Include="OrdersDetails\Service\OrderDetailsComandServiceSingleton.cs" />
+    <Compile Include="Orders\Service\OrderComandServiceSingleton.cs" />
     <Compile Include="Products\Service\ProductComandServiceSingleton.cs" />
     <Compile Include="Users\Service\UserComandServiceSingleton.cs" />
     <Compile Include="View\Form1.cs">
@@ -131,11 +132,11 @@
     <Compile Include="View\Mockups\MockupLogin.Designer.cs">
       <DependentUpon>MockupLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupOrder.cs">
+    <Compile Include="View\Mockups\MockupPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupOrder.Designer.cs">
-      <DependentUpon>MockupOrder.cs</DependentUpon>
+    <Compile Include="View\Mockups\MockupPayment.Designer.cs">
+      <DependentUpon>MockupPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Mockups\MockupSignUp.cs">
       <SubType>Form</SubType>
@@ -182,6 +183,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\PnlOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\PnlPayment.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\PnlSignUp.cs">
@@ -233,8 +237,8 @@
     <EmbeddedResource Include="View\Mockups\MockupLogin.resx">
       <DependentUpon>MockupLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupOrder.resx">
-      <DependentUpon>MockupOrder.cs</DependentUpon>
+    <EmbeddedResource Include="View\Mockups\MockupPayment.resx">
+      <DependentUpon>MockupPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\MockupSignUp.resx">
       <DependentUpon>MockupSignUp.cs</DependentUpon>
@@ -264,12 +268,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Favourites\Data\" />
+    <Folder Include="Orders\Data\" />
     <Folder Include="Users\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
-    <Content Include="Orders\Data\orders.txt" />
     <Content Include="Products\Data\products.txt" />
+    <None Include="Resources\right-arrow.png" />
+    <None Include="Resources\arrow-down-sign-to-navigate.png" />
     <None Include="Resources\menu-button-of-three-horizontal-lines %281%29.png" />
     <None Include="Resources\menu %283%29.png" />
     <None Include="Resources\responsive.png" />

@@ -572,6 +572,7 @@ namespace OnlineShop.Panels
             this.lblCountFav.TabIndex = 1;
             this.lblCountFav.Text = favouriteComandService.ctFav(user.getId()).ToString();
             this.lblCountFav.Click += new System.EventHandler(this.pctFav_Click);
+            this.lblCountCart.Text = orderDetailsComandService.ctCart(user.getId()).ToString();
 
             timerFav.Start();
         }
@@ -598,7 +599,7 @@ namespace OnlineShop.Panels
         private void timerFav_Tick(object sender, EventArgs e)
         {
             this.lblCountFav.Text = favouriteComandService.ctFav(user.getId()).ToString();
-
+            this.lblCountCart.Text =orderDetailsComandService.ctCart(user.getId()).ToString();
         }
 
         private void pctClose_Click(object sender, EventArgs e)

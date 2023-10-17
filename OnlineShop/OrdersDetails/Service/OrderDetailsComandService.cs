@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Favourites.Models;
+using OnlineShop.Models;
 using OnlineShop.OrdersDetails.Service.interfaces;
 using System;
 using System.Collections.Generic;
@@ -158,5 +159,18 @@ namespace OnlineShop.OrdersDetails.Service
         {
             this.ordersDetails = orderDetalis;
         }
+
+        public int ctCart(int idUser)
+        {
+            int ct = 0;
+            for (int i = 0; i < ordersDetails.Count; i++)
+            {
+                if (ordersDetails[i].getIdUser() == idUser)
+                    ct++;
+            }
+
+            return ct;
+        }
+
     }
 }

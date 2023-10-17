@@ -32,7 +32,7 @@ namespace OnlineShop.Orders
 
         public void load() {
 
-            string path = Application.StartupPath.Remove(44) + Path();
+            string path = Application.StartupPath + Path();
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -48,12 +48,12 @@ namespace OnlineShop.Orders
 
         public string Path()
         {
-            return @"Orders\Data\orders.txt";
+            return @"\data\orders.txt";
         }
 
         public void saveFisier(string text)
         {
-            File.AppendAllText(Application.StartupPath.Remove(44) + Path(),text+"\n");
+            File.AppendAllText(Application.StartupPath + Path(),text+"\n");
         }
 
         public Order getById(int id)
