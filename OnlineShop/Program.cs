@@ -24,20 +24,11 @@ namespace OnlineShop
 
             if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
-/*
-            for(int i = 12; i <= 30; i++)
-            {
-                StreamWriter streamWriter = new StreamWriter(@"C:\Mycode\CSHARP\Apps\OnlineShop\OnlineShop\Descriptions\"+i.ToString()+".txt");
-                streamWriter.WriteLine("");
-            }*/
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            /*
-                        FavouriteQueryService favouriteQueryService = new FavouriteQueryService();
-                        favouriteQueryService.af();*/
+            
 
         }
 

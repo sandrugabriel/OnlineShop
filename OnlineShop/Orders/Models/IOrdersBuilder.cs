@@ -11,8 +11,10 @@ namespace OnlineShop.Orders.Service.interafaces
     {
 
         Order Id(int id);
-        Order Price(double price);
+        Order Quantity(int q);
         Order IdUser(int id);
-     
+        Order Address(string address);
+
+        Order Phone(string phone);
     }
 }

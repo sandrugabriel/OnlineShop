@@ -14,33 +14,38 @@ namespace OnlineShop.Models
     {
 
         private int _id;
-        private double _price;
-        private List<int> idProducts = new List<int>();
         private int _idUser;
+        private int _idProduct;
+        private int _quantity;
+        private string _address;
+        private string phone;
 
         public int getId() { return _id; }
 
         public void setId(int value) {  _id = value; }
 
-        public double getPrice() {return _price; }
+        public double getquantity() {return _quantity; }
 
-        public void setPrice(double price) { _price = price; }
+        public void setPrice(int q) { _quantity = q; }
 
-        public List<int> getIdProducts() { return idProducts; }
+        public int getIdProduct() { return _idProduct; }
 
-        public void setIdProducts(List<int> ids) {  idProducts = ids; }
+        public void setIdProduct(int id) {  _idProduct = id; }
 
         public int getIdUser() {return _idUser;}
 
         public void setIdUser(int  value) { _idUser = value; }
 
-        public Order(int id, double price, List<int> idProducts, int idUser)
+        public Order(int id, int idUser, int idProduct, int quantities, string address, string phone)
         {
             _id = id;
-            _price = price;
             _idUser = idUser;
-            this.idProducts = idProducts;
+            _idProduct = idProduct;
+            _quantity = quantities;
+            _address = address;
+            this.phone = phone;
         }
+
 
         public Order(string text)
         {
@@ -48,10 +53,10 @@ namespace OnlineShop.Models
 
             _id = int.Parse(prop[0]);
             _idUser = int.Parse(prop[1]);
-            _price = double.Parse(prop[2]);
-
-            for (int i = 3; i < prop.Length; i++)
-                idProducts.Add(int.Parse(prop[i]));
+            _idProduct = int.Parse(prop[2]);
+            _quantity = int.Parse(prop[3]);
+            _address = prop[4];
+            this.phone = prop[5];
 
         }
 
@@ -62,18 +67,18 @@ namespace OnlineShop.Models
             string t = "";
 
             t += "Id: " + _id.ToString() + "\n";
-            t += "Price: " + _price.ToString() + "\n";
+            t += "Quantity: " + _quantity.ToString() + "\n";
 
             return t;
         }
 
         public int CompareTo(Order other)
         {
-            if (_price > other._price)
+            if (_quantity > other._quantity)
             {
                 return 1;
             }
-            else if (_price == other._price)
+            else if (_quantity == other._quantity)
             {
                 return 0;
             }
@@ -95,17 +100,29 @@ namespace OnlineShop.Models
                 return this;
         }
 
-        public Order Price(double price)
+        public Order Quantity(int q)
         {
-            this._price = price;
+            this._quantity = q;
             return this;
         }
 
-        public Order IdProducts(List<int> products) {
+        public Order IdProduct(int product) {
         
-            this.idProducts = products;
+            this._idProduct = product;
             return this;
         
+        }
+
+        public Order Address(string address)
+        {
+            this._address = address;
+            return this;
+        }
+
+        public Order Phone(string phone)
+        {
+            this.phone = phone;
+            return this;
         }
 
         public static Order Build()

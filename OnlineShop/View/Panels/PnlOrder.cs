@@ -291,6 +291,8 @@ namespace OnlineShop.View.Panels
         private void btnContinues_Click(object sender, EventArgs e)
         {
 
+            this.Controls.Clear();
+            this.Controls.Add(new PnlPayment(form,user,totalPrice,orders));
 
         }
     }

@@ -30,7 +30,7 @@ namespace OnlineShop.Orders.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + @"Orders\Data\orders.txt";
+            string path = Application.StartupPath + @"\data\orders.txt";
 
             StreamReader streamReader = new StreamReader(path);
 

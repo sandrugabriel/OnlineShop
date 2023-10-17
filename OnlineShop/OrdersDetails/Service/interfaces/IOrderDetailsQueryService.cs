@@ -18,6 +18,8 @@ namespace OnlineShop.OrdersDetails.Service.interfaces
 
         OrderDetalis getByIdUserPro(int idUser, int idPro);
 
+        void save(List<OrderDetalis> ordersDetalis);
+
         List<int> getByIdOrders(int idUser);
     }
 }

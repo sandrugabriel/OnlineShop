@@ -93,6 +93,11 @@ namespace OnlineShop.OrdersDetails.Service
         }
 
 
+        public void save(List<OrderDetalis> orderDetalis)
+        {
+            this.ordersDetails = orderDetalis;
+        }
+
         public OrderDetalis getById(int id)
         {
             for (int i = 0; i < ordersDetails.Count; i++)

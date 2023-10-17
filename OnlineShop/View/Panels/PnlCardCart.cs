@@ -165,8 +165,8 @@ namespace OnlineShop.View.Panels
             this.Visible = false;
             OrderDetalis order = orderDetailsQueryService.getByIdUserPro(user.getId(), product.getId());
             orderDetalis.RemoveAt(orderDetailsComandService.pozOrderDetails(order.getId()));
-
             orderDetailsComandService.deleteCard(order);
+
             orderDetailsComandService.save(orderDetalis);
         }
 
