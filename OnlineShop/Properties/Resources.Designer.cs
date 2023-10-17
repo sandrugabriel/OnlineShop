@@ -93,6 +93,16 @@ namespace OnlineShop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addCart {
+            get {
+                object obj = ResourceManager.GetObject("addCart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_down_sign_to_navigate {
             get {
                 object obj = ResourceManager.GetObject("arrow-down-sign-to-navigate", resourceCulture);
@@ -226,6 +236,16 @@ namespace OnlineShop.Properties {
         internal static System.Drawing.Bitmap heart__2_ {
             get {
                 object obj = ResourceManager.GetObject("heart (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap heart__3_ {
+            get {
+                object obj = ResourceManager.GetObject("heart (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
