@@ -158,6 +158,12 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
+    <Compile Include="View\Mockups\MockupView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\MockupView.Designer.cs">
+      <DependentUpon>MockupView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Panels\PnlAccount.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     <Compile Include="Users\Service\UserComandService.cs" />
     <Compile Include="Users\Service\UserQueryservice.cs" />
     <Compile Include="Users\Service\UserQueryServiceSingleton.cs" />
+    <Compile Include="View\Panels\PnlView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +262,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Mockups\MockupView.resx">
+      <DependentUpon>MockupView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -272,6 +284,8 @@
     <Folder Include="Users\Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\heart %283%29.png" />
+    <None Include="bin\Debug\Images\addCart.png" />
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Products\Data\products.txt" />
     <None Include="Resources\right-arrow.png" />

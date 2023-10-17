@@ -6,6 +6,7 @@ using OnlineShop.Models;
 using OnlineShop.OrdersDetails.Service;
 using OnlineShop.OrdersDetails.Service.interfaces;
 using OnlineShop.Users.Models;
+using OnlineShop.View.Panels;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -36,9 +37,9 @@ namespace OnlineShop.Panels
         private Form1 form;
         private User user;
         private Product product;
+        private string path;
         private IFavouriteQueryService favouriteQueryService;
         private IFavouriteComandService favouriteComandService;
-        private string path;
 
         List<Favourite> favourites = new List<Favourite>();
 
@@ -69,6 +70,7 @@ namespace OnlineShop.Panels
             this.Size = new System.Drawing.Size(336, 437);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PnlCard";
+            this.Click += new EventHandler(this_Click);
             this.BackColor = System.Drawing.SystemColors.ControlLight;
 
             this.pctUnFav = new System.Windows.Forms.PictureBox();
@@ -99,6 +101,7 @@ namespace OnlineShop.Panels
             this.lblPrice.Size = new System.Drawing.Size(110, 28);
             this.lblPrice.TabIndex = 5;
             this.lblPrice.Text = product.getPrice().ToString("F2") + "Lei";
+            this.lblPrice.Click += new EventHandler(this_Click);
 
             //this.lblCountFav.BringToFront();
 
@@ -111,6 +114,7 @@ namespace OnlineShop.Panels
             this.lblPRP.Name = "lblPRP";
             this.lblPRP.Size = new System.Drawing.Size(100, 20);
             this.lblPRP.Text = "PRP: " + (product.getPrice() * 1.5).ToString("F2") + "Lei";
+            this.lblPRP.Click += new EventHandler(this_Click);
 
             // lblTile
             this.lblTile.AutoSize = false;
@@ -122,6 +126,7 @@ namespace OnlineShop.Panels
             this.lblTile.Size = new System.Drawing.Size(333, 75);
             this.lblTile.Text = product.getName();
             this.lblTile.AutoEllipsis = true;
+            this.lblTile.Click += new EventHandler(this_Click);
 
             // pctFav
             this.pctFav.Image = Image.FromFile(path + "fav.png");
@@ -162,6 +167,7 @@ namespace OnlineShop.Panels
             this.pctImage.Name = "pctImage";
             this.pctImage.Size = new System.Drawing.Size(325, 229);
             this.pctImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctImage.Click += new EventHandler(this_Click);
 
             this.eliImage.TargetControl = pctImage;
             this.eliImage.ElipseRadius = 40;
@@ -232,5 +238,10 @@ namespace OnlineShop.Panels
 
         }
 
+        private void this_Click(object sender, EventArgs e)
+        {
+            this.form.removePnl("PnlHome");
+            this.form.Controls.Add(new PnlView(form,user,product));
+        }
     }
 }
