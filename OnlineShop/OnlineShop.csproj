@@ -50,6 +50,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +80,48 @@
     </Compile>
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupAdminEditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupAdminEditClient.Designer.cs">
+      <DependentUpon>MockupAdminEditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupEditOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupEditOrders.Designer.cs">
+      <DependentUpon>MockupEditOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupEditProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupEditProducts.Designer.cs">
+      <DependentUpon>MockupEditProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupHomeAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupHomeAdmin.Designer.cs">
+      <DependentUpon>MockupHomeAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupProductsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupProductsEdit.Designer.cs">
+      <DependentUpon>MockupProductsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupTopFavorite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupTopFavorite.Designer.cs">
+      <DependentUpon>MockupTopFavorite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupTopProductsOrderd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupTopProductsOrderd.Designer.cs">
+      <DependentUpon>MockupTopProductsOrderd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Mockups\Customers\MockupAccount.cs">
       <SubType>Form</SubType>
@@ -221,6 +264,27 @@
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupAdminEditClient.resx">
+      <DependentUpon>MockupAdminEditClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupEditOrders.resx">
+      <DependentUpon>MockupEditOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupEditProducts.resx">
+      <DependentUpon>MockupEditProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupHomeAdmin.resx">
+      <DependentUpon>MockupHomeAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupProductsEdit.resx">
+      <DependentUpon>MockupProductsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupTopFavorite.resx">
+      <DependentUpon>MockupTopFavorite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupTopProductsOrderd.resx">
+      <DependentUpon>MockupTopProductsOrderd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\Customers\MockupAccount.resx">
       <DependentUpon>MockupAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,10 +348,12 @@
     <Folder Include="Favourites\Data\" />
     <Folder Include="Orders\Data\" />
     <Folder Include="Users\Data\" />
-    <Folder Include="View\Mockups\Admin\" />
     <Folder Include="View\Panels\Admin\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\camera %281%291.png" />
+    <None Include="Resources\trash-can %281%291.png" />
+    <None Include="Resources\trash-can %282%291.png" />
     <None Include="Resources\heart %283%29.png" />
     <None Include="bin\Debug\Images\addCart.png" />
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />

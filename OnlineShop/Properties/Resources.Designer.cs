@@ -133,6 +133,16 @@ namespace OnlineShop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap camera__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("camera (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle__2_ {
             get {
                 object obj = ResourceManager.GetObject("circle (2)", resourceCulture);
@@ -503,9 +513,29 @@ namespace OnlineShop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap trash_can__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("trash-can (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap trash_can__2_ {
             get {
                 object obj = ResourceManager.GetObject("trash-can (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_can__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("trash-can (2)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
