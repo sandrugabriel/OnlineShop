@@ -33,7 +33,7 @@ namespace OnlineShop.Users.Service
         public void load()
         {
 
-            string path = Application.StartupPath.Remove(44) + @"Users\Data\users.txt";
+            string path = Application.StartupPath + @"\data\users.txt";
 
             StreamReader streamReader = new StreamReader(path);
 
