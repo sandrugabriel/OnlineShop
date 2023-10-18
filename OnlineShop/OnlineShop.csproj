@@ -71,6 +71,8 @@
     <Compile Include="OrdersDetails\Service\OrderDetailsComandServiceSingleton.cs" />
     <Compile Include="Orders\Service\OrderComandServiceSingleton.cs" />
     <Compile Include="Products\Service\ProductComandServiceSingleton.cs" />
+    <Compile Include="Users\Models\UserPermission.cs" />
+    <Compile Include="Users\Models\UserRole.cs" />
     <Compile Include="Users\Service\UserComandServiceSingleton.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
@@ -78,70 +80,70 @@
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupAccount.cs">
+    <Compile Include="View\Mockups\Customers\MockupAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupAccount.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupAccount.Designer.cs">
       <DependentUpon>MockupAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupAllCards.cs">
+    <Compile Include="View\Mockups\Customers\MockupAllCards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupAllCards.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupAllCards.Designer.cs">
       <DependentUpon>MockupAllCards.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupCard.cs">
+    <Compile Include="View\Mockups\Customers\MockupCard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupCard.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupCard.Designer.cs">
       <DependentUpon>MockupCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupCardFav.cs">
+    <Compile Include="View\Mockups\Customers\MockupCardFav.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupCardFav.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupCardFav.Designer.cs">
       <DependentUpon>MockupCardFav.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupCart.cs">
+    <Compile Include="View\Mockups\Customers\MockupCart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupCart.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupCart.Designer.cs">
       <DependentUpon>MockupCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupCartCard.cs">
+    <Compile Include="View\Mockups\Customers\MockupCartCard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupCartCard.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupCartCard.Designer.cs">
       <DependentUpon>MockupCartCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupFavorites.cs">
+    <Compile Include="View\Mockups\Customers\MockupFavorites.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupFavorites.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupFavorites.Designer.cs">
       <DependentUpon>MockupFavorites.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupHome.cs">
+    <Compile Include="View\Mockups\Customers\MockupHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupHome.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupHome.Designer.cs">
       <DependentUpon>MockupHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupLogin.cs">
+    <Compile Include="View\Mockups\Customers\MockupLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupLogin.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupLogin.Designer.cs">
       <DependentUpon>MockupLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupPayment.cs">
+    <Compile Include="View\Mockups\Customers\MockupPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupPayment.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupPayment.Designer.cs">
       <DependentUpon>MockupPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\MockupSignUp.cs">
+    <Compile Include="View\Mockups\Customers\MockupSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupSignUp.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupSignUp.Designer.cs">
       <DependentUpon>MockupSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="OrdersDetails\Service\interfaces\IOrderDetailsComandService.cs" />
@@ -158,43 +160,43 @@
     <Compile Include="Orders\Models\Order.cs" />
     <Compile Include="OrdersDetails\Models\OrderDetalis.cs" />
     <Compile Include="Orders\Service\OrderQueryService.cs" />
-    <Compile Include="View\Mockups\MockupView.cs">
+    <Compile Include="View\Mockups\Customers\MockupView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mockups\MockupView.Designer.cs">
+    <Compile Include="View\Mockups\Customers\MockupView.Designer.cs">
       <DependentUpon>MockupView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Panels\PnlAccount.cs">
+    <Compile Include="View\Panels\Customer\PnlAccount.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlCard.cs">
+    <Compile Include="View\Panels\Customer\PnlCard.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlCardCart.cs">
+    <Compile Include="View\Panels\Customer\PnlCardCart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlCardFav.cs">
+    <Compile Include="View\Panels\Customer\PnlCardFav.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlCards.cs">
+    <Compile Include="View\Panels\Customer\PnlCards.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlFavorites.cs">
+    <Compile Include="View\Panels\Customer\PnlFavorites.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlHome.cs">
+    <Compile Include="View\Panels\Customer\PnlHome.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlLogin.cs">
+    <Compile Include="View\Panels\Customer\PnlLogin.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlOrder.cs">
+    <Compile Include="View\Panels\Customer\PnlOrder.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlPayment.cs">
+    <Compile Include="View\Panels\Customer\PnlPayment.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Panels\PnlSignUp.cs">
+    <Compile Include="View\Panels\Customer\PnlSignUp.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Products\Models\IProductBuilder.cs" />
@@ -213,43 +215,43 @@
     <Compile Include="Users\Service\UserComandService.cs" />
     <Compile Include="Users\Service\UserQueryservice.cs" />
     <Compile Include="Users\Service\UserQueryServiceSingleton.cs" />
-    <Compile Include="View\Panels\PnlView.cs">
+    <Compile Include="View\Panels\Customer\PnlView.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupAccount.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupAccount.resx">
       <DependentUpon>MockupAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupAllCards.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupAllCards.resx">
       <DependentUpon>MockupAllCards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupCard.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupCard.resx">
       <DependentUpon>MockupCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupCardFav.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupCardFav.resx">
       <DependentUpon>MockupCardFav.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupCart.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupCart.resx">
       <DependentUpon>MockupCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupCartCard.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupCartCard.resx">
       <DependentUpon>MockupCartCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupFavorites.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupFavorites.resx">
       <DependentUpon>MockupFavorites.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupHome.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupHome.resx">
       <DependentUpon>MockupHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupLogin.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupLogin.resx">
       <DependentUpon>MockupLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupPayment.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupPayment.resx">
       <DependentUpon>MockupPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\MockupSignUp.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupSignUp.resx">
       <DependentUpon>MockupSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -262,7 +264,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Mockups\MockupView.resx">
+    <EmbeddedResource Include="View\Mockups\Customers\MockupView.resx">
       <DependentUpon>MockupView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -282,6 +284,8 @@
     <Folder Include="Favourites\Data\" />
     <Folder Include="Orders\Data\" />
     <Folder Include="Users\Data\" />
+    <Folder Include="View\Mockups\Admin\" />
+    <Folder Include="View\Panels\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\heart %283%29.png" />
