@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OnlineShop.Users.Models
 {
-    public class User :IComparable<User> , IUserBuilder
+    public class User :IComparable<User> , IUserBuilder 
     {
 
         private int _id;
@@ -17,8 +18,9 @@ namespace OnlineShop.Users.Models
         private string _phone;
         private string _address;
         private int _varsta;
+        UserRole userRole = null;
 
-        public User(int id, string name, string email, string password, string phone, string address, int varsta)
+        public User(int id, string name, string email, string password, string phone, string address, int varsta, UserRole userRole)
         {
             _id = id;
             _name = name;
@@ -27,6 +29,7 @@ namespace OnlineShop.Users.Models
             _phone = phone;
             _address = address;
             _varsta = varsta;
+            this.userRole = userRole;
         }
 
         public User(string text)
@@ -40,12 +43,40 @@ namespace OnlineShop.Users.Models
             _phone = prop[4];
             _address = prop[5];
             _varsta = int.Parse(prop[6]);
+            if (prop[7].Equals("admin"))
+            {
+
+              userRole = new UserRole("admin", new List<string>
+               {
+            UserPermission.CUSTOMER_READ,
+            UserPermission.CUSTOMER_WRITE,
+            UserPermission.ORDER_READ,
+            UserPermission.ORDER_WRITE,
+            UserPermission.PRODUCT_READ,
+            UserPermission.PRODUCT_WRITE
+                });
+
+
+            }
+            else
+            {
+               userRole = new UserRole("customer", new List<string>
+                 {
+            UserPermission.PRODUCT_READ,
+            UserPermission.ORDER_WRITE,
+            UserPermission.ORDER_READ
+                  });
+            }
         }
 
         public User()
         {
 
         }
+
+        public UserRole getUserRole() {  return userRole; }
+
+        public void setUserRole(UserRole role) { userRole = role; }
 
         public int getId() { return _id; }
 
