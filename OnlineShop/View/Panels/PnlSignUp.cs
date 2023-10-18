@@ -63,7 +63,7 @@ namespace OnlineShop.Panels
             this.form.Size = new System.Drawing.Size(1797, 981);
 
             errors = new List<string>();
-            path = Application.StartupPath.Remove(44) + @"Images\";
+            path = Application.StartupPath + @"\Images\";
 
             userComandService = new UserComandService();
             queryService = new UserQueryservice();

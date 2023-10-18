@@ -52,7 +52,7 @@ namespace OnlineShop.Panels
         
             this.form = form;
 
-            string path = Application.StartupPath.Remove(44) + @"Images\";
+            string path = Application.StartupPath + @"\Images\";
 
             this.form.Size = new Size(1797, 981);
 
@@ -288,7 +288,7 @@ namespace OnlineShop.Panels
             {
                 User user = userQueryService.getByEmailPass(txtEmail.Text, txtPass.Text);
                 this.form.removePnl("PnlLogin");
-
+                this.form.Controls.Add(new PnlHome(form,user));
             }
 
         }
