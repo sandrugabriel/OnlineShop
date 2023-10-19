@@ -87,6 +87,12 @@
     <Compile Include="View\Mockups\Admin\MockupAdminEditClient.Designer.cs">
       <DependentUpon>MockupAdminEditClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Mockups\Admin\MockupCardProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Admin\MockupCardProduct.Designer.cs">
+      <DependentUpon>MockupCardProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Mockups\Admin\MockupEditOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     <EmbeddedResource Include="View\Mockups\Admin\MockupAdminEditClient.resx">
       <DependentUpon>MockupAdminEditClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Admin\MockupCardProduct.resx">
+      <DependentUpon>MockupCardProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\Admin\MockupEditOrders.resx">
       <DependentUpon>MockupEditOrders.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +365,8 @@
     <None Include="Resources\trash-can %282%291.png" />
     <None Include="Resources\heart %283%29.png" />
     <None Include="bin\Debug\Images\addCart.png" />
+    <None Include="bin\Debug\Images\back.png" />
+    <None Include="bin\Debug\Images\close.png" />
     <Content Include="OrdersDetails\Data\ordersDetalis.txt" />
     <Content Include="Products\Data\products.txt" />
     <None Include="Resources\right-arrow.png" />
