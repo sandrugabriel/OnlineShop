@@ -16,5 +16,10 @@ namespace OnlineShop.View.Mockups.Admin
         {
             InitializeComponent();
         }
+
+        private void MockupCardProduct_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
