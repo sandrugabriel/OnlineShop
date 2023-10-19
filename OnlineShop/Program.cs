@@ -29,7 +29,7 @@ namespace OnlineShop
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MockupProductsEdit());
+            Application.Run(new Form1());
             
 
         }
