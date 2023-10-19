@@ -4,6 +4,7 @@ using OnlineShop.Orders;
 using OnlineShop.OrdersDetails.Service;
 using OnlineShop.Products;
 using OnlineShop.View.Mockups;
+using OnlineShop.View.Mockups.Admin;
 using Siticone.Desktop.UI.WinForms.Suite;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace OnlineShop
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MockupProductsEdit());
             
 
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.lblMenu = new System.Windows.Forms.Label();
             this.lblSignOut = new System.Windows.Forms.Label();
@@ -37,13 +38,10 @@
             this.numericPrice = new System.Windows.Forms.NumericUpDown();
             this.lblTile = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
-            this.pctDesign1 = new System.Windows.Forms.PictureBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pctClose = new System.Windows.Forms.PictureBox();
-            this.pctUpload = new System.Windows.Forms.PictureBox();
-            this.pctImage = new System.Windows.Forms.PictureBox();
-            this.pctBack = new System.Windows.Forms.PictureBox();
+            this.eliSave = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.eliRemove = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pctExit = new System.Windows.Forms.PictureBox();
             this.pctDesign = new System.Windows.Forms.PictureBox();
             this.btnEditProducts = new System.Windows.Forms.Button();
@@ -57,13 +55,13 @@
             this.btnTopOrd = new System.Windows.Forms.Button();
             this.pctGarden = new System.Windows.Forms.PictureBox();
             this.pctMenu = new System.Windows.Forms.PictureBox();
+            this.pctDesign1 = new System.Windows.Forms.PictureBox();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctUpload = new System.Windows.Forms.PictureBox();
+            this.pctImage = new System.Windows.Forms.PictureBox();
+            this.pctBack = new System.Windows.Forms.PictureBox();
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctDesign1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctUpload)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).BeginInit();
             this.btnEditProducts.SuspendLayout();
@@ -77,6 +75,11 @@
             this.btnTopOrd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctGarden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctDesign1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctUpload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBack)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideBar
@@ -130,7 +133,7 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.ForeColor = System.Drawing.Color.Red;
-            this.lblPrice.Location = new System.Drawing.Point(734, 352);
+            this.lblPrice.Location = new System.Drawing.Point(734, 382);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(89, 49);
             this.lblPrice.TabIndex = 17;
@@ -152,7 +155,7 @@
             this.lblP.AutoSize = true;
             this.lblP.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblP.ForeColor = System.Drawing.Color.DimGray;
-            this.lblP.Location = new System.Drawing.Point(531, 303);
+            this.lblP.Location = new System.Drawing.Point(531, 333);
             this.lblP.Name = "lblP";
             this.lblP.Size = new System.Drawing.Size(118, 44);
             this.lblP.TabIndex = 16;
@@ -164,7 +167,7 @@
             this.numericPrice.DecimalPlaces = 2;
             this.numericPrice.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericPrice.ForeColor = System.Drawing.Color.Red;
-            this.numericPrice.Location = new System.Drawing.Point(539, 350);
+            this.numericPrice.Location = new System.Drawing.Point(539, 380);
             this.numericPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -198,15 +201,6 @@
             this.txtDescription.TabIndex = 22;
             this.txtDescription.Text = "";
             // 
-            // pctDesign1
-            // 
-            this.pctDesign1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pctDesign1.Location = new System.Drawing.Point(138, 604);
-            this.pctDesign1.Name = "pctDesign1";
-            this.pctDesign1.Size = new System.Drawing.Size(603, 2);
-            this.pctDesign1.TabIndex = 21;
-            this.pctDesign1.TabStop = false;
-            // 
             // btnRemove
             // 
             this.btnRemove.BackColor = System.Drawing.Color.Orange;
@@ -214,9 +208,9 @@
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemove.Location = new System.Drawing.Point(1331, 413);
+            this.btnRemove.Location = new System.Drawing.Point(1344, 386);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(369, 104);
+            this.btnRemove.Size = new System.Drawing.Size(369, 86);
             this.btnRemove.TabIndex = 14;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -228,46 +222,22 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(1331, 294);
+            this.btnSave.Location = new System.Drawing.Point(1344, 282);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(369, 104);
+            this.btnSave.Size = new System.Drawing.Size(369, 86);
             this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // pctClose
+            // eliSave
             // 
-            this.pctClose.Location = new System.Drawing.Point(1721, 12);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(64, 63);
-            this.pctClose.TabIndex = 13;
-            this.pctClose.TabStop = false;
+            this.eliSave.ElipseRadius = 35;
+            this.eliSave.TargetControl = this.btnSave;
             // 
-            // pctUpload
+            // eliRemove
             // 
-            this.pctUpload.Image = global::OnlineShop.Properties.Resources.camera__1_1;
-            this.pctUpload.Location = new System.Drawing.Point(539, 168);
-            this.pctUpload.Name = "pctUpload";
-            this.pctUpload.Size = new System.Drawing.Size(85, 75);
-            this.pctUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctUpload.TabIndex = 13;
-            this.pctUpload.TabStop = false;
-            // 
-            // pctImage
-            // 
-            this.pctImage.Location = new System.Drawing.Point(156, 144);
-            this.pctImage.Name = "pctImage";
-            this.pctImage.Size = new System.Drawing.Size(340, 328);
-            this.pctImage.TabIndex = 13;
-            this.pctImage.TabStop = false;
-            // 
-            // pctBack
-            // 
-            this.pctBack.Location = new System.Drawing.Point(130, 12);
-            this.pctBack.Name = "pctBack";
-            this.pctBack.Size = new System.Drawing.Size(64, 63);
-            this.pctBack.TabIndex = 13;
-            this.pctBack.TabStop = false;
+            this.eliRemove.ElipseRadius = 35;
+            this.eliRemove.TargetControl = this.btnRemove;
             // 
             // pctExit
             // 
@@ -452,10 +422,57 @@
             this.pctMenu.TabIndex = 0;
             this.pctMenu.TabStop = false;
             // 
+            // pctDesign1
+            // 
+            this.pctDesign1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pctDesign1.Location = new System.Drawing.Point(138, 604);
+            this.pctDesign1.Name = "pctDesign1";
+            this.pctDesign1.Size = new System.Drawing.Size(603, 2);
+            this.pctDesign1.TabIndex = 21;
+            this.pctDesign1.TabStop = false;
+            // 
+            // pctClose
+            // 
+            this.pctClose.Image = global::OnlineShop.Properties.Resources.close1;
+            this.pctClose.Location = new System.Drawing.Point(1721, 12);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(64, 63);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctClose.TabIndex = 13;
+            this.pctClose.TabStop = false;
+            // 
+            // pctUpload
+            // 
+            this.pctUpload.Image = global::OnlineShop.Properties.Resources.camera__1_1;
+            this.pctUpload.Location = new System.Drawing.Point(539, 168);
+            this.pctUpload.Name = "pctUpload";
+            this.pctUpload.Size = new System.Drawing.Size(85, 75);
+            this.pctUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctUpload.TabIndex = 13;
+            this.pctUpload.TabStop = false;
+            // 
+            // pctImage
+            // 
+            this.pctImage.Location = new System.Drawing.Point(156, 144);
+            this.pctImage.Name = "pctImage";
+            this.pctImage.Size = new System.Drawing.Size(340, 328);
+            this.pctImage.TabIndex = 13;
+            this.pctImage.TabStop = false;
+            // 
+            // pctBack
+            // 
+            this.pctBack.Image = global::OnlineShop.Properties.Resources.back;
+            this.pctBack.Location = new System.Drawing.Point(130, 12);
+            this.pctBack.Name = "pctBack";
+            this.pctBack.Size = new System.Drawing.Size(64, 63);
+            this.pctBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctBack.TabIndex = 13;
+            this.pctBack.TabStop = false;
+            // 
             // MockupProductsEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1797, 981);
             this.Controls.Add(this.pnlSideBar);
             this.Controls.Add(this.txtDescription);
@@ -475,15 +492,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "MockupProductsEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MockupProductsEdit";
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctDesign1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctUpload)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).EndInit();
             this.btnEditProducts.ResumeLayout(false);
@@ -497,6 +510,11 @@
             this.btnTopOrd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctGarden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctDesign1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctUpload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,5 +551,7 @@
         private System.Windows.Forms.PictureBox pctDesign1;
         private System.Windows.Forms.Label lblTile;
         private System.Windows.Forms.RichTextBox txtDescription;
+        private Bunifu.Framework.UI.BunifuElipse eliSave;
+        private Bunifu.Framework.UI.BunifuElipse eliRemove;
     }
 }
