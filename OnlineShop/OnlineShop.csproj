@@ -215,6 +215,12 @@
     <Compile Include="View\Mockups\Customers\MockupView.Designer.cs">
       <DependentUpon>MockupView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Panels\Admin\PnlEditProducts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\Admin\PnlSlideBarAdmin.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\Customer\PnlAccount.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -357,7 +363,6 @@
     <Folder Include="Favourites\Data\" />
     <Folder Include="Orders\Data\" />
     <Folder Include="Users\Data\" />
-    <Folder Include="View\Panels\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\camera %281%291.png" />
