@@ -215,6 +215,9 @@
     <Compile Include="View\Mockups\Customers\MockupView.Designer.cs">
       <DependentUpon>MockupView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Panels\Admin\PnlAdminCardProduct.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\Admin\PnlEditProducts.cs">
       <SubType>Component</SubType>
     </Compile>

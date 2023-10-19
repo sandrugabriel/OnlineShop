@@ -115,6 +115,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MockupCardProduct";
             this.Text = "MockupCardProduct";
+            this.Load += new System.EventHandler(this.MockupCardProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
