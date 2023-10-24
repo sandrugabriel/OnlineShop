@@ -146,6 +146,30 @@ namespace OnlineShop.Products
             stream.Close();
         }
 
+        public void setAll(int id, string name, double price, int stock, string path, string desc)
+        {
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (id == products[i].getId())
+                {
+                    products[i].setName(name);
+                    products[i].setPrice(price);
+                    products[i].setStock(stock);
+                    products[i].setPathImage(path);
+
+                    string path1 = Application.StartupPath + $@"/descriere/{products[i].getDescriere()}" ;
+
+                    StreamWriter stream = new StreamWriter(path1);
+
+                    stream.Write(desc);
+                    stream.Close();
+                    break;
+                }
+            }
+
+        }
+
         public void save(List<Product> products)
         {
             this.products = products;

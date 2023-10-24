@@ -135,6 +135,9 @@ namespace OnlineShop.View.Panels.Admin
         private void all_Click(object sender, EventArgs e)
         {
 
+            this.form.Controls.Clear();
+            this.form.removePnl("PnlEditProducts");
+            this.form.Controls.Add(new PnlViewProduct(form,product));
 
         }
 

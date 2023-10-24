@@ -41,13 +41,13 @@ namespace OnlineShop.View.Panels.Admin
             pnlSlide = new PnlSlideBarAdmin(form);
             
             //lblProduct
-            this.lblProduct.Location = new System.Drawing.Point(426, 9);
+            this.lblProduct.Location = new System.Drawing.Point(120, 9);
             this.lblProduct.AutoSize = true;
             this.lblProduct.Font = new System.Drawing.Font("Century Gothic", 25);
             this.lblProduct.Text = "Products";
 
             //pctdesign1
-            this.pctDesign1.Location = new System.Drawing.Point(423, 63);
+            this.pctDesign1.Location = new System.Drawing.Point(110, 63);
             this.pctDesign1.Size = new System.Drawing.Size(235, 2);
             this.pctDesign1.BackColor = System.Drawing.Color.Black;
 
