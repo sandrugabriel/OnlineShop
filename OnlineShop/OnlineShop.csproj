@@ -93,12 +93,6 @@
     <Compile Include="View\Mockups\Admin\MockupCardProduct.Designer.cs">
       <DependentUpon>MockupCardProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mockups\Admin\MockupEditOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Mockups\Admin\MockupEditOrders.Designer.cs">
-      <DependentUpon>MockupEditOrders.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Mockups\Admin\MockupEditProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +218,9 @@
     <Compile Include="View\Panels\Admin\PnlSlideBarAdmin.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Panels\Admin\PnlViewProduct.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\Customer\PnlAccount.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -284,9 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\Admin\MockupCardProduct.resx">
       <DependentUpon>MockupCardProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Mockups\Admin\MockupEditOrders.resx">
-      <DependentUpon>MockupEditOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\Admin\MockupEditProducts.resx">
       <DependentUpon>MockupEditProducts.cs</DependentUpon>

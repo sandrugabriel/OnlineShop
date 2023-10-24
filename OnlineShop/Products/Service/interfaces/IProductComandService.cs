@@ -26,6 +26,8 @@ namespace OnlineShop.Products.Service.interfaces
 
         void deleteCard(Product product);
 
+        void setAll(int id, string name, double price, int stock, string path, string desc);
+
         void save(List<Product> products);
     }
 }

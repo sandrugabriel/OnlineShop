@@ -15,13 +15,12 @@ namespace OnlineShop.View.Panels.Admin
     public class PnlSlideBarAdmin : Panel
     {
 
-        Button btnClient;
+        Button btnAddProduct;
         Button btnProducts;
-        Button btnOrders;
         Button btnTopOrderd;
         Button btnTopFav;
 
-        PictureBox pctClient;
+        PictureBox pctAdd;
         PictureBox pctProducts;
         PictureBox pctOrders;
         PictureBox pctTopOrderd;
@@ -49,15 +48,14 @@ namespace OnlineShop.View.Panels.Admin
             this.BackColor = Color.FromArgb(18, 18, 39);
             this.Font = new Font("Century Gothic", 14);
 
-            this.btnClient = new Button();
+            this.btnAddProduct = new Button();
             this.btnProducts = new Button();
-            this.btnOrders = new Button();
             this.btnTopOrderd = new Button();
             this.btnTopFav = new Button();
             this.pctMenu = new PictureBox();
             this.pctDesign = new PictureBox();
             this.pctSignOut = new PictureBox();
-            this.pctClient = new PictureBox();
+            this.pctAdd = new PictureBox();
             this.pctProducts = new PictureBox();
             this.pctOrders = new PictureBox();
             this.pctTopOrderd = new PictureBox();
@@ -70,39 +68,37 @@ namespace OnlineShop.View.Panels.Admin
             timeSlideMenu.Tick += timeSlideMenu_Tick;
            // timeSlideMenu.Start();
 
-            this.Controls.Add(btnClient);
+            this.Controls.Add(btnAddProduct);
             this.Controls.Add(btnProducts);
-            this.Controls.Add(btnOrders);
             this.Controls.Add(btnTopOrderd);
             this.Controls.Add(btnTopFav);
             this.Controls.Add(pctMenu);
             this.Controls.Add(pctDesign);
             this.Controls.Add(pctSignOut);
-            this.btnClient.Controls.Add(pctClient);
+            this.btnAddProduct.Controls.Add(pctAdd);
             this.btnProducts.Controls.Add(pctProducts);
-            this.btnOrders.Controls.Add(pctOrders);
             this.btnTopOrderd.Controls.Add(pctTopOrderd);
             this.btnTopFav.Controls.Add(pctTopFav);
             this.Controls.Add(lblMenu);
             this.Controls.Add(lblSignOut);
 
-            //btnClient
-            this.btnClient.Location = new System.Drawing.Point(12, 148);
-            this.btnClient.Text = "         Edit Cont Client";
-            this.btnClient.Size = new System.Drawing.Size(386, 65);
-            this.btnClient.Font = new Font("Century Gothic", 14);
-            this.btnClient.FlatAppearance.BorderSize = 0;
-            this.btnClient.FlatStyle = FlatStyle.Flat;
-            this.btnClient.BackColor = Color.Transparent;
-            this.btnClient.ForeColor = Color.White;
-            this.btnClient.Image = Image.FromFile(Application.StartupPath + @"/Images/dreapta.png");
-            this.btnClient.ImageAlign = ContentAlignment.MiddleRight;
-            this.btnClient.TextAlign = ContentAlignment.MiddleLeft;
-            this.btnClient.Cursor = Cursors.Hand;
-            this.btnClient.Click += new EventHandler(btnClient_Click);
+            //btnAddProduct
+            this.btnAddProduct.Location = new System.Drawing.Point(12, 148);
+            this.btnAddProduct.Text = "         Add Product";
+            this.btnAddProduct.Size = new System.Drawing.Size(386, 65);
+            this.btnAddProduct.Font = new Font("Century Gothic", 14);
+            this.btnAddProduct.FlatAppearance.BorderSize = 0;
+            this.btnAddProduct.FlatStyle = FlatStyle.Flat;
+            this.btnAddProduct.BackColor = Color.Transparent;
+            this.btnAddProduct.ForeColor = Color.White;
+            this.btnAddProduct.Image = Image.FromFile(Application.StartupPath + @"/Images/dreapta.png");
+            this.btnAddProduct.ImageAlign = ContentAlignment.MiddleRight;
+            this.btnAddProduct.TextAlign = ContentAlignment.MiddleLeft;
+            this.btnAddProduct.Cursor = Cursors.Hand;
+            this.btnAddProduct.Click += new EventHandler(btnAddProduct_Click);
 
             //btnProducts
-            this.btnProducts.Location = new System.Drawing.Point(12,btnClient.Location.Y +btnClient.Size.Height + 15 );
+            this.btnProducts.Location = new System.Drawing.Point(12,btnAddProduct.Location.Y +btnAddProduct.Size.Height + 15 );
             this.btnProducts.Text = "         Edit Products";
             this.btnProducts.Size = new System.Drawing.Size(386, 65);
             this.btnProducts.Font = new Font("Century Gothic", 14);
@@ -116,23 +112,8 @@ namespace OnlineShop.View.Panels.Admin
             this.btnProducts.Cursor = Cursors.Hand;
             this.btnProducts.Click += new EventHandler(btnProducts_Click);
 
-            //btnOrders
-            this.btnOrders.Location = new System.Drawing.Point(12, btnProducts.Location.Y + btnProducts.Size.Height + 15);
-            this.btnOrders.Text = "         Edit Orders";
-            this.btnOrders.Size = new System.Drawing.Size(386, 65);
-            this.btnOrders.Font = new Font("Century Gothic", 14);
-            this.btnOrders.FlatAppearance.BorderSize = 0;
-            this.btnOrders.FlatStyle = FlatStyle.Flat;
-            this.btnOrders.BackColor = Color.Transparent;
-            this.btnOrders.ForeColor = Color.White;
-            this.btnOrders.Image = Image.FromFile(Application.StartupPath + @"/Images/dreapta.png");
-            this.btnOrders.ImageAlign = ContentAlignment.MiddleRight;
-            this.btnOrders.TextAlign = ContentAlignment.MiddleLeft;
-            this.btnOrders.Cursor = Cursors.Hand;
-            this.btnOrders.Click += new EventHandler(btnOrders_Click);
-
             //btnTopOrderd
-            this.btnTopOrderd.Location = new System.Drawing.Point(12, btnOrders.Location.Y + btnOrders.Size.Height + 15);
+            this.btnTopOrderd.Location = new System.Drawing.Point(12, btnProducts.Location.Y + btnProducts.Size.Height + 15);
             this.btnTopOrderd.Text = "         Top Products Orderd";
             this.btnTopOrderd.Size = new System.Drawing.Size(386, 65);
             this.btnTopOrderd.Font = new Font("Century Gothic", 14);
@@ -161,39 +142,33 @@ namespace OnlineShop.View.Panels.Admin
             this.btnTopFav.Cursor = Cursors.Hand;
             this.btnTopFav.Click += new EventHandler(btnTopFav_Click);
 
-            //pctClient
-            this.pctClient.Size = new System.Drawing.Size(54, 54);
-            this.pctClient.Location = new System.Drawing.Point(0,5);
-            this.pctClient.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pctClient.Image = Image.FromFile(Application.StartupPath + @"/Images/it.png");
-            this.pctSignOut.Cursor = Cursors.Hand;
+            //pctAdd
+            this.pctAdd.Size = new System.Drawing.Size(54, 54);
+            this.pctAdd.Location = new System.Drawing.Point(0,5);
+            this.pctAdd.SizeMode = PictureBoxSizeMode.Zoom;
+            this.pctAdd.Image = Image.FromFile(Application.StartupPath + @"/Images/AddProduct.png");
+            this.pctAdd.Cursor = Cursors.Hand;
 
             //pctProduct
             this.pctProducts.Size = new System.Drawing.Size(54, 54);
             this.pctProducts.Location = new System.Drawing.Point(0, 5);
             this.pctProducts.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pctProducts.Image = Image.FromFile(Application.StartupPath + @"/Images/it.png");
-            this.pctSignOut.Cursor = Cursors.Hand;
-
-            //pctOrders
-            this.pctOrders.Size = new System.Drawing.Size(54, 54);
-            this.pctOrders.Location = new System.Drawing.Point(0, 5);
-            this.pctOrders.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pctOrders.Image = Image.FromFile(Application.StartupPath + @"/Images/it.png");
-            this.pctOrders.Cursor = Cursors.Hand;
+            this.pctProducts.Image = Image.FromFile(Application.StartupPath + @"/Images/Edit.png");
+            this.pctProducts.Cursor = Cursors.Hand;
+            this.pctProducts.Click += new EventHandler(btnProducts_Click);
 
             //pctTopOrderd
             this.pctTopOrderd.Size = new System.Drawing.Size(54, 54);
             this.pctTopOrderd.Location = new System.Drawing.Point(0, 5);
             this.pctTopOrderd.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pctTopOrderd.Image = Image.FromFile(Application.StartupPath + @"/Images/it.png");
+            this.pctTopOrderd.Image = Image.FromFile(Application.StartupPath + @"/Images/topOrder.png");
             this.pctTopOrderd.Cursor = Cursors.Hand;
 
             //pctTopFav
             this.pctTopFav.Size = new System.Drawing.Size(54, 54);
             this.pctTopFav.Location = new System.Drawing.Point(0, 5);
             this.pctTopFav.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pctTopFav.Image = Image.FromFile(Application.StartupPath + @"/Images/it.png");
+            this.pctTopFav.Image = Image.FromFile(Application.StartupPath + @"/Images/topFav.png");
             this.pctTopFav.Cursor = Cursors.Hand;
 
             //pctMenu
@@ -275,7 +250,7 @@ namespace OnlineShop.View.Panels.Admin
             timeSlideMenu.Start();
         }
 
-        private void btnClient_Click(object sender, EventArgs e)
+        private void btnAddProduct_Click(object sender, EventArgs e)
         {
 
 
@@ -285,7 +260,8 @@ namespace OnlineShop.View.Panels.Admin
         private void btnProducts_Click(object sender, EventArgs e)
         {
 
-
+            this.form.Controls.Clear();
+            this.form.Controls.Add(new PnlEditProducts(form));
 
         }
 

@@ -18,7 +18,7 @@ namespace OnlineShop
 {
     public partial class Form1 : Form {
 
-        public int ct = 0;
+        public int ct = 0, ct1 = 0;
         public Form1()
         {
             InitializeComponent();
@@ -46,6 +46,11 @@ namespace OnlineShop
 
             this.Controls.Remove(control);
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
