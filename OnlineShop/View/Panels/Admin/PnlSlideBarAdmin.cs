@@ -34,15 +34,16 @@ namespace OnlineShop.View.Panels.Admin
         Label lblSignOut;
 
         Form1 form;
-
+        bool sidebar;
+        Timer timeSlideMenu;
         public PnlSlideBarAdmin(Form1 form1)
         {
 
             this.form = form1;
 
             this.Name = "PnlSlideBar";
-            this.Size = new System.Drawing.Size(398, 981);
-            this.MinimumSize = new Size(79, 981);
+            this.Size = new System.Drawing.Size(0, 981);
+            this.MinimumSize = new Size(85, 981);
             this.MaximumSize = new Size(398, 981);
             this.Dock = DockStyle.Left;
             this.BackColor = Color.FromArgb(18, 18, 39);
@@ -63,6 +64,11 @@ namespace OnlineShop.View.Panels.Admin
             this.pctTopFav = new PictureBox();
             this.lblMenu = new Label();
             this.lblSignOut = new Label();
+            this.timeSlideMenu = new Timer();
+
+            timeSlideMenu.Interval = 10;
+            timeSlideMenu.Tick += timeSlideMenu_Tick;
+           // timeSlideMenu.Start();
 
             this.Controls.Add(btnClient);
             this.Controls.Add(btnProducts);
@@ -192,10 +198,11 @@ namespace OnlineShop.View.Panels.Admin
 
             //pctMenu
             this.pctMenu.Size = new System.Drawing.Size(62, 45);
-            this.pctMenu.Location = new System.Drawing.Point(24, 34);
+            this.pctMenu.Location = new System.Drawing.Point(15, 34);
             this.pctMenu.SizeMode = PictureBoxSizeMode.Zoom;
             this.pctMenu.Image = Image.FromFile(Application.StartupPath + @"/Images/menu.png");
-            this.pctSignOut.Cursor = Cursors.Hand;
+            this.pctMenu.Cursor = Cursors.Hand;
+            this.pctMenu.Click += new EventHandler(pctMenu_Click);
 
             //lblMenu
             this.lblMenu.Text = "Menu";
@@ -212,7 +219,7 @@ namespace OnlineShop.View.Panels.Admin
 
             //pctSign
             this.pctSignOut.Size = new System.Drawing.Size(54, 54);
-            this.pctSignOut.Location = new System.Drawing.Point(24, 901);
+            this.pctSignOut.Location = new System.Drawing.Point(15, 901);
             this.pctSignOut.SizeMode = PictureBoxSizeMode.Zoom;
             this.pctSignOut.Image = Image.FromFile(Application.StartupPath + @"/Images/exit.png");
             this.pctSignOut.Cursor = Cursors.Hand;
@@ -226,12 +233,46 @@ namespace OnlineShop.View.Panels.Admin
             this.lblSignOut.ForeColor = Color.White;
             this.lblSignOut.Cursor = Cursors.Hand;
             this.lblSignOut.Click += new EventHandler(pctSignOut_Click);
+
+           // timeSlideMenu.Start();
+        }
+
+        private void timeSlideMenu_Tick(object sender, EventArgs e)
+        {
+
+            if (sidebar)
+            {
+                this.Width -= 10;
+                if (this.Width == this.MinimumSize.Width)
+                {
+                    sidebar = false;
+                    timeSlideMenu.Stop();
+
+                }
+
+            }
+            else
+            {
+                this.Width += 10;
+                if (this.Width == this.MaximumSize.Width)
+                {
+                    sidebar = true;
+                    timeSlideMenu.Stop();
+
+                }
+            }
+
         }
 
         private void pctSignOut_Click(object sender, EventArgs e)
         {
             this.form.Controls.Clear();
             this.form.Controls.Add(new PnlLogin(form));
+        }
+
+        private void pctMenu_Click(object sender, EventArgs e)
+        {
+            timeSlideMenu.Start();
         }
 
         private void btnClient_Click(object sender, EventArgs e)

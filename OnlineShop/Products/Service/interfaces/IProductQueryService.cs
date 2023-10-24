@@ -18,5 +18,6 @@ namespace OnlineShop.Products.Service.interfaces
 
         List<Product> getByListId(List<int> ids);
 
+        void save(List<Product> products);
     }
 }

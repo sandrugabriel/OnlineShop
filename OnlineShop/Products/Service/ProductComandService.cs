@@ -47,8 +47,9 @@ namespace OnlineShop.Products
 
         public string Path()
         {
-            return @"\data\users.txt";
+            return @"\data\products.txt";
         }
+
         public void saveFisier(string text)
         {
             File.AppendAllText(Application.StartupPath + Path(), text + "\n");
@@ -82,5 +83,73 @@ namespace OnlineShop.Products
 
             return id;
         }
+
+        public string toSaveFisier()
+        {
+            string t = "";
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                t += products[i].toSave() + "\n";
+            }
+
+            return t;
+        }
+
+        public void update()
+        {
+
+            StreamWriter streamWriter = new StreamWriter(Application.StartupPath + Path());
+
+
+            string value = toSaveFisier();
+            streamWriter.Write(value);
+
+            //  MessageBox.Show(value);
+
+
+            streamWriter.Close();
+        }
+
+        public int pozProduct(int idProduct)
+        {
+            int poz = -1;
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (idProduct == products[i].getId())
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void stergere(int id)
+        {
+            int p = pozProduct(id);
+            products.RemoveAt(p);
+
+        }
+
+        public void deleteCard(Product product)
+        {
+
+            this.stergere(product.getId());
+
+            string path = Application.StartupPath + Path();
+
+            StreamWriter stream = new StreamWriter(path);
+
+            stream.Write(this.toSaveFisier());
+
+            stream.Close();
+        }
+
+        public void save(List<Product> products)
+        {
+            this.products = products;
+        }
+
     }
 }
