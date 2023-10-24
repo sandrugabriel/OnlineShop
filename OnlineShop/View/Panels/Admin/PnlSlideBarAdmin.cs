@@ -144,10 +144,11 @@ namespace OnlineShop.View.Panels.Admin
 
             //pctAdd
             this.pctAdd.Size = new System.Drawing.Size(54, 54);
-            this.pctAdd.Location = new System.Drawing.Point(0,5);
+            this.pctAdd.Location = new System.Drawing.Point(3,5);
             this.pctAdd.SizeMode = PictureBoxSizeMode.Zoom;
             this.pctAdd.Image = Image.FromFile(Application.StartupPath + @"/Images/AddProduct.png");
             this.pctAdd.Cursor = Cursors.Hand;
+            this.pctAdd.Click += new EventHandler(btnAddProduct_Click);
 
             //pctProduct
             this.pctProducts.Size = new System.Drawing.Size(54, 54);
@@ -253,7 +254,8 @@ namespace OnlineShop.View.Panels.Admin
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
 
-
+            this.form.Controls.Clear(); 
+            this.form.Controls.Add(new PnlAddProduct(form));
 
         }
 
