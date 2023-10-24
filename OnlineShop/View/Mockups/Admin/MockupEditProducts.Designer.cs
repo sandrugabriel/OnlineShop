@@ -92,7 +92,7 @@
             this.lblProd.BackColor = System.Drawing.Color.Transparent;
             this.lblProd.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblProd.Location = new System.Drawing.Point(426, 9);
+            this.lblProd.Location = new System.Drawing.Point(126, 9);
             this.lblProd.Name = "lblProd";
             this.lblProd.Size = new System.Drawing.Size(200, 51);
             this.lblProd.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Location = new System.Drawing.Point(493, 144);
+            this.panel5.Location = new System.Drawing.Point(193, 144);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(336, 437);
             this.panel5.TabIndex = 16;
@@ -186,7 +186,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(922, 144);
+            this.panel1.Location = new System.Drawing.Point(622, 144);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 437);
             this.panel1.TabIndex = 16;
@@ -357,7 +357,7 @@
             this.panel3.MaximumSize = new System.Drawing.Size(398, 981);
             this.panel3.MinimumSize = new System.Drawing.Size(105, 981);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(398, 981);
+            this.panel3.Size = new System.Drawing.Size(105, 981);
             this.panel3.TabIndex = 17;
             // 
             // pictureBox4
@@ -569,7 +569,7 @@
             // pctDesign1
             // 
             this.pctDesign1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pctDesign1.Location = new System.Drawing.Point(423, 63);
+            this.pctDesign1.Location = new System.Drawing.Point(123, 63);
             this.pctDesign1.Name = "pctDesign1";
             this.pctDesign1.Size = new System.Drawing.Size(235, 2);
             this.pctDesign1.TabIndex = 4;

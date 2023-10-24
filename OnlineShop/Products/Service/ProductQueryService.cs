@@ -88,5 +88,10 @@ namespace OnlineShop.Products.Service
             return list;
 
         }
+
+        public void save(List<Product> products)
+        {
+            this.products = products;
+        }
     }
 }

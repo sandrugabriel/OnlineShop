@@ -123,7 +123,7 @@ namespace OnlineShop.Favourites.Service
             {
                 if (idClient == favourites[i].IdClient && idProduct == favourites[i].IdProduct)
                 {
-                    return poz; 
+                    return i; 
                 }
             }
 

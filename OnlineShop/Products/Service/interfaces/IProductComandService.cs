@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,15 @@ namespace OnlineShop.Products.Service.interfaces
         string Path();
 
         void load();
+
+        void update();
+
+        int pozProduct(int idProduct);
+
+        void stergere(int id);
+
+        void deleteCard(Product product);
+
+        void save(List<Product> products);
     }
 }

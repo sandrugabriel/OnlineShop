@@ -155,5 +155,10 @@ namespace OnlineShop.Models
             return new Product();
         }
 
+        public string toSave()
+        {
+            return _id.ToString() + "|" + _name +"|"+ _price.ToString("F2") + "|" + _stock + "|" + _pathImage + "|" + _categorie + "|" + _description;
+        }
+
     }
 }
