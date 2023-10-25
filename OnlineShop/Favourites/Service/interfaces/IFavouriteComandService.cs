@@ -30,5 +30,10 @@ namespace OnlineShop.Favourites.Service.interfaces
         int pozProduct(int id, int idProduct);
 
         int ctFav(int idUser);
+
+        int[] frecventa();
+
+        int[] frecventaMaxi();
+
     }
 }

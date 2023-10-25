@@ -18,9 +18,9 @@ namespace OnlineShop.Users.Models
         private string _phone;
         private string _address;
         private int _varsta;
-        UserRole userRole = null;
+        string userRole = null;
 
-        public User(int id, string name, string email, string password, string phone, string address, int varsta, UserRole userRole)
+        public User(int id, string name, string email, string password, string phone, string address, int varsta, string userRole)
         {
             _id = id;
             _name = name;
@@ -43,7 +43,8 @@ namespace OnlineShop.Users.Models
             _phone = prop[4];
             _address = prop[5];
             _varsta = int.Parse(prop[6]);
-            if (prop[7].Equals("admin"))
+            userRole = prop[7];
+         /*   if (prop[7].Equals("admin"))
             {
 
               userRole = new UserRole("admin", new List<string>
@@ -66,7 +67,7 @@ namespace OnlineShop.Users.Models
             UserPermission.ORDER_WRITE,
             UserPermission.ORDER_READ
                   });
-            }
+            }*/
         }
 
         public User()
@@ -74,9 +75,9 @@ namespace OnlineShop.Users.Models
 
         }
 
-        public UserRole getUserRole() {  return userRole; }
+        public string getUserRole() {  return userRole; }
 
-        public void setUserRole(UserRole role) { userRole = role; }
+        public void setUserRole(string role) { userRole = role; }
 
         public int getId() { return _id; }
 

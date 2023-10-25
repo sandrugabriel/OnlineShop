@@ -3,6 +3,8 @@ using OnlineShop.Favourites.Models;
 using OnlineShop.Favourites.Service;
 using OnlineShop.Favourites.Service.interfaces;
 using OnlineShop.Models;
+using OnlineShop.OrdersDetails.Service;
+using OnlineShop.OrdersDetails.Service.interfaces;
 using OnlineShop.Users.Models;
 using System;
 using System.Collections.Generic;
@@ -38,6 +40,10 @@ namespace OnlineShop.View.Panels
         BunifuElipse eliImage;
         BunifuElipse eliThis;
 
+        IOrderDetailsComandService orderDetailsComandService;
+        IOrderDetailsQueryService orderDetailsQueryService;
+
+        List<OrderDetalis> orderDetalis;
         public PnlCardFav(Form1 form1, Product product1, User user1) {
 
 
@@ -45,6 +51,11 @@ namespace OnlineShop.View.Panels
             this.user = user1;
             this.product = product1;
 
+
+            orderDetailsComandService = OrderDetailsComandServiceSingleton.Instance;
+            orderDetailsQueryService = OrderDetailsQueryServiceSingleton.Instance;
+
+            orderDetalis = orderDetailsQueryService.getMyOrdersDetails(user.getId());
 
             favouriteQueryService = FavouriteQueryServiceSingleton.Instance;
             favouriteComandService = FavouriteComandServiceSingleton.Instance;
@@ -105,6 +116,7 @@ namespace OnlineShop.View.Panels
             this.btnAddCart.Size = new System.Drawing.Size(174, 47);
             this.btnAddCart.TabIndex = 2;
             this.btnAddCart.Text = "      Add to Cart";
+            this.btnAddCart.Click += new EventHandler(btnAddCart_Click);
              
             // lblPrice
             this.lblPrice.AutoSize = true;
@@ -159,10 +171,24 @@ namespace OnlineShop.View.Panels
         {
 
             Favourite favourite = favouriteQueryService.getByIdUserPro(user.getId(), product.getId());
-
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
             favouriteComandService.deleteCard(favourite);
             favouriteComandService.save(favourites);
             this.Visible = false;
+        }
+
+        private void btnAddCart_Click(object sender, EventArgs e)
+        {
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
+            string t = orderDetailsComandService.generareIdOrder().ToString() + "|" + user.getId().ToString() + "|" + product.getId().ToString() + "|" + 1;
+            OrderDetalis order = new OrderDetalis(t);
+            orderDetailsComandService.saveFisier(t);
+            orderDetalis.Add(order);
+
+            orderDetailsComandService.save(orderDetalis);
+
         }
 
     }

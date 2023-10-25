@@ -221,6 +221,9 @@
     <Compile Include="View\Panels\Admin\PnlSlideBarAdmin.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Panels\Admin\PnlTopFav.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\Admin\PnlTopOrder.cs">
       <SubType>Component</SubType>
     </Compile>

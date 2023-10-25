@@ -81,6 +81,7 @@ namespace OnlineShop.Panels
 
             this.form = form1;
             this.user = user1;
+            form.Controls.Clear();
 
             path = Application.StartupPath + @"/Images/";
             productQueryService = ProductQueryServiceSingleton.Instance;
@@ -598,13 +599,18 @@ namespace OnlineShop.Panels
 
         private void timerFav_Tick(object sender, EventArgs e)
         {
+            if(user != null)
+            {
             this.lblCountFav.Text = favouriteComandService.ctFav(user.getId()).ToString();
             this.lblCountCart.Text =orderDetailsComandService.ctCart(user.getId()).ToString();
+
+            }
         }
 
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.form.Close();
+            this.timerFav.Stop();
         }
 
         private void pctMini_Click(object sender, EventArgs e)
