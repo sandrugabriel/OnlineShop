@@ -30,32 +30,29 @@
         {
             this.lblProd = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblMenu = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.txtTile = new System.Windows.Forms.RichTextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.lblUp = new System.Windows.Forms.Label();
+            this.pctClient = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pctDesign = new System.Windows.Forms.PictureBox();
             this.btnProducts = new System.Windows.Forms.Button();
             this.pctProducts = new System.Windows.Forms.PictureBox();
-            this.lblMenu = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnEditClient = new System.Windows.Forms.Button();
-            this.pctClient = new System.Windows.Forms.PictureBox();
             this.btnTopFav = new System.Windows.Forms.Button();
             this.pctTopFav = new System.Windows.Forms.PictureBox();
             this.btnOrders = new System.Windows.Forms.Button();
@@ -63,19 +60,25 @@
             this.btnTopOrder = new System.Windows.Forms.Button();
             this.pctTopOrderd = new System.Windows.Forms.PictureBox();
             this.pctMenu = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctUP = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pctDesign1 = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).BeginInit();
             this.btnProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClient)).BeginInit();
             this.btnTopFav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctTopFav)).BeginInit();
             this.btnOrders.SuspendLayout();
@@ -83,6 +86,10 @@
             this.btnTopOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctTopOrderd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctUP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,82 +108,43 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel5.Controls.Add(this.lblUp);
+            this.panel5.Controls.Add(this.pctUP);
+            this.panel5.Controls.Add(this.numericUpDown1);
+            this.panel5.Controls.Add(this.txtTile);
+            this.panel5.Controls.Add(this.btnEdit);
             this.panel5.Controls.Add(this.button6);
             this.panel5.Controls.Add(this.pictureBox10);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label9);
-            this.panel5.Controls.Add(this.label8);
             this.panel5.Location = new System.Drawing.Point(193, 144);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(336, 437);
             this.panel5.TabIndex = 16;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Orange;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.Image = global::OnlineShop.Properties.Resources.trash_can__1_1;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 390);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(336, 47);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Remove";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.Color.White;
-            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox10.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
-            this.pictureBox10.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(336, 235);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 0;
-            this.pictureBox10.TabStop = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(3, 351);
+            this.label10.Location = new System.Drawing.Point(111, 353);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 28);
+            this.label10.Size = new System.Drawing.Size(53, 29);
             this.label10.TabIndex = 1;
-            this.label10.Text = "3.199 Lei";
+            this.label10.Text = " Lei";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Location = new System.Drawing.Point(5, 326);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 20);
+            this.label9.Size = new System.Drawing.Size(113, 21);
             this.label9.TabIndex = 1;
             this.label9.Text = "PRP: 4000 Lei";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12.8F);
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(3, 238);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(333, 75);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Laptop Acer Aspire 5 A515-57 \r\ncu procesor Intel® Core™ \r\ni7-1255U";
             // 
             // panel1
             // 
@@ -190,37 +158,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 437);
             this.panel1.TabIndex = 16;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Orange;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = global::OnlineShop.Properties.Resources.trash_can__1_1;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(336, 47);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(336, 235);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -270,37 +207,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(336, 437);
             this.panel2.TabIndex = 16;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Orange;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Image = global::OnlineShop.Properties.Resources.trash_can__1_1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 390);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(336, 47);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Remove";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox2.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(336, 235);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -360,6 +266,102 @@
             this.panel3.Size = new System.Drawing.Size(105, 981);
             this.panel3.TabIndex = 17;
             // 
+            // lblMenu
+            // 
+            this.lblMenu.AutoSize = true;
+            this.lblMenu.BackColor = System.Drawing.Color.Transparent;
+            this.lblMenu.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMenu.Location = new System.Drawing.Point(123, 29);
+            this.lblMenu.Name = "lblMenu";
+            this.lblMenu.Size = new System.Drawing.Size(112, 40);
+            this.lblMenu.TabIndex = 1;
+            this.lblMenu.Text = "Menu";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 15.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(100, 912);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(124, 33);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Sign Out";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(164, 390);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(172, 47);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "   Edit";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // txtTile
+            // 
+            this.txtTile.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtTile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTile.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTile.Location = new System.Drawing.Point(3, 237);
+            this.txtTile.Name = "txtTile";
+            this.txtTile.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtTile.Size = new System.Drawing.Size(333, 75);
+            this.txtTile.TabIndex = 18;
+            this.txtTile.Text = "Laptop Acer Aspire 5 A515-57 \ncu procesor Intel® Core™ \ni7-1255U";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericUpDown1.DecimalPlaces = 2;
+            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.ForeColor = System.Drawing.Color.Red;
+            this.numericUpDown1.Location = new System.Drawing.Point(9, 353);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(109, 30);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            319999,
+            0,
+            0,
+            131072});
+            // 
+            // lblUp
+            // 
+            this.lblUp.AutoSize = true;
+            this.lblUp.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUp.Location = new System.Drawing.Point(205, 360);
+            this.lblUp.Name = "lblUp";
+            this.lblUp.Size = new System.Drawing.Size(76, 22);
+            this.lblUp.TabIndex = 21;
+            this.lblUp.Text = "Upload";
+            // 
+            // pctClient
+            // 
+            this.pctClient.BackColor = System.Drawing.Color.Transparent;
+            this.pctClient.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClient.Location = new System.Drawing.Point(24, 174);
+            this.pctClient.Name = "pctClient";
+            this.pctClient.Size = new System.Drawing.Size(54, 54);
+            this.pctClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctClient.TabIndex = 0;
+            this.pctClient.TabStop = false;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
@@ -411,30 +413,6 @@
             this.pctProducts.TabIndex = 0;
             this.pctProducts.TabStop = false;
             // 
-            // lblMenu
-            // 
-            this.lblMenu.AutoSize = true;
-            this.lblMenu.BackColor = System.Drawing.Color.Transparent;
-            this.lblMenu.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMenu.Location = new System.Drawing.Point(123, 29);
-            this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(112, 40);
-            this.lblMenu.TabIndex = 1;
-            this.lblMenu.Text = "Menu";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 15.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(100, 912);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 33);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Sign Out";
-            // 
             // btnEditClient
             // 
             this.btnEditClient.BackColor = System.Drawing.Color.Transparent;
@@ -452,17 +430,6 @@
             this.btnEditClient.Text = "            Edit Cont Client";
             this.btnEditClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditClient.UseVisualStyleBackColor = false;
-            // 
-            // pctClient
-            // 
-            this.pctClient.BackColor = System.Drawing.Color.Transparent;
-            this.pctClient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClient.Location = new System.Drawing.Point(24, 174);
-            this.pctClient.Name = "pctClient";
-            this.pctClient.Size = new System.Drawing.Size(54, 54);
-            this.pctClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctClient.TabIndex = 0;
-            this.pctClient.TabStop = false;
             // 
             // btnTopFav
             // 
@@ -566,6 +533,109 @@
             this.pctMenu.TabIndex = 0;
             this.pctMenu.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Orange;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Image = global::OnlineShop.Properties.Resources.trash_can__1_1;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 390);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(336, 47);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Remove";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(336, 235);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Orange;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Image = global::OnlineShop.Properties.Resources.trash_can__1_1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 390);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(336, 47);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(336, 235);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pctUP
+            // 
+            this.pctUP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctUP.Image = global::OnlineShop.Properties.Resources.camera__1_2;
+            this.pctUP.Location = new System.Drawing.Point(220, 316);
+            this.pctUP.Name = "pctUP";
+            this.pctUP.Size = new System.Drawing.Size(40, 40);
+            this.pctUP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctUP.TabIndex = 20;
+            this.pctUP.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Orange;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.button6.ForeColor = System.Drawing.SystemColors.Control;
+            this.button6.Image = global::OnlineShop.Properties.Resources.trash_can__1_1;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(0, 390);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(165, 47);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "    Remove";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.White;
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox10.Image = global::OnlineShop.Properties.Resources.Screenshot_2023_09_26_225259;
+            this.pictureBox10.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(336, 235);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 0;
+            this.pictureBox10.TabStop = false;
+            // 
             // pctDesign1
             // 
             this.pctDesign1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -575,15 +645,33 @@
             this.pctDesign1.TabIndex = 4;
             this.pctDesign1.TabStop = false;
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Chocolate;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(357, 603);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(172, 47);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "  Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
             // MockupEditProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1797, 981);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pctDesign1);
             this.Controls.Add(this.lblProd);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -593,20 +681,18 @@
             this.Text = "MockupEditProducts";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).EndInit();
             this.btnProducts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClient)).EndInit();
             this.btnTopFav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctTopFav)).EndInit();
             this.btnOrders.ResumeLayout(false);
@@ -614,6 +700,10 @@
             this.btnTopOrder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctTopOrderd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctUP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -628,7 +718,6 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -657,5 +746,11 @@
         private System.Windows.Forms.Button btnTopOrder;
         private System.Windows.Forms.PictureBox pctTopOrderd;
         private System.Windows.Forms.PictureBox pctMenu;
+        private System.Windows.Forms.RichTextBox txtTile;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.PictureBox pctUP;
+        private System.Windows.Forms.Label lblUp;
+        private System.Windows.Forms.Button btnSave;
     }
 }

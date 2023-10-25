@@ -371,6 +371,7 @@
     <Folder Include="Users\Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\camera %281%292.png" />
     <None Include="Resources\camera %281%291.png" />
     <None Include="Resources\trash-can %281%291.png" />
     <None Include="Resources\trash-can %282%291.png" />
