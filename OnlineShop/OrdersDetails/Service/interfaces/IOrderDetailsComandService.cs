@@ -32,5 +32,10 @@ namespace OnlineShop.OrdersDetails.Service.interfaces
         void save(List<OrderDetalis> orderDetalis);
 
         int ctCart(int idUser);
+
+        int[] frecventaMaxi();
+
+        int[] frecventa();
+
     }
 }

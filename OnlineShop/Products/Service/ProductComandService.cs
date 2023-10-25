@@ -175,5 +175,47 @@ namespace OnlineShop.Products
             this.products = products;
         }
 
+        public string numeById(int id)
+        {
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (id == products[i].getId())
+                {
+                    return products[i].getName();
+                }
+            }
+
+            return null;
+        }
+
+        public List<string> numeTop(int[] f)
+        {
+            List<string> list = new List<string>();
+
+            for (int i = 0; i < 10000; i++)
+            {
+                if (f[i] != 0)
+                {
+                    list.Add(numeById(i));
+                }
+            
+            }
+            List<string> nou = new List<string>();
+
+            foreach (string element in list)
+            {
+
+                string[] cuvinte = element.Split(' ');
+
+                int numarDeCuvinteDeLuat = Math.Min(5, cuvinte.Length);
+                string primele5Cuvinte = string.Join(" ", cuvinte, 0, numarDeCuvinteDeLuat);
+
+                nou.Add(primele5Cuvinte);
+            }
+
+
+            return nou;
+        }
+
     }
 }

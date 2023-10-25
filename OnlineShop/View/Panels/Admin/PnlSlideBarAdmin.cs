@@ -164,6 +164,7 @@ namespace OnlineShop.View.Panels.Admin
             this.pctTopOrderd.SizeMode = PictureBoxSizeMode.Zoom;
             this.pctTopOrderd.Image = Image.FromFile(Application.StartupPath + @"/Images/topOrder.png");
             this.pctTopOrderd.Cursor = Cursors.Hand;
+            this.pctTopOrderd.Click += new EventHandler(btnTopOrderd_Click);
 
             //pctTopFav
             this.pctTopFav.Size = new System.Drawing.Size(54, 54);
@@ -267,15 +268,12 @@ namespace OnlineShop.View.Panels.Admin
 
         }
 
-        private void btnOrders_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void btnTopOrderd_Click(object sender, EventArgs e)
         {
 
+            this.form.Controls.Clear();
+            this.form.removePnl("PnlAddProduct");
+            this.form.Controls.Add(new PnlTopOrder(form));
 
         }
 
