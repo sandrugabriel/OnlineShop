@@ -2,6 +2,7 @@
 using OnlineShop.Users.Models;
 using OnlineShop.Users.Service;
 using OnlineShop.Users.Service.interfaces;
+using OnlineShop.View.Panels.Admin;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -288,7 +289,11 @@ namespace OnlineShop.Panels
             {
                 User user = userQueryService.getByEmailPass(txtEmail.Text, txtPass.Text);
                 this.form.removePnl("PnlLogin");
-                this.form.Controls.Add(new PnlHome(form,user));
+
+                if(user.getUserRole().Equals("admin"))
+                this.form.Controls.Add(new PnlEditProducts(form));
+                else
+                    this.form.Controls.Add(new PnlHome(form, user));
             }
 
         }

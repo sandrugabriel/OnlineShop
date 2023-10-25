@@ -172,6 +172,7 @@ namespace OnlineShop.View.Panels.Admin
             this.pctTopFav.SizeMode = PictureBoxSizeMode.Zoom;
             this.pctTopFav.Image = Image.FromFile(Application.StartupPath + @"/Images/topFav.png");
             this.pctTopFav.Cursor = Cursors.Hand;
+            this.pctTopFav.Click += new EventHandler(btnTopFav_Click);
 
             //pctMenu
             this.pctMenu.Size = new System.Drawing.Size(62, 45);
@@ -279,7 +280,9 @@ namespace OnlineShop.View.Panels.Admin
 
         private void btnTopFav_Click(object sender, EventArgs e)
         {
-
+            this.form.Controls.Clear();
+            this.form.removePnl("PnlAddProduct");
+            this.form.Controls.Add(new PnlTopFav(form));
 
         }
 

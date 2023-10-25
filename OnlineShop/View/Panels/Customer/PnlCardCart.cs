@@ -163,11 +163,16 @@ namespace OnlineShop.View.Panels
 
 
             this.Visible = false;
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
             OrderDetalis order = orderDetailsQueryService.getByIdUserPro(user.getId(), product.getId());
-            orderDetalis.RemoveAt(orderDetailsComandService.pozOrderDetails(order.getId()));
+           // if (form.ct3 == 0)
+            //orderDetalis.RemoveAt(orderDetailsComandService.pozOrderDetails(order.getId()));
+
             orderDetailsComandService.deleteCard(order);
 
             orderDetailsComandService.save(orderDetalis);
+
         }
 
     }

@@ -199,6 +199,8 @@ namespace OnlineShop.Panels
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
             string t = orderDetailsComandService.generareIdOrder().ToString()+"|"+user.getId().ToString()+"|"+product.getId().ToString() + "|" + 1;
             OrderDetalis order = new OrderDetalis(t);
             orderDetailsComandService.saveFisier(t);

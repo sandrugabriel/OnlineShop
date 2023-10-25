@@ -182,5 +182,39 @@ namespace OnlineShop.Favourites.Service
             return ct;
         }
 
+
+        public int[] frecventa()
+        {
+
+            int[] f = new int[10000];
+
+            for (int i = 0; i < favourites.Count; i++)
+            {
+                f[favourites[i].IdProduct]++;
+            }
+
+            return f;
+        }
+
+        public int[] frecventaMaxi()
+        {
+            int[] fp = frecventa();
+
+            int[] nou = new int[10000];
+            int ct = 0;
+            for (int i = 0; i < 10000; i++)
+            {
+                if (fp[i] != 0)
+                {
+                    nou[ct] = fp[i];
+                    ct++;
+                }
+
+            }
+
+            return nou;
+        }
+
+
     }
 }
