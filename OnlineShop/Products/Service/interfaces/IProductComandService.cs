@@ -29,5 +29,8 @@ namespace OnlineShop.Products.Service.interfaces
         void setAll(int id, string name, double price, int stock, string path, string desc);
 
         void save(List<Product> products);
+
+        List<string> numeTop(int[] f);
+
     }
 }
