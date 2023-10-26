@@ -9,6 +9,7 @@ using OnlineShop.Products.Service.interfaces;
 using OnlineShop.Properties;
 using OnlineShop.Users.Models;
 using OnlineShop.View.Panels;
+using OnlineShop.View.Panels.Customer;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -59,6 +60,9 @@ namespace OnlineShop.Panels
         Timer timerFav;
         PictureBox pctFavRed;
         Label lblCountFav;
+        Label lblMyOrder;
+        PictureBox pctMyOrder;
+
 
         Form1 form;
         User user;
@@ -99,7 +103,7 @@ namespace OnlineShop.Panels
             //PnlHome
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1797, 981);
-            this.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "PnlHome";
 
@@ -152,7 +156,7 @@ namespace OnlineShop.Panels
             // lblCateg
             this.lblCateg.AutoSize = true;
             this.lblCateg.BackColor = System.Drawing.Color.Transparent;
-            this.lblCateg.Font = new System.Drawing.Font("Century Gothic", 13.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCateg.Font = new System.Drawing.Font("Century Gothic", 13.7F, System.Drawing.FontStyle.Bold);
             this.lblCateg.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCateg.Location = new System.Drawing.Point(132, 134);
             this.lblCateg.Name = "lblCateg";
@@ -205,7 +209,7 @@ namespace OnlineShop.Panels
             this.btnIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIT.FlatAppearance.BorderSize = 0;
             this.btnIT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIT.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIT.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.btnIT.ForeColor = System.Drawing.Color.White;
             this.btnIT.Image = Image.FromFile(path + "dreapta.png");
             this.btnIT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -234,7 +238,7 @@ namespace OnlineShop.Panels
             this.btnTV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTV.FlatAppearance.BorderSize = 0;
             this.btnTV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTV.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular);
             this.btnTV.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTV.Image = Image.FromFile(path + "dreapta.png");
             this.btnTV.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -262,7 +266,7 @@ namespace OnlineShop.Panels
             // lblMenu
             this.lblMenu.AutoSize = true;
             this.lblMenu.BackColor = System.Drawing.Color.Transparent;
-            this.lblMenu.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular);
             this.lblMenu.ForeColor = System.Drawing.SystemColors.Control;
             this.lblMenu.Location = new System.Drawing.Point(123, 29);
             this.lblMenu.Name = "lblMenu";
@@ -273,7 +277,7 @@ namespace OnlineShop.Panels
             // lblSignOut
             this.lblSignOut.AutoSize = true;
             this.lblSignOut.BackColor = System.Drawing.Color.Transparent;
-            this.lblSignOut.Font = new System.Drawing.Font("Century Gothic", 15.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSignOut.Font = new System.Drawing.Font("Century Gothic", 15.7F, System.Drawing.FontStyle.Regular);
             this.lblSignOut.ForeColor = System.Drawing.SystemColors.Control;
             this.lblSignOut.Location = new System.Drawing.Point(111, 801);
             this.lblSignOut.Name = "lblSignOut";
@@ -288,7 +292,7 @@ namespace OnlineShop.Panels
             this.btnToys.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnToys.FlatAppearance.BorderSize = 0;
             this.btnToys.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToys.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToys.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular);
             this.btnToys.ForeColor = System.Drawing.SystemColors.Control;
             this.btnToys.Image = Image.FromFile(path + "dreapta.png");
             this.btnToys.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -319,7 +323,7 @@ namespace OnlineShop.Panels
             this.btnElectro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnElectro.FlatAppearance.BorderSize = 0;
             this.btnElectro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElectro.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElectro.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular);
             this.btnElectro.ForeColor = System.Drawing.SystemColors.Control;
             this.btnElectro.Image = Image.FromFile(path + "dreapta.png");
             this.btnElectro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -350,7 +354,7 @@ namespace OnlineShop.Panels
             this.btnGarden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGarden.FlatAppearance.BorderSize = 0;
             this.btnGarden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGarden.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGarden.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular);
             this.btnGarden.ForeColor = System.Drawing.SystemColors.Control;
             this.btnGarden.Image = Image.FromFile(path + "dreapta.png");
             this.btnGarden.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,9 +391,14 @@ namespace OnlineShop.Panels
             this.pctMenu.TabStop = false;
             this.pctMenu.Click += new System.EventHandler(this.pctMenu_Click);
 
+            this.pctMyOrder = new PictureBox();
+            this.lblMyOrder = new Label();
+
             // grandTop
             this.grandTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.grandTop.Controls.Add(this.lblAccount);
+            this.grandTop.Controls.Add(this.lblMyOrder);
+            this.grandTop.Controls.Add(this.pctMyOrder);
             this.grandTop.Controls.Add(this.lblFav);
             this.grandTop.Controls.Add(pctFavRed);
             this.pctFavRed.Controls.Add(lblCountFav);
@@ -415,7 +424,7 @@ namespace OnlineShop.Panels
             // lblAccount
             this.lblAccount.AutoSize = true;
             this.lblAccount.BackColor = System.Drawing.Color.Transparent;
-            this.lblAccount.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccount.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
             this.lblAccount.ForeColor = System.Drawing.SystemColors.Control;
             this.lblAccount.Location = new System.Drawing.Point(1104, 44);
             this.lblAccount.Name = "lblAccount";
@@ -424,10 +433,32 @@ namespace OnlineShop.Panels
             this.lblAccount.Text = "My account";
             this.lblAccount.Click += new System.EventHandler(this.pctAccount_Click);
 
+            // lblMyOrder
+            this.lblMyOrder.AutoSize = true;
+            this.lblMyOrder.BackColor = System.Drawing.Color.Transparent;
+            this.lblMyOrder.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lblMyOrder.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMyOrder.Location = new System.Drawing.Point(844, 44);
+            this.lblMyOrder.Size = new System.Drawing.Size(178, 34);
+            this.lblMyOrder.Text = "My Orders";
+            this.lblMyOrder.Click += new System.EventHandler(this.pctMyOrder_Click);
+
+            // pctMyOrder
+            this.pctMyOrder.BackColor = System.Drawing.Color.Transparent;
+            this.pctMyOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMyOrder.Image = Image.FromFile(path + "order.png");
+            this.pctMyOrder.Location = new System.Drawing.Point(764, 32);
+            this.pctMyOrder.Name = "pctAccount";
+            this.pctMyOrder.Size = new System.Drawing.Size(81, 58);
+            this.pctMyOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctMyOrder.TabIndex = 0;
+            this.pctMyOrder.TabStop = false;
+            this.pctMyOrder.Click += new System.EventHandler(this.pctMyOrder_Click);
+
             // lblFav
             this.lblFav.AutoSize = true;
             this.lblFav.BackColor = System.Drawing.Color.Transparent;
-            this.lblFav.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFav.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
             this.lblFav.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFav.Location = new System.Drawing.Point(1373, 44);
             this.lblFav.Name = "lblFav";
@@ -437,11 +468,10 @@ namespace OnlineShop.Panels
             this.lblFav.Click += new System.EventHandler(this.pctFav_Click);
             this.lblFav.Cursor = System.Windows.Forms.Cursors.Hand;
 
-
             // lblCart
             this.lblCart.AutoSize = true;
             this.lblCart.BackColor = System.Drawing.Color.Transparent;
-            this.lblCart.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCart.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
             this.lblCart.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCart.Location = new System.Drawing.Point(1594, 44);
             this.lblCart.Name = "lblCart";
@@ -464,7 +494,7 @@ namespace OnlineShop.Panels
             // lblCountCart
             this.lblCountCart.AutoSize = true;
             this.lblCountCart.BackColor = System.Drawing.Color.Transparent;
-            this.lblCountCart.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountCart.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblCountCart.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCountCart.Location = new System.Drawing.Point(4, 4);
             this.lblCountCart.Name = "lblCountCart";
@@ -565,7 +595,7 @@ namespace OnlineShop.Panels
             // lblCountFav
             this.lblCountFav.AutoSize = true;
             this.lblCountFav.BackColor = System.Drawing.Color.Transparent;
-            this.lblCountFav.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountFav.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblCountFav.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCountFav.Location = new System.Drawing.Point(4, 4);
             this.lblCountFav.Name = "lblCountFav";
@@ -628,6 +658,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlAccount"); 
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlPdf");
             List<int> ids = orderDetailsQueryService.getByIdOrders(user.getId());
             List<Product> products = productQueryService.getByListId(ids);
 
@@ -644,6 +675,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCart");
             this.removePnlFromHome("PnlAccount");
             this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlPdf");
             List<int> ids = favouriteQueryService.getByClient(user.getId());
             List<Product> products = productQueryService.getByListId(ids);
 /*
@@ -664,6 +696,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCart");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlPdf");
             this.pnlSideBar.Visible = false;
             pnlAccount = new PnlAccount(form, user);
             this.Controls.Add(pnlAccount);
@@ -676,6 +709,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCart");
             this.removePnlFromHome("PnlAccount");
             this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlPdf");
             this.pnlSideBar.Visible = true;
 
             PnlCards pnl = GetPnlCards();
@@ -734,6 +768,17 @@ namespace OnlineShop.Panels
 
         }
        
+        private void pctMyOrder_Click(object sender, EventArgs e)
+        {
+            this.removePnlFromHome("PnlCart");
+            this.removePnlFromHome("PnlCards");
+            this.removePnlFromHome("PnlFavourites");
+            this.removePnlFromHome("PnlPdf");
+            PnlPdf pnlPdf = new PnlPdf(form,user);
+            this.Controls.Add(pnlPdf);
+
+        }
+
         private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             PnlCards pnl = GetPnlCards();
@@ -746,6 +791,7 @@ namespace OnlineShop.Panels
                 this.removePnlFromHome("PnlCards");
                 this.removePnlFromHome("PnlCart");
                 this.removePnlFromHome("PnlFavourites");
+                this.removePnlFromHome("PnlPdf");
                 pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
                  pnlc = new PnlCards(ct, form, descrescator, user);
                 this.Controls.Add(pnlc);
@@ -759,6 +805,7 @@ namespace OnlineShop.Panels
                 this.removePnlFromHome("PnlCards");
                 this.removePnlFromHome("PnlFavourites");
                 this.removePnlFromHome("PnlCart");
+                this.removePnlFromHome("PnlPdf");
                 pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
 
                 pnlc = new PnlCards(ct, form, crescator, user);
@@ -800,6 +847,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlCart");
+            this.removePnlFromHome("PnlPdf");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -817,6 +865,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlCart");
+            this.removePnlFromHome("PnlPdf");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -834,6 +883,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlCart");
+            this.removePnlFromHome("PnlPdf");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -851,6 +901,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlCart");
+            this.removePnlFromHome("PnlPdf");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);
@@ -868,6 +919,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlCart");
+            this.removePnlFromHome("PnlPdf");
             pnlSideBar.Width = pnlSideBar.MinimumSize.Width;
             pnlc = new PnlCards(ct, form, getIt, user);
             this.Controls.Add(pnlc);

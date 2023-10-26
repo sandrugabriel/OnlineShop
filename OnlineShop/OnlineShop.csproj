@@ -36,13 +36,25 @@
     <Reference Include="AlphaBlendTextBox">
       <HintPath>..\..\..\..\..\Users\gabi2\Downloads\AlphaBlendTextBox_demo\AlphaBlendTextBox.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="Siticone.Desktop.UI">
       <HintPath>..\..\..\..\..\Users\gabi2\Downloads\Siticone.Desktop.UI.2.0.9.0\Siticone.Desktop.UI.2.0.0.9\Siticone.Desktop.UI.dll</HintPath>
     </Reference>
@@ -183,6 +195,12 @@
     <Compile Include="View\Mockups\Customers\MockupPayment.Designer.cs">
       <DependentUpon>MockupPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Mockups\Customers\MockupPdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mockups\Customers\MockupPdf.Designer.cs">
+      <DependentUpon>MockupPdf.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Mockups\Customers\MockupSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +276,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\Customer\PnlPayment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\Customer\PnlPdf.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Panels\Customer\PnlSignUp.cs">
@@ -336,6 +357,9 @@
     <EmbeddedResource Include="View\Mockups\Customers\MockupPayment.resx">
       <DependentUpon>MockupPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Mockups\Customers\MockupPdf.resx">
+      <DependentUpon>MockupPdf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Mockups\Customers\MockupSignUp.resx">
       <DependentUpon>MockupSignUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +376,7 @@
     <EmbeddedResource Include="View\Mockups\Customers\MockupView.resx">
       <DependentUpon>MockupView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -101,6 +101,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.alphaBlendTextBox1 = new ZBobb.AlphaBlendTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).BeginInit();
@@ -139,6 +141,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -398,10 +401,12 @@
             // 
             this.grandTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("grandTop.BackgroundImage")));
             this.grandTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.grandTop.Controls.Add(this.label1);
             this.grandTop.Controls.Add(this.lblAccount);
             this.grandTop.Controls.Add(this.lblFav);
             this.grandTop.Controls.Add(this.lblCart);
             this.grandTop.Controls.Add(this.pctFavRed);
+            this.grandTop.Controls.Add(this.pictureBox1);
             this.grandTop.Controls.Add(this.pctRedCart);
             this.grandTop.Controls.Add(this.pctAccount);
             this.grandTop.Controls.Add(this.pctFavorite);
@@ -1024,6 +1029,31 @@
             this.alphaBlendTextBox1.Size = new System.Drawing.Size(100, 36);
             this.alphaBlendTextBox1.TabIndex = 16;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::OnlineShop.Properties.Resources.user__3_;
+            this.pictureBox1.Location = new System.Drawing.Point(764, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(844, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 34);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "My Orders";
+            // 
             // MockupHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1086,6 +1116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1161,5 +1192,7 @@
         private System.Windows.Forms.ComboBox cmbSort;
         private System.Windows.Forms.Label lblSort;
         private ZBobb.AlphaBlendTextBox alphaBlendTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
