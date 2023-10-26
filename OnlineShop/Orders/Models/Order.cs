@@ -19,6 +19,7 @@ namespace OnlineShop.Models
         private int _quantity;
         private string _address;
         private string phone;
+        private DateTime dateOrder;
 
         public int getId() { return _id; }
 
@@ -36,7 +37,14 @@ namespace OnlineShop.Models
 
         public void setIdUser(int  value) { _idUser = value; }
 
-        public Order(int id, int idUser, int idProduct, int quantities, string address, string phone)
+        public DateTime getDate()
+        {
+            return dateOrder;
+        }
+
+        public void setDate(DateTime value) { dateOrder = value; }
+
+        public Order(int id, int idUser, int idProduct, int quantities, string address, string phone, DateTime dateOrder)
         {
             _id = id;
             _idUser = idUser;
@@ -44,8 +52,8 @@ namespace OnlineShop.Models
             _quantity = quantities;
             _address = address;
             this.phone = phone;
+            this.dateOrder = dateOrder;
         }
-
 
         public Order(string text)
         {
@@ -57,7 +65,7 @@ namespace OnlineShop.Models
             _quantity = int.Parse(prop[3]);
             _address = prop[4];
             this.phone = prop[5];
-
+            dateOrder = DateTime.Parse(prop[6]);
         }
 
         public Order() { }
@@ -122,6 +130,12 @@ namespace OnlineShop.Models
         public Order Phone(string phone)
         {
             this.phone = phone;
+            return this;
+        }
+
+        public Order Date(DateTime date)
+        {
+            this.dateOrder = date;
             return this;
         }
 

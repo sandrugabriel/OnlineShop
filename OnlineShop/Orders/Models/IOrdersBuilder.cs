@@ -14,7 +14,7 @@ namespace OnlineShop.Orders.Service.interafaces
         Order Quantity(int q);
         Order IdUser(int id);
         Order Address(string address);
-
         Order Phone(string phone);
+        Order Date(DateTime date);
     }
 }

@@ -32,5 +32,7 @@ namespace OnlineShop.Products.Service.interfaces
 
         List<string> numeTop(int[] f);
 
+        Product getById(int id);
+
     }
 }

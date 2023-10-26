@@ -791,8 +791,8 @@ namespace OnlineShop.View.Panels
                 else
                 {
                     string t = id.ToString() + "|" + idUser.ToString() + "|" + idProduct.ToString() +
-                    "|" + quantities.ToString() + "|" + address + "|" + phone.ToString();
-
+                    "|" + quantities.ToString() + "|" + address + "|" + phone.ToString() + "|" + DateTime.Now.ToString();
+                    orderComandSerice.saveFisier(t);
                 }
 
                 MessageBox.Show($"The order {id.ToString()} has been placed!!", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
