@@ -1,4 +1,6 @@
-﻿namespace OnlineShop.View.Mockups
+﻿using System.Windows.Forms;
+
+namespace OnlineShop.View.Mockups
 {
     partial class MockupCartCard
     {
@@ -35,7 +37,7 @@
             this.pctImage = new System.Windows.Forms.PictureBox();
             this.eliThis = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.eliImage = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.quantity = new Guna.UI.WinForms.GunaNumeric();
+            this.quantity = new NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pctImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -105,11 +107,7 @@
             // 
             // quantity
             // 
-            this.quantity.BaseColor = System.Drawing.Color.White;
-            this.quantity.BorderColor = System.Drawing.Color.Silver;
-            this.quantity.BorderSize = 0;
-            this.quantity.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.quantity.ButtonForeColor = System.Drawing.Color.White;
+            this.quantity.BackColor = System.Drawing.Color.White;
             this.quantity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantity.ForeColor = System.Drawing.Color.Black;
             this.quantity.Location = new System.Drawing.Point(1055, 78);
@@ -161,7 +159,7 @@
         private System.Windows.Forms.Label lblTile;
         private Bunifu.Framework.UI.BunifuElipse eliThis;
         private Bunifu.Framework.UI.BunifuElipse eliImage;
-        private Guna.UI.WinForms.GunaNumeric quantity;
+        private NumericUpDown quantity;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

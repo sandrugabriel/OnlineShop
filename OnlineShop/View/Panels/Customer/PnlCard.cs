@@ -194,49 +194,61 @@ namespace OnlineShop.Panels
             this.eliCard.ElipseRadius = 35;
             this.eliCard.TargetControl = this;
 
+
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
         }
 
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
+
             orderDetailsComandService.save(orderDetalis);
             orderDetailsQueryService.save(orderDetalis);
-            string t = orderDetailsComandService.generareIdOrder().ToString()+"|"+user.getId().ToString()+"|"+product.getId().ToString() + "|" + 1;
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
+            string t = orderDetailsComandService.generareIdOrder().ToString() + "|" + user.getId().ToString() + "|" + product.getId().ToString() + "|" + 1;
             OrderDetalis order = new OrderDetalis(t);
             orderDetailsComandService.saveFisier(t);
             orderDetalis.Add(order);
 
             orderDetailsComandService.save(orderDetalis);
+
         }
 
         private void pctFav_Click(object sender, EventArgs e)
         {
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
 
             this.pctFav.Visible = false;
             this.pctUnFav.Visible = true;
 
             Favourite favourite = favouriteQueryService.getByIdUserPro(user.getId(), product.getId());
 
-
             favouriteComandService.deleteCard(favourite);
+           // favourites.RemoveAt(favouriteComandService.pozFavourite(favourite.Id));
 
         }
 
         private void pctUnFav_Click(object sender, EventArgs e)
         {
 
-
             this.pctFav.Visible = true;
             this.pctUnFav.Visible = false;
-            Favourite favourite = new Favourite(favouriteComandService.generareId(), user.getId(), product.getId());
+
+            int id = favouriteComandService.generareId();
+            Favourite favourite = new Favourite(id, user.getId(), product.getId());
 
             favourites.Add(favourite);
-            favouriteQueryService.save(favourites);
-            favouriteComandService.save(favourites);
-            string t = favouriteComandService.generareId() + "|" + user.getId() + "|" + product.getId();
+            string t = id.ToString() + "|" + user.getId() + "|" + product.getId();
             favouriteComandService.saveFisier(t);
             string ct = favourites.Count().ToString();
 
+            favouriteQueryService.save(favourites);
+            favouriteComandService.save(favourites);
 
         }
 

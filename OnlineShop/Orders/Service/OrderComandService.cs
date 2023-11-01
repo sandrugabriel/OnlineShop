@@ -85,6 +85,42 @@ namespace OnlineShop.Orders
             return id;
         }
 
+        public void save(List<Order> orders)
+        {
+            this.orders = orders;
+        }
+
+        public int[] frecventa()
+        {
+
+            int[] f = new int[10000];
+
+            for (int i = 0; i < orders.Count; i++)
+            {
+                f[orders[i].getIdProduct()]++;
+            }
+
+            return f;
+        }
+
+        public int[] frecventaMaxi()
+        {
+            int[] fp = frecventa();
+
+            int[] nou = new int[10000];
+            int ct = 0;
+            for (int i = 0; i < 10000; i++)
+            {
+                if (fp[i] != 0)
+                {
+                    nou[ct] = fp[i];
+                    ct++;
+                }
+
+            }
+
+            return nou;
+        }
 
 
     }

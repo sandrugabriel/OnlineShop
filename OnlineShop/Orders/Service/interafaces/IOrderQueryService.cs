@@ -17,6 +17,7 @@ namespace OnlineShop.Orders.Service
 
         Order getById(int id);
 
+        void save(List<Order> orders);
 
     }
 }

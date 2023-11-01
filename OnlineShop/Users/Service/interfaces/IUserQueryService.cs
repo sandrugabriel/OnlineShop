@@ -16,6 +16,6 @@ namespace OnlineShop.Users.Service.interfaces
 
         User getByEmailPass(string email, string pass);
 
-
+        void save(List<User> users);
     }
 }

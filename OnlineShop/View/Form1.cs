@@ -27,7 +27,7 @@ namespace OnlineShop
             User user = new User("1|Gabi|gabi@mail.com|gabi1234|0777777|Sadu, Livezi|17|admin");
 
             this.pictureBox1.SendToBack(); 
-            this.Controls.Add(new PnlHome(this,user));
+            this.Controls.Add(new PnlLogin(this));
             this.pictureBox1.SendToBack();
         }
 

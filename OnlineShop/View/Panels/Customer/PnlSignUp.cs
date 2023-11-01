@@ -57,6 +57,8 @@ namespace OnlineShop.Panels
         IUserComandService userComandService;
         IUserQueryService queryService;
 
+        List<User> users;
+
         public PnlSignUp(Form1 form)
         {
             this.form = form;
@@ -65,8 +67,12 @@ namespace OnlineShop.Panels
             errors = new List<string>();
             path = Application.StartupPath + @"\Images\";
 
-            userComandService = new UserComandService();
-            queryService = new UserQueryservice();
+            userComandService = UserComandServiceSingleton.Instance;
+            queryService = UserQueryServiceSingleton.Instance;
+
+            users = queryService.getAllUser();
+            userComandService.save(users);
+            queryService.save(users);
 
             //PnlSignUp
             this.Size = new System.Drawing.Size(1797, 981);
@@ -480,7 +486,6 @@ namespace OnlineShop.Panels
 
         }
 
-        FavouriteComandService serviceFav = new FavouriteComandService();
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
@@ -510,13 +515,11 @@ namespace OnlineShop.Panels
                 string pass = txtPass.Text;
                 string un = " ";
 
-                string text = id.ToString() + "|" + name + "|" + email + "|" + pass + "|" + un + "|" + un + "|" + 0;
+                string text = id.ToString() + "|" + name + "|" + email + "|" + pass + "|" + un + "|" + un + "|" + 0 + "|customer";
 
                 userComandService.saveFisier(text);
-                User user = queryService.getById(id);
-                string tfav = serviceFav.generareId()+"|"+id.ToString()+"| " ;
-                serviceFav.saveFisier(tfav);
-
+                User user = new User(text);
+                users.Add(user);
                 this.form.removePnl("PnlSignUp");
                 this.form.Controls.Add(new PnlHome(this.form, user));
 

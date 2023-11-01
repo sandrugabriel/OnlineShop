@@ -116,7 +116,7 @@ namespace OnlineShop.View.Panels.Admin
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(1377, 369);
             this.txtDescription.TabIndex = 37;
-            this.txtDescription.Text = "";
+            this.txtDescription.Text = "Enter the description";
 
             // pctDesign1
             this.pctDesign1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -243,6 +243,8 @@ namespace OnlineShop.View.Panels.Admin
             this.pctImage.Name = "pctImage";
             this.pctImage.Size = new System.Drawing.Size(340, 328);
             this.pctImage.SizeMode = PictureBoxSizeMode.Zoom;
+            this.pctImage.BackColor = Color.Gray;
+            this.pctImage.Image = Image.FromFile(Application.StartupPath + @"/Images/AddProduct.png");
              
             // pctBack
             this.pctBack.Image = global::OnlineShop.Properties.Resources.back;

@@ -88,6 +88,8 @@ namespace OnlineShop.View.Panels
         IOrderDetailsComandService orderDetailsComandService;
         IOrderDetailsQueryService orderDetailsQueryService;
 
+        List<Order> orders;
+
         public PnlPayment(Form1 form1, User user1, double total1, List<OrderDetalis> orderDetalis1) {
 
             form = form1;
@@ -103,7 +105,12 @@ namespace OnlineShop.View.Panels
             orderDetailsComandService = OrderDetailsComandServiceSingleton.Instance;
             orderDetailsQueryService = OrderDetailsQueryServiceSingleton.Instance;
 
-            orderDetalis = orderDetailsQueryService.getMyOrdersDetails(user.getId());   
+            orderDetalis = orderDetailsQueryService.getMyOrdersDetails(user.getId());
+
+            orders = orderQueryService.getMyOrders(user.getId());
+
+            orderComandSerice.save(orders);
+            orderQueryService.save(orders);
 
             //PnlPayment
             this.AutoScroll = true;
@@ -788,11 +795,26 @@ namespace OnlineShop.View.Panels
                     MessageBox.Show("You have not selected an address!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                else if (txtAddress.Text.Equals(" "))
+                {
+                    MessageBox.Show("You did not enter the address!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtPhone.Text.Equals(" "))
+                {
+                    MessageBox.Show("You did not enter the phone!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 else
                 {
                     string t = id.ToString() + "|" + idUser.ToString() + "|" + idProduct.ToString() +
                     "|" + quantities.ToString() + "|" + address + "|" + phone.ToString() + "|" + DateTime.Now.ToString();
                     orderComandSerice.saveFisier(t);
+                    Order order = new Order(t);  
+                    orders.Add(order);
+
+                    orderComandSerice.save(orders);
+                    orderQueryService.save(orders);
                 }
 
                 MessageBox.Show($"The order {id.ToString()} has been placed!!", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -803,6 +825,7 @@ namespace OnlineShop.View.Panels
             orderDetalis.Clear();
             orderDetailsComandService.save(orderDetalis);
             orderDetailsQueryService.save(orderDetalis);
+
             this.form.removePnl("PnlHome");
                 this.form.Controls.Add(new PnlHome(form,user));
         }

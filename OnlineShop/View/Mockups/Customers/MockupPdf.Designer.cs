@@ -32,12 +32,6 @@
             this.btnPdf = new System.Windows.Forms.Button();
             this.lblTile = new System.Windows.Forms.Label();
             this.pct = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPNG = new System.Windows.Forms.Button();
             this.eliPDf = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.eliPNG = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -46,9 +40,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPdf
@@ -84,62 +80,6 @@
             this.pct.TabIndex = 2;
             this.pct.TabStop = false;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
-            this.colName,
-            this.colDate,
-            this.colQuan,
-            this.colPrice});
-            this.dataGridView1.Location = new System.Drawing.Point(419, 182);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1203, 460);
-            this.dataGridView1.TabIndex = 19;
-            // 
-            // colId
-            // 
-            this.colId.HeaderText = "Id";
-            this.colId.MinimumWidth = 6;
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Width = 200;
-            // 
-            // colName
-            // 
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 300;
-            // 
-            // colDate
-            // 
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 6;
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            this.colDate.Width = 250;
-            // 
-            // colQuan
-            // 
-            this.colQuan.HeaderText = "Quantity";
-            this.colQuan.MinimumWidth = 6;
-            this.colQuan.Name = "colQuan";
-            this.colQuan.ReadOnly = true;
-            this.colQuan.Width = 200;
-            // 
-            // colPrice
-            // 
-            this.colPrice.HeaderText = "Price";
-            this.colPrice.MinimumWidth = 6;
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 200;
-            // 
             // btnPNG
             // 
             this.btnPNG.BackColor = System.Drawing.Color.Orange;
@@ -169,6 +109,7 @@
             this.dataStart.Location = new System.Drawing.Point(38, 220);
             this.dataStart.Name = "dataStart";
             this.dataStart.TabIndex = 20;
+            this.dataStart.TodayDate = new System.DateTime(2023, 10, 1, 0, 0, 0, 0);
             // 
             // dataEnd
             // 
@@ -203,17 +144,32 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(390, 131);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1245, 532);
+            this.panel1.TabIndex = 24;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(15, 14);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1183, 227);
+            this.panel2.TabIndex = 0;
+            // 
             // MockupPdf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1692, 855);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataEnd);
             this.Controls.Add(this.dataStart);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pct);
             this.Controls.Add(this.lblTile);
             this.Controls.Add(this.btnPNG);
@@ -224,8 +180,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MockupPdf";
             ((System.ComponentModel.ISupportInitialize)(this.pct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,13 +192,7 @@
         private System.Windows.Forms.Button btnPdf;
         private System.Windows.Forms.Label lblTile;
         private System.Windows.Forms.PictureBox pct;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnPNG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private Bunifu.Framework.UI.BunifuElipse eliPDf;
         private Bunifu.Framework.UI.BunifuElipse eliPNG;
         private System.Windows.Forms.MonthCalendar dataStart;
@@ -250,5 +200,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

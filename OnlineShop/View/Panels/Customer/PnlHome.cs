@@ -80,11 +80,14 @@ namespace OnlineShop.Panels
         IOrderDetailsComandService orderDetailsComandService;
         IOrderDetailsQueryService orderDetailsQueryService;
 
+        List<Favourite> favourites;
+
         public PnlHome(Form1 form1, User user1)
         {
 
             this.form = form1;
             this.user = user1;
+           // MessageBox.Show(user.getId().ToString());
             form.Controls.Clear();
 
             path = Application.StartupPath + @"/Images/";
@@ -95,6 +98,12 @@ namespace OnlineShop.Panels
             orderDetailsQueryService = OrderDetailsQueryServiceSingleton.Instance;
 
             list = productQueryService.getProductWithCateg("it");
+
+            favourites = favouriteQueryService.getByIdClient(user.getId());
+/*
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
+*/
             ct = 4;
             pnlCards = new PnlCards(ct, form, list, user);
             //pnlCards.Name = "PnlCards";
@@ -676,6 +685,10 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlAccount");
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlPdf");
+/*
+            favouriteQueryService.save(favourites);
+            favouriteComandService.save(favourites);
+*/
             List<int> ids = favouriteQueryService.getByClient(user.getId());
             List<Product> products = productQueryService.getByListId(ids);
 /*
@@ -774,6 +787,7 @@ namespace OnlineShop.Panels
             this.removePnlFromHome("PnlCards");
             this.removePnlFromHome("PnlFavourites");
             this.removePnlFromHome("PnlPdf");
+            this.removePnlFromHome("PnlAccount");
             PnlPdf pnlPdf = new PnlPdf(form,user);
             this.Controls.Add(pnlPdf);
 

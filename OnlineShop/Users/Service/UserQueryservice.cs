@@ -75,7 +75,10 @@ namespace OnlineShop.Users.Service
             return null;
         }
 
-
+        public void save(List<User> users)
+        {
+            this.users = users;
+        }
 
     }
 }
