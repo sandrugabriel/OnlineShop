@@ -18,6 +18,10 @@ namespace OnlineShop.Orders.Service
 
         string Path();
 
+        void save(List<Order> orders);
 
+        int[] frecventaMaxi();
+
+        int[] frecventa();
     }
 }

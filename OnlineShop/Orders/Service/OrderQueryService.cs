@@ -79,5 +79,10 @@ namespace OnlineShop.Orders.Service
             return null;
         }
 
+        public void save(List<Order> orders)
+        {
+            this.orders = orders;
+        }
+
     }
 }

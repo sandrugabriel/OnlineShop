@@ -32,8 +32,8 @@ namespace OnlineShop.View.Panels.Admin
         IProductComandService productComandService;
         IProductQueryService queryComandService;
 
-        IOrderDetailsComandService orderDetailsComandService;
-        IOrderDetailsQueryService orderDetailsQueryService;
+        IOrderComandSerice ordersComandService;
+        IOrderQueryService ordersQueryService;
 
         private System.Windows.Forms.PictureBox pctDesign1;
         private System.Windows.Forms.Label lblProd;
@@ -47,8 +47,8 @@ namespace OnlineShop.View.Panels.Admin
             productComandService = ProductComandServiceSingleton.Instance;
             queryComandService = ProductQueryServiceSingleton.Instance;
 
-            orderDetailsComandService = OrderDetailsComandServiceSingleton.Instance;
-            orderDetailsQueryService = OrderDetailsQueryServiceSingleton.Instance;
+            ordersComandService = OrderComandServiceSingleton.Instance;
+            ordersQueryService = OrderQueryServiceSingleton.Instance;
 
             //PnlTopOrder
             this.Size = new System.Drawing.Size(1797, 981);
@@ -66,9 +66,9 @@ namespace OnlineShop.View.Panels.Admin
             legend = new Legend();
             pnlSlideBarAdmin = new PnlSlideBarAdmin(form);
 
-            listFrecventa = orderDetailsComandService.frecventaMaxi();
+            listFrecventa = ordersComandService.frecventaMaxi();
 
-            listNume = productComandService.numeTop(orderDetailsComandService.frecventa());
+            listNume = productComandService.numeTop(ordersComandService.frecventa());
 
             if(listFrecventa.Length > 5 )
             {

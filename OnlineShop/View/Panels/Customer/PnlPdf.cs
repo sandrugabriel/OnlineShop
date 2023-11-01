@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using OnlineShop.View.Panels.Admin;
+using System.Diagnostics;
 
 namespace OnlineShop.View.Panels.Customer
 {
@@ -31,15 +32,7 @@ namespace OnlineShop.View.Panels.Customer
         private System.Windows.Forms.Button btnPdf;
         private System.Windows.Forms.Label lblTile;
         private System.Windows.Forms.PictureBox pct;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnPNG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private Bunifu.Framework.UI.BunifuElipse eliPDf;
-        private Bunifu.Framework.UI.BunifuElipse eliPNG;
         private System.Windows.Forms.MonthCalendar dataStart;
         private System.Windows.Forms.MonthCalendar dataEnd;
         private Label lbl1;
@@ -48,6 +41,7 @@ namespace OnlineShop.View.Panels.Customer
         IProductComandService productComandService;
         IOrderQueryService orderQueryService;
 
+        PnlAllOrderCards pnlAllOrder;
 
         public PnlPdf(Form1 form1, User user1)
         {
@@ -70,28 +64,19 @@ namespace OnlineShop.View.Panels.Customer
             this.btnPdf = new System.Windows.Forms.Button();
             this.lblTile = new System.Windows.Forms.Label();
             this.pct = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnPNG = new System.Windows.Forms.Button();
             this.eliPDf = new Bunifu.Framework.UI.BunifuElipse();
-            this.eliPNG = new Bunifu.Framework.UI.BunifuElipse();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataStart = new System.Windows.Forms.MonthCalendar();
             this.dataEnd = new System.Windows.Forms.MonthCalendar();
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl2 = new Label();
+            this.pnlAllOrder = new PnlAllOrderCards(form,orders);
 
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.dataEnd);
             this.Controls.Add(this.dataStart);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pct);
             this.Controls.Add(this.lblTile);
-            this.Controls.Add(this.btnPNG);
             this.Controls.Add(this.btnPdf);
 
             //lbl1
@@ -112,7 +97,7 @@ namespace OnlineShop.View.Panels.Customer
             this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPdf.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPdf.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPdf.Location = new System.Drawing.Point(1177, 684);
+            this.btnPdf.Location = new System.Drawing.Point(850, 684);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Size = new System.Drawing.Size(308, 85);
             this.btnPdf.TabIndex = 0;
@@ -135,81 +120,18 @@ namespace OnlineShop.View.Panels.Customer
             this.pct.Name = "pct";
             this.pct.Size = new System.Drawing.Size(230, 2);
 
-            // dataGridView1
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-   this.colId,
-   this.colName,
-   this.colQuan,
-   this.colDate,
-   this.colPrice});
-            this.dataGridView1.Location = new System.Drawing.Point(419, 182);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1203, 460);
-            this.dataGridView1.TabIndex = 19;
-
-            // btnPNG
-            this.btnPNG.BackColor = System.Drawing.Color.Orange;
-            this.btnPNG.FlatAppearance.BorderSize = 0;
-            this.btnPNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPNG.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPNG.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPNG.Location = new System.Drawing.Point(632, 684);
-            this.btnPNG.Name = "btnPNG";
-            this.btnPNG.Size = new System.Drawing.Size(308, 85);
-            this.btnPNG.TabIndex = 0;
-            this.btnPNG.Text = "Save In PNG";
-            this.btnPNG.Click += new EventHandler(btnPNG_Click);
 
             // eliPDf
             this.eliPDf.ElipseRadius = 35;
             this.eliPDf.TargetControl = this.btnPdf;
 
-            // eliPNG
-            this.eliPNG.ElipseRadius = 35;
-            this.eliPNG.TargetControl = this.btnPNG;
-
-            // colId
-            this.colId.HeaderText = "Id";
-            this.colId.MinimumWidth = 6;
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Width = 200;
-
-            // colName
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 300;
-
-            // colDate
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 6;
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            this.colDate.Width = 250;
-
-            // colQuan
-            this.colQuan.HeaderText = "Quantity";
-            this.colQuan.MinimumWidth = 6;
-            this.colQuan.Name = "colQuan";
-            this.colQuan.ReadOnly = true;
-            this.colQuan.Width = 200;
-
-            // colPrice
-            this.colPrice.HeaderText = "Price";
-            this.colPrice.MinimumWidth = 6;
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 200;
-
             // dataStart
             this.dataStart.Location = new System.Drawing.Point(38, 220);
             this.dataStart.Name = "dataStart";
-            this.dataStart.TabIndex = 20;
+            DateTime dateTime = new DateTime(2023, 10, 01);
+            this.dataStart.TodayDate = dateTime;
+            this.dataStart.SelectionStart = dateTime;
+            this.dataStart.SelectionEnd = dateTime;
             this.dataStart.DateChanged += new DateRangeEventHandler(dataStart_DateChanged);
 
             // dataEnd
@@ -218,14 +140,9 @@ namespace OnlineShop.View.Panels.Customer
             this.dataEnd.TabIndex = 21;
             this.dataEnd.MinDate = dataStart.MinDate;
             this.dataEnd.DateChanged += new DateRangeEventHandler(dataStart_DateChanged);
-        
-            foreach(Order order in orders)
-            { 
-                dataGridView1.Rows.Add(order.getId().ToString(), productComandService.getById(order.getIdProduct()).getName(),
-                 order.getquantity().ToString(), order.getDate().ToString("dd/MM/yyyy HH:mm:ss"), (productComandService.getById(order.getIdProduct()).getPrice() * order.getquantity()).ToString("F2"));
-            }
 
-
+            this.Controls.Add(pnlAllOrder);
+            this.pnlAllOrder.Location = new Point(390, 131);
         }
 
         private void dataStart_DateChanged(object sender, DateRangeEventArgs e)
@@ -238,29 +155,30 @@ namespace OnlineShop.View.Panels.Customer
             orders = orderQueryService.getMyOrders(user.getId());
             orders = orders.Where(order => order.getDate() >= data1 && order.getDate() <= data2).ToList();
 
-            dataGridView1.Rows.Clear();
-            foreach (Order order in orders)
-            {
-                dataGridView1.Rows.Add(order.getId().ToString(), productComandService.getById(order.getIdProduct()).getName(),
-                 order.getquantity().ToString(), order.getDate().ToString("dd/MM/yyyy HH:mm:ss"), (productComandService.getById(order.getIdProduct()).getPrice() * order.getquantity()).ToString("F2"));
-            }
+            removePnlPdf("PnlAllOrders");
+            PnlAllOrderCards pnlAllOrder = new PnlAllOrderCards(form, orders);
 
+            this.Controls.Add(pnlAllOrder);
+            this.pnlAllOrder.Location = new Point(390, 131);
         }
 
-        private void btnPNG_Click(object sender, EventArgs e)
+        public void removePnlPdf(string pnl)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Imagini PNG|*.png";
-            saveFileDialog.Title = "Salvează Imaginea";
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            Control control = null;
+
+            foreach (Control c in this.Controls)
             {
-                Bitmap bitmap = new Bitmap(dataGridView1.Width, dataGridView1.Height);
-                dataGridView1.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, dataGridView1.Width, dataGridView1.Height));
-                bitmap.Save(saveFileDialog.FileName, ImageFormat.Png);
 
-                MessageBox.Show("Imaginea a fost salvată cu succes la " + saveFileDialog.FileName, "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (c.Name.Equals(pnl))
+                {
+                    control = c;
+                }
+
             }
+
+            this.Controls.Remove(control);
+
         }
 
         private void pctClose_Click(object sender, EventArgs e)

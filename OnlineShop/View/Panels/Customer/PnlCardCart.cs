@@ -24,7 +24,7 @@ namespace OnlineShop.View.Panels
         private System.Windows.Forms.Label lblTile;
         private Bunifu.Framework.UI.BunifuElipse eliThis;
         private Bunifu.Framework.UI.BunifuElipse eliImage;
-        private Guna.UI.WinForms.GunaNumeric quantity;
+        private NumericUpDown quantity;
 
         private Form1 form;
         private User user;
@@ -63,7 +63,7 @@ namespace OnlineShop.View.Panels
             this.pctImage = new System.Windows.Forms.PictureBox();
             this.eliThis = new Bunifu.Framework.UI.BunifuElipse();
             this.eliImage = new Bunifu.Framework.UI.BunifuElipse();
-            this.quantity = new Guna.UI.WinForms.GunaNumeric();
+            this.quantity = new NumericUpDown();
 
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.btnRemove);
@@ -129,10 +129,8 @@ namespace OnlineShop.View.Panels
             this.eliImage.TargetControl = this.pctImage;
              
             // quantity
-            this.quantity.BaseColor = System.Drawing.Color.White;
-            this.quantity.BorderColor = System.Drawing.Color.Silver;
-            this.quantity.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.quantity.ButtonForeColor = System.Drawing.Color.White;
+            this.quantity.BackColor = System.Drawing.Color.White;
+            this.quantity.BorderStyle = BorderStyle.None;
             this.quantity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular);
             this.quantity.ForeColor = System.Drawing.Color.Black;
             this.quantity.Location = new System.Drawing.Point(945, 78);
@@ -144,6 +142,10 @@ namespace OnlineShop.View.Panels
             //this.quantity.Text = "gunaNumeric1";
             this.quantity.Value = order.getQuantities();
             this.quantity.Click += new EventHandler(quantity_Click);
+
+
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
         }
 
         private void quantity_Click(object sender, EventArgs e)
@@ -153,6 +155,7 @@ namespace OnlineShop.View.Panels
             orderDetailsComandService.update();
 
             orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
 
             this.lblPrice.Text = (((int)quantity.Value) * product.getPrice()).ToString("F2") + " Lei";
 
@@ -172,6 +175,7 @@ namespace OnlineShop.View.Panels
             orderDetailsComandService.deleteCard(order);
 
             orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
 
         }
 

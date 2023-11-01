@@ -346,7 +346,7 @@
             this.BilingAddress.MaximumSize = new System.Drawing.Size(586, 635);
             this.BilingAddress.MinimumSize = new System.Drawing.Size(586, 122);
             this.BilingAddress.Name = "BilingAddress";
-            this.BilingAddress.Size = new System.Drawing.Size(586, 122);
+            this.BilingAddress.Size = new System.Drawing.Size(586, 480);
             this.BilingAddress.TabIndex = 21;
             // 
             // pctShow
@@ -543,7 +543,7 @@
             this.Delivery.Controls.Add(this.radioAnother);
             this.Delivery.Controls.Add(this.pctBlue2);
             this.Delivery.Controls.Add(this.radioSame);
-            this.Delivery.Location = new System.Drawing.Point(45, 306);
+            this.Delivery.Location = new System.Drawing.Point(45, 635);
             this.Delivery.MaximumSize = new System.Drawing.Size(586, 428);
             this.Delivery.MinimumSize = new System.Drawing.Size(586, 122);
             this.Delivery.Name = "Delivery";
@@ -653,7 +653,7 @@
             this.Payment.Controls.Add(this.lblPay);
             this.Payment.Controls.Add(this.lbl3);
             this.Payment.Controls.Add(this.pct3);
-            this.Payment.Location = new System.Drawing.Point(45, 448);
+            this.Payment.Location = new System.Drawing.Point(45, 777);
             this.Payment.MaximumSize = new System.Drawing.Size(586, 236);
             this.Payment.MinimumSize = new System.Drawing.Size(586, 122);
             this.Payment.Name = "Payment";

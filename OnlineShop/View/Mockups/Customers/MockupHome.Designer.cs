@@ -1,4 +1,6 @@
-﻿namespace OnlineShop.Mockups
+﻿using Bunifu.Framework.UI;
+
+namespace OnlineShop.Mockups
 {
     partial class MockupHome
     {
@@ -51,11 +53,13 @@
             this.pctGarden = new System.Windows.Forms.PictureBox();
             this.pctMenu = new System.Windows.Forms.PictureBox();
             this.grandTop = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblAccount = new System.Windows.Forms.Label();
             this.lblFav = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
             this.pctFavRed = new System.Windows.Forms.PictureBox();
             this.lblCountFav = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pctRedCart = new System.Windows.Forms.PictureBox();
             this.lblCountCart = new System.Windows.Forms.Label();
             this.pctAccount = new System.Windows.Forms.PictureBox();
@@ -101,8 +105,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.alphaBlendTextBox1 = new ZBobb.AlphaBlendTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctDesign)).BeginInit();
@@ -120,6 +123,7 @@
             this.grandTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctFavRed)).BeginInit();
             this.pctFavRed.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctRedCart)).BeginInit();
             this.pctRedCart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctAccount)).BeginInit();
@@ -141,7 +145,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -425,6 +428,18 @@
             this.grandTop.Size = new System.Drawing.Size(1797, 126);
             this.grandTop.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(844, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 34);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "My Orders";
+            // 
             // lblAccount
             // 
             this.lblAccount.AutoSize = true;
@@ -486,6 +501,19 @@
             this.lblCountFav.Size = new System.Drawing.Size(18, 19);
             this.lblCountFav.TabIndex = 1;
             this.lblCountFav.Text = "2";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::OnlineShop.Properties.Resources.user__3_;
+            this.pictureBox1.Location = new System.Drawing.Point(764, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pctRedCart
             // 
@@ -1029,30 +1057,10 @@
             this.alphaBlendTextBox1.Size = new System.Drawing.Size(100, 36);
             this.alphaBlendTextBox1.TabIndex = 16;
             // 
-            // pictureBox1
+            // bunifuElipse6
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::OnlineShop.Properties.Resources.user__3_;
-            this.pictureBox1.Location = new System.Drawing.Point(764, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 58);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(844, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 34);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "My Orders";
+            this.bunifuElipse6.ElipseRadius = 5;
+            this.bunifuElipse6.TargetControl = this;
             // 
             // MockupHome
             // 
@@ -1089,6 +1097,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctFavRed)).EndInit();
             this.pctFavRed.ResumeLayout(false);
             this.pctFavRed.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctRedCart)).EndInit();
             this.pctRedCart.ResumeLayout(false);
             this.pctRedCart.PerformLayout();
@@ -1116,7 +1125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1194,5 +1202,6 @@
         private ZBobb.AlphaBlendTextBox alphaBlendTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private BunifuElipse bunifuElipse6;
     }
 }

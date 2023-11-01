@@ -64,6 +64,12 @@ namespace OnlineShop.View.Panels
 
             path = Application.StartupPath + @"\Images\";
 
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
+
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
+
             //PnlCardFav
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Size = new System.Drawing.Size(1600, 216);
@@ -170,6 +176,12 @@ namespace OnlineShop.View.Panels
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
+
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
+
             Favourite favourite = favouriteQueryService.getByIdUserPro(user.getId(), product.getId());
             favouriteComandService.save(favourites);
             favouriteQueryService.save(favourites);
@@ -180,6 +192,13 @@ namespace OnlineShop.View.Panels
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
+
+
+            favouriteComandService.save(favourites);
+            favouriteQueryService.save(favourites);
+
+            orderDetailsComandService.save(orderDetalis);
+            orderDetailsQueryService.save(orderDetalis);
             orderDetailsComandService.save(orderDetalis);
             orderDetailsQueryService.save(orderDetalis);
             string t = orderDetailsComandService.generareIdOrder().ToString() + "|" + user.getId().ToString() + "|" + product.getId().ToString() + "|" + 1;
